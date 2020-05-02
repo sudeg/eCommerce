@@ -28,14 +28,31 @@ class Address(models.Model):
         verbose_name_plural = 'Addresses'
 
 
+class ColourVariation(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class SizeVariation(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
-    image = models.ImageField(upload_to='product_images')
+    image = models.ImageField(upload_to='product_images', null=True)
     description = models.TextField()
+    price = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=False)
+    available_colours = models.ManyToManyField(ColourVariation, null=True)
+    available_sizes = models.ManyToManyField(SizeVariation, null=True)
 
     def __str__(self):
         return self.title
@@ -43,15 +60,29 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("cart:product-detail", kwargs={'slug': self.slug})
 
+    def get_price(self):
+        return "{:.2f}".format(self.price / 100)
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(
         "Order", related_name='items', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
+    colour = models.ForeignKey(
+        ColourVariation, on_delete=models.CASCADE, null=True)
+    size = models.ForeignKey(
+        SizeVariation, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f"{self.quantity} x {self.product.title}"
+
+    def get_raw_total_item_price(self):
+        return self.quantity * self.product.price
+
+    def get_total_item_price(self):
+        price = self.get_raw_total_item_price()  # 1000
+        return "{:.2f}".format(price / 100)
 
 
 class Order(models.Model):
