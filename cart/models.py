@@ -18,7 +18,8 @@ class Address(models.Model):
     address_line_2 = models.CharField(max_length=150)
     city = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=20)
-    address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
+    address_type = models.CharField(
+        max_length=1, choices=ADDRESS_CHOICES, null=True)
     default = models.BooleanField(default=False)
 
     def __str__(self):
@@ -116,8 +117,8 @@ class Order(models.Model):
 
     def get_raw_total(self):
         subtotal = self.get_raw_subtotal()
-        #total = subtotal - discounts + tax + delivery
-        # bu tax vs vs ekledikten sonra return total yapıcaksın
+        # add tax, add delivery, subtract discounts
+        # total = subtotal - discounts + tax + delivery
         return subtotal
 
     def get_total(self):
