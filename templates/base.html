@@ -1,4 +1,5 @@
 {% load static %}
+{% load cart_template_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,9 +66,9 @@
                                     {% endif %}
                                 </li>
                                 <li>
-                                    <a href="{% url 'cart:summary' %}"class="site-cart">
+                                    <a href="{% url 'cart:summary' %}" class="site-cart">
                                         <span><i class="fas fa-shopping-cart"></i></span>
-                                        <span class="count">0</span>
+                                        <span class="count">{{ request|cart_item_count }}</span>
                                     </a>
                                 </li>
                                 <li class="d-inline-block d-md-none ml-md-0">
