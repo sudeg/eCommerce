@@ -1,3 +1,4 @@
+
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.signals import pre_save
@@ -14,8 +15,8 @@ class Address(models.Model):
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    address_line_1 = models.CharField(max_length=150)
-    address_line_2 = models.CharField(max_length=150)
+    address_line_1 = models.CharField(max_length=150, null=True)
+    address_line_2 = models.CharField(max_length=150, null=True)
     city = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=20)
     address_type = models.CharField(
@@ -60,6 +61,12 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse("cart:product-detail", kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse("staff:product-update", kwargs={'pk': self.pk})
+
+    def get_delete_url(self):
+        return reverse("staff:product-delete", kwargs={'pk': self.pk})
 
     def get_price(self):
         return "{:.2f}".format(self.price / 100)
