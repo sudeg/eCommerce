@@ -10,8 +10,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Do that later on (2 lines below)
 # SECRET_KEY = env('SECRET_KEY')
 # DEBUG = env('DEBUG')
-SECRET_KEY ='@2d-kt2&gzz4x+ni1hp*yw^)&#gm+#ay=+2*ro)wwg9-#+=jpi'
-DEBUG =True
+SECRET_KEY = '@2d-kt2&gzz4x+ni1hp*yw^)&#gm+#ay=+2*ro)wwg9-#+=jpi'
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -25,7 +25,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'crispy_forms',   
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'crispy_forms',
 
     'cart',
     'core'
@@ -33,7 +37,7 @@ INSTALLED_APPS = [
 
 # DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 # NOTIFY_EMAIL = env('NOTIFY_EMAIL')
-DEFAULT_FROM_EMAIL = 'anilyavuuz@gmail.com '  
+DEFAULT_FROM_EMAIL = 'anilyavuuz@gmail.com '
 NOTIFY_EMAIL = 'anilyavuuz@gmail.com'
 
 MIDDLEWARE = [
@@ -88,6 +92,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+LOGIN_REDIRECT_URL = '/'
+
+SITE_ID = 1
+
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LANGUAGE_CODE = 'en-us'
@@ -101,6 +118,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+PAYPAL_CLIENT_ID = 'AYKLqZcfgizp6ZCQD14CmzlReegZ7kaUI8oz2oUg4ZyAzE7Of9I51VuTuYatyxIlWk0FmA8JQk69tY2h'
+PAYPAL_SECRET_KEY = 'EPu67Z6TblTO0mbCROHAPOejDwqXaWkMMjqhywzpAuylJffF8jNE5BOZ30hw8bP251HtRCq9k2wfD4D8'
+
 
 if DEBUG is False:
     SESSION_COOKIE_SECURE = True
@@ -125,3 +145,5 @@ if DEBUG is False:
             'PORT': ''
         }
     }
+    PAYPAL_CLIENT_ID = 'AYKLqZcfgizp6ZCQD14CmzlReegZ7kaUI8oz2oUg4ZyAzE7Of9I51VuTuYatyxIlWk0FmA8JQk69tY2h'
+    PAYPAL_SECRET_KEY = 'EPu67Z6TblTO0mbCROHAPOejDwqXaWkMMjqhywzpAuylJffF8jNE5BOZ30hw8bP251HtRCq9k2wfD4D8'
