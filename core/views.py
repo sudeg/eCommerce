@@ -4,8 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.shortcuts import reverse
 from django.views import generic
-from cart.models import Order
-from .forms import ContactForm
+from cart.models import Order, Product
+from .forms import ContactForm, ProductForm
 
 
 class ProfileView(LoginRequiredMixin, generic.TemplateView):
@@ -51,3 +51,43 @@ class ContactView(generic.FormView):
             recipient_list=[settings.NOTIFY_EMAIL]
         )
         return super(ContactView, self).form_valid(form)
+
+
+class CaravanListView(LoginRequiredMixin, generic.ListView):
+    template_name = 'core/caravan_list.html'
+    queryset = Product.objects.all()
+    paginate_by = 20
+    context_object_name = 'products'
+
+
+class CaravanCreateView(LoginRequiredMixin, generic.CreateView):
+    template_name = 'core/caravan_create.html'
+    form_class = ProductForm
+
+    def get_success_url(self):
+        return reverse("core:caravan-list")
+
+    def form_valid(self, form):
+        form.save()
+        return super(CaravanCreateView, self).form_valid(form)
+
+
+class CaravanUpdateView(LoginRequiredMixin, generic.UpdateView):
+    template_name = 'core/caravan_create.html'
+    form_class = ProductForm
+    queryset = Product.objects.all()
+
+    def get_success_url(self):
+        return reverse("core:caravan-list")
+
+    def form_valid(self, form):
+        form.save()
+        return super(CaravanUpdateView, self).form_valid(form)
+
+
+class CaravanDeleteView(LoginRequiredMixin, generic.DeleteView):
+    template_name = 'core/caravan_delete.html'
+    queryset = Product.objects.all()
+
+    def get_success_url(self):
+        return reverse("core:caravan-list")

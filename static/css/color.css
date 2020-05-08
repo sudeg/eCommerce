@@ -1,0 +1,11 @@
+@charset "utf-8";
+/*--
+	Color styles
+--*/
+ .hero-title h2 span , .section-title h2 span{
+	color:#CEE0 02;
+}
+  .dec-slider .num-holder{
+	background:#CEE 002;
+}
+ 

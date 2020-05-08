@@ -11,8 +11,13 @@
                     <div class="card-body">
                         <h5 class="card-title">
                             {{ request.user.email }}
-                            <a href="{% url 'account_logout' %}">
+                                <a href="{% url 'core:caravan-list' %}">
+                                <small class="float-right">Caravans</small></a> 
+                                <br/>
+                                <a href="{% url 'account_logout' %}">
                                 <small class="float-right">Logout</small></a>
+
+
                         </h5>
                         <hr />
                         <h5 class="card-title">Your orders</h5>
