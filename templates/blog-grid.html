@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
@@ -9,12 +11,12 @@
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <!--=============== css  ===============-->	
-        <link type="text/css" rel="stylesheet" href="css/reset.css">
-        <link type="text/css" rel="stylesheet" href="css/plugins.css">
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-        <link type="text/css" rel="stylesheet" href="css/yourstyle.css">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}"> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}"> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}"> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css' %}"> 
         <!--=============== favicons ===============-->
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     </head>
     <body>
         <!-- loader -->
@@ -30,11 +32,11 @@
             <!--================= header ================-->
             <header class="main-header">
                 <!-- logo -->
-                <a class="logo-holder" href="index.html"><img src="images/logo.png" alt=""></a>
+                <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                 <!-- logo end -->  
                 <!-- share button-->  
                 <div class="show-share-wrap">
-                    <div class="show-share"><span>Share</span><img src="images/share.png" alt=""></div>
+                    <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
                 </div>
                 <!-- share button end-->  		
                 <!-- search button--> 	 
@@ -50,25 +52,25 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="index.html">Home </a>
+                                <a href="{% url 'index' %}">Home </a>
                                 <!--second level -->   
                                 <ul>
-                                    <li><a href="index.html">Slider</a></li>
-                                    <li><a href="index2.html">Image</a></li>
-                                    <li><a href="index3.html">Video</a></li>
-                                    <li><a href="index4.html">Slideshow</a></li>
-                                    <li><a href="index5.html">Carousel</a></li>
-                                    <li><a href="index6.html">Sidebar menu</a></li>
+                                    <li><a href="{% url 'index' %}">Slider</a></li>
+                                    <li><a href="{% url 'index2' %}">Image</a></li>
+                                    <li><a href="{% url 'index3' %}">Video</a></li>
+                                    <li><a href="{% url 'index4' %}">Slideshow</a></li>
+                                    <li><a href="{% url 'index5' %}">Carousel</a></li>
+                                    <li><a href="{% url 'index6' %}">Sidebar menu</a></li>
                                     <li>
                                         <!--third level -->
                                         <a>Onepage</a>
                                         <ul>
-											<li><a href="onepage-slider.html">Slider</a></li>
-											<li><a href="onepage-image.html">Image</a></li>
-											<li><a href="onepage-video.html">Video</a></li>
-											<li><a href="onepage-slideshow.html">Slideshow</a></li>
-											<li><a href="onepage-carousel.html">Carousel</a></li>
-											<li><a href="onepage-sidebarmenu.html">Sidebar menu</a></li>
+											<li><a href="{% url 'onepage-slider' %}">Slider</a></li>
+											<li><a href="{% url 'onepage-image' %}">Image</a></li>
+											<li><a href="{% url 'onepage-video' %}">Video</a></li>
+											<li><a href="{% url 'onepage-slidershow' %}">Slideshow</a></li>
+											<li><a href="{% url 'onepage-carousel' %}">Carousel</a></li>
+											<li><a href="{% url 'onepage-sidebarmenu' %}">Sidebar menu</a></li>
                                         </ul>
                                         <!--third level end-->
                                     </li>									
@@ -76,62 +78,62 @@
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="portfolio.html">Portfolio</a>
+                                <a href="{% url 'portfolio' %}">Portfolio</a>
                                 <!--second level -->
                                 <ul>
                                     <li>
                                         <!--third level -->
                                         <a>Single</a>
                                         <ul>
-                                            <li><a href="portfolio-single.html">Carousel</a></li>
-                                            <li><a href="portfolio-single2.html">Gallery </a></li>
-                                            <li><a href="portfolio-single3.html">Fullwidth Slider</a></li>
-                                            <li><a href="portfolio-single4.html">Slider</a></li>
-                                            <li><a href="portfolio-single5.html">Video</a></li>
-                                            <li><a href="portfolio-single6.html">Vertical Images</a></li>
+                                            <li><a href="{% url 'portfolio-single' %}">Carousel</a></li>
+                                            <li><a href="{% url 'portfolio-single2' %}">Gallery </a></li>
+                                            <li><a href="{% url 'portfolio-single3' %}">Fullwidth Slider</a></li>
+                                            <li><a href="{% url 'portfolio-single4' %}">Slider</a></li>
+                                            <li><a href="{% url 'portfolio-single5' %}">Video</a></li>
+                                            <li><a href="{% url 'portfolio-single6' %}">Vertical Images</a></li>
                                         </ul>
                                         <!--third level end-->
                                     </li>
-                                    <li><a href="portfolio2.html">Fullwidth 2</a></li>
-                                    <li><a href="portfolio3.html">Sibebar filter</a></li>
-                                    <li><a href="portfolio4.html">Boxed</a></li>
-                                    <li><a href="portfolio5.html">Boxed 2</a></li>
-                                    <li><a href="portfolio6.html">Sibebar filter 2</a></li>
-                                    <li><a href="portfolio7.html">Parallax</a></li>
-                                    <li><a href="portfolio8.html">Fullwidth 3</a></li>
-                                    <li><a href="portfolio9.html">Fullwidth 4</a></li>
+                                    <li><a href="{% url 'portfolio2' %}">Fullwidth 2</a></li>
+                                    <li><a href="{% url 'portfolio3' %}">Sibebar filter</a></li>
+                                    <li><a href="{% url 'portfolio4' %}">Boxed</a></li>
+                                    <li><a href="{% url 'portfolio5' %}">Boxed 2</a></li>
+                                    <li><a href="{% url 'portfolio6' %}">Sibebar filter 2</a></li>
+                                    <li><a href="{% url 'portfolio7' %}">Parallax</a></li>
+                                    <li><a href="{% url 'portfolio8' %}">Fullwidth 3</a></li>
+                                    <li><a href="{% url 'portfolio9' %}">Fullwidth 4</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="about.html"  >About</a>
+                                <a href="{% url 'about' %}" >About</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="about-personal.html">Personal</a></li>
-                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="{% url 'about-personal' %}">Personal</a></li>
+                                    <li><a href="{% url 'services' %}">Services</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="contact.html">Contacts </a>
+                                <a href="{% url 'contact_2' %}">Contacts </a>
                             </li>
                             <li>
-                                <a href="shop.html">Shop</a>
+                                <a href="{% url 'shop' %}">Shop</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="product-single.html">Product Single</a></li>
+                                    <li><a href="{% url 'cart' %}">Cart</a></li>
+                                    <li><a href="{% url 'product-single' %}">Product Single</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="blog.html" class="act-link">Journal</a>
+                                <a href="{% url 'blog' %}" class="act-link">Journal</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="blog-grid.html">Grid</a></li>
-                                    <li><a href="blog-masonry.html">Masonry</a></li>
-                                    <li><a href="blog-single.html">Post Single</a></li>
-                                    <li><a href="404.html">404</a></li>
+                                    <li><a href="{% url 'blog-grid' %}">Grid</a></li>
+                                    <li><a href="{% url 'blog-masonry' %}">Masonry</a></li>
+                                    <li><a href="{% url 'blog-single' %}">Post Single</a></li>
+                                    <li><a href="{% url '404' %}">404</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
@@ -149,7 +151,7 @@
                     <div class="content">
                         <!--  section  --> 
                         <section class="parallax-section header-section" data-scrollax-parent="true">
-                            <div class="bg"  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay op1"></div>
                             <div class="container big-container">
                                 <div class="section-title">
@@ -218,15 +220,15 @@
                                                 </ul>
                                                 <!-- blog media -->
                                                 <div class="blog-media fl-wrap">
-                                                    <a   href="blog-single.html" ><img src="images/folio/1.jpg" alt=""></a>
+                                                    <a   href="{% url 'blog-single' %}" ><img src="{% static 'images/folio/1.jpg' %}" alt=""></a>
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% url 'blog-single' %}" >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% url 'blog-single' %}" class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -251,15 +253,15 @@
                                                 </ul>
                                                 <!-- blog media -->
                                                 <div class="blog-media fl-wrap">
-                                                    <a   href="blog-single.html" ><img src="images/folio/1.jpg" alt=""></a>
+                                                    <a   href="{% url 'blog-single' %}" ><img src="{% static 'images/folio/1.jpg' %}" alt=""></a>
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% url 'blog-single' %}" >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% url 'blog-single' %}" class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -287,9 +289,9 @@
                                                     <div class="single-slider fl-wrap" data-effects="slide">
                                                         <div class="swiper-container">
                                                             <div class="swiper-wrapper">
-                                                                <div class="swiper-slide"><img src="images/folio/1.jpg" alt=""></div>
-                                                                <div class="swiper-slide"><img src="images/folio/1.jpg" alt=""></div>
-                                                                <div class="swiper-slide"><img src="images/folio/1.jpg" alt=""></div>
+                                                                <div class="swiper-slide"><img src="{% static 'images/folio/1.jpg' %}" alt=""></div>
+                                                                <div class="swiper-slide"><img src="{% static 'images/folio/1.jpg' %}" alt=""></div>
+                                                                <div class="swiper-slide"><img src="{% static 'images/folio/1.jpg' %}" alt=""></div>
                                                             </div>
                                                             <div class="swiper-pagination"></div>
                                                             <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
@@ -299,11 +301,11 @@
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% static 'images/folio/1.jpg' %}" >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% static 'images/folio/1.jpg' %}" class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -328,15 +330,15 @@
                                                 </ul>
                                                 <!-- blog media -->
                                                 <div class="blog-media fl-wrap">
-                                                    <a   href="blog-single.html" ><img src="images/folio/1.jpg" alt=""></a>
+                                                    <a   href="{% url 'blog-single' %}" ><img src="{% static 'images/folio/1.jpg' %}" alt=""></a>
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% url 'blog-single' %}"  >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% url 'blog-single' %}"  class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -364,9 +366,9 @@
                                                     <div class="single-slider fl-wrap" data-effects="slide">
                                                         <div class="swiper-container">
                                                             <div class="swiper-wrapper">
-                                                                <div class="swiper-slide"><img src="images/folio/1.jpg" alt=""></div>
-                                                                <div class="swiper-slide"><img src="images/folio/1.jpg" alt=""></div>
-                                                                <div class="swiper-slide"><img src="images/folio/1.jpg" alt=""></div>
+                                                                <div class="swiper-slide"><img src="{% static 'images/folio/1.jpg' %}" alt=""></div>
+                                                                <div class="swiper-slide"><img src="{% static 'images/folio/1.jpg' %}" alt=""></div>
+                                                                <div class="swiper-slide"><img src="{% static 'images/folio/1.jpg' %}" alt=""></div>
                                                             </div>
                                                             <div class="swiper-pagination"></div>
                                                             <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
@@ -376,11 +378,11 @@
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% url 'blog-single' %}" >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% url 'blog-single' %}" class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -413,11 +415,11 @@
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% url 'blog-single' %}" >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% url 'blog-single' %}" class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -442,15 +444,15 @@
                                                 </ul>
                                                 <!-- blog media -->
                                                 <div class="blog-media fl-wrap">
-                                                    <a   href="blog-single.html" ><img src="images/folio/1.jpg" alt=""></a>
+                                                    <a   href="{% url 'blog-single' %}" ><img src="{% static 'images/folio/1.jpg' %}" alt=""></a>
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% url 'blog-single' %}" >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% url 'blog-single' %}" class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -475,15 +477,15 @@
                                                 </ul>
                                                 <!-- blog media -->
                                                 <div class="blog-media fl-wrap">
-                                                    <a   href="blog-single.html" ><img src="images/folio/1.jpg" alt=""></a>
+                                                    <a   href="{% url 'blog-single' %}" ><img src="{% static 'images/folio/1.jpg' %}"  alt=""></a>
                                                 </div>
                                                 <!-- blog media end -->
                                                 <div class="blog-text fl-wrap">
-                                                    <h3><a   href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                    <h3><a   href="{% url 'blog-single' %}" >Aliquip pertinax <strong>vix ad </strong></a></h3>
                                                     <p>
                                                         Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc.   Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
                                                     </p>
-                                                    <a href="blog-single.html" class="btn float-btn flat-btn">Read more </a>
+                                                    <a href="{% url 'blog-single' %}" class="btn float-btn flat-btn">Read more </a>
                                                     <ul class="post-counter">
                                                         <li><i class="fa fa-eye"></i><span>687</span></li>
                                                         <li><i class="fa fa-comment-o"></i><span>10</span></li>
@@ -502,11 +504,11 @@
                             <div class="container">
                                 <div class="content-nav blog-nav">
                                     <ul>
-                                        <li><a href="blog.html" class="ln"><i class="fa fa fa-angle-left"></i><span class="tooltip">Prev - Page 1</span></a></li>
+                                        <li><a href="{% url 'blog' %}" class="ln"><i class="fa fa fa-angle-left"></i><span class="tooltip">Prev - Page 1</span></a></li>
                                         <li>
                                             <a href="#" class="cur-page"><span>Page 02. </span></a>
                                         </li>
-                                        <li><a href="blog.html" class="rn"><i class="fa fa fa-angle-right"></i><span class="tooltip">Next - Page 3 </span></a></li>
+                                        <li><a href="{% url 'blog' %}" class="rn"><i class="fa fa fa-angle-right"></i><span class="tooltip">Next - Page 3 </span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -520,7 +522,7 @@
                         <div class="footer-inner">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a class="footer-logo" href="index.html"><img src="images/logo.png" alt=""></a>
+                                    <a class="footer-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="footer-header fl-wrap"><span>01.</span> Contacts</div>
@@ -598,8 +600,8 @@
         </div>
         <!-- Main end -->
         <!--=============== scripts  ===============-->        
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src= "{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/js/plugins.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
     </body>
 </html>

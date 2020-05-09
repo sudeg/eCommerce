@@ -1,4 +1,4 @@
-{% comment %} {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -16,10 +16,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-
+                <div class="icon mr-4 align-self-start">
+                    <span><i class="fab fa-cc-paypal"></i></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">Pay with Paypal</h2>
+                    <p>Use server-side PayPal integration for handling payments.</p>
+                </div>
             </div>
-            <div class="col-md- col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-                <svg style="width: 100px; margin-cen: 10px;" role="img" xmlns="http://www.w3.org/2000/svg"
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
+                <svg style="width: 100px; margin-right: 10px;" role="img" xmlns="http://www.w3.org/2000/svg"
                     fill="#1f4f7c" viewBox="0 0 24 24">
                     <title>Django icon</title>
                     <path
@@ -34,7 +40,13 @@
     </div>
 </div>
 
-{% endblock content %} {% endcomment %}
+{% endblock content %}
+
+
+
+
+ {% comment %} 
+
 {% load static %}
 
 <!DOCTYPE HTML>
@@ -48,8 +60,8 @@
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <!--=============== css  ===============-->	
-           {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
-        <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}"> 
+          <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+  {% comment %}       <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}"> 
         <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}"> 
         <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}"> 
         <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css' %}"> 
@@ -70,11 +82,11 @@
             <!--================= header ================-->
             <header class="main-header">
                 <!-- logo -->
-                <a class="logo-holder" href="index.html"><img src="{% static 'images.logo.png %}" alt=""></a>
+                <a class="logo-holder" href="index.html"><img src="{% static 'images/logo.png' %}" alt=""></a>
                 <!-- logo end -->  
                 <!-- share button-->  
                 <div class="show-share-wrap">
-                    <div class="show-share"><span>Share</span><img src="{% static 'images.share.png %}" alt=""></div>
+                    <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
                 </div>
                 <!-- share button end-->  		
                 <!-- search button--> 	 
@@ -613,4 +625,4 @@
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
     </body>
-</html>
+</html> {% endcomment %}
