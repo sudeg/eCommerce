@@ -68,7 +68,7 @@
 											<li><a href="{% url 'onepage-slider' %}">Slider</a></li>
 											<li><a href="{% url 'onepage-image' %}">Image</a></li>
 											<li><a href="{% url 'onepage-video' %}">Video</a></li>
-											<li><a href="{% url 'onepage-slidershow' %}">Slideshow</a></li>
+											<li><a href="{% url 'onepage-slideshow' %}">Slideshow</a></li>
 											<li><a href="{% url 'onepage-carousel' %}">Carousel</a></li>
 											<li><a href="{% url 'onepage-sidebarmenu' %}">Sidebar menu</a></li>
                                         </ul>
@@ -343,7 +343,7 @@
                                 <div class="video-holder">
                                     <div class="video-container">
                                         <video autoplay  loop muted  class="bgvid">
-                                            <source src="http://balkon.kwst.net/site/light/video/intro.mp4" type="video/mp4">
+                                            <source src= "{% static 'http://balkon.kwst.net/site/light/video/intro.mp4' %}" type="video/mp4">
                                         </video>
                                     </div>
                                     <!--  

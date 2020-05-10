@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
@@ -9,12 +10,12 @@
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <!--=============== css  ===============-->	
-        <link type="text/css" rel="stylesheet" href="css/reset.css">
-        <link type="text/css" rel="stylesheet" href="css/plugins.css">
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-        <link type="text/css" rel="stylesheet" href="css/yourstyle.css">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}"> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}"> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}"> 
+        <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css' %}"> 
         <!--=============== favicons ===============-->
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     </head>
     <body>
         <!-- loader -->
@@ -30,11 +31,11 @@
             <!--================= header ================-->
             <header class="main-header">
                 <!-- logo -->
-                <a class="logo-holder" href="index.html"><img src="images/logo.png" alt=""></a>
+                <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                 <!-- logo end -->  
                 <!-- share button-->  
                 <div class="show-share-wrap">
-                    <div class="show-share"><span>Share</span><img src="images/share.png" alt=""></div>
+                    <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
                 </div>
                 <!-- share button end-->  		
                 <!-- search button--> 	 
@@ -71,7 +72,7 @@
                                 <a href="#sec7">Contacts</a>
                             </li>
                             <li>
-                                <a href="blog.html">Journal</a>
+                                <a href="{% url 'blog' %}">Journal</a>
                             </li>
                         </ul>
                     </nav>
@@ -90,78 +91,78 @@
                                 <div class="swiper-wrapper">
                                     <!-- swiper-slide-->  
                                     <div class="swiper-slide">
-                                        <a href="images/bg/1.jpg" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="images/bg/1.jpg"   alt="">
+                                        <a href="{% static 'images/bg/1.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1.jpg' %}"   alt="">
                                         <div class="thumb-info">
-                                            <h3><a href="portfolio-single.html">New Acropolis <br> Museum</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">New Acropolis <br> Museum</a></h3>
                                             <p>Here you can place an optional description of your  Project</p>
-                                            <a href="portfolio-single.html" class="btn float-btn flat-btn">View Project</a>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
                                         </div>
                                     </div>
                                     <!-- swiper-slide end-->  
                                     <!-- swiper-slide-->  
                                     <div class="swiper-slide">
-                                        <a href="images/bg/1.jpg" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="images/bg/1.jpg"   alt="">
+                                        <a href="{% static 'images/bg/1.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1.jpg' %}"   alt="">
                                         <div class="thumb-info">
-                                            <h3><a href="portfolio-single.html">Alesia White <br>  House</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Alesia White <br>  House</a></h3>
                                             <p>Here you can place an optional description of your  Project</p>
-                                            <a href="portfolio-single.html" class="btn float-btn flat-btn">View Project</a>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
                                         </div>
                                     </div>
                                     <!-- swiper-slide end-->
                                     <!-- swiper-slide-->  
                                     <div class="swiper-slide">
-                                        <a href="images/bg/1.jpg" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="images/bg/1.jpg"   alt="">
+                                        <a href="{% static 'images/bg/1.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1.jpg' %}"   alt="">
                                         <div class="thumb-info">
-                                            <h3><a href="portfolio-single.html">White Walls <br>  Museum</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">White Walls <br>  Museum</a></h3>
                                             <p>Here you can place an optional description of your  Project</p>
-                                            <a href="portfolio-single.html" class="btn float-btn flat-btn">View Project</a>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
                                         </div>
                                     </div>
                                     <!-- swiper-slide end-->
                                     <!-- swiper-slide-->  
                                     <div class="swiper-slide">
-                                        <a href="images/bg/1.jpg" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="images/bg/1.jpg"   alt="">
+                                        <a href="{% static 'images/bg/1.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1.jpg' %}"   alt="">
                                         <div class="thumb-info">
-                                            <h3><a href="portfolio-single.html">Pen Tower <br>  Centre</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Pen Tower <br>  Centre</a></h3>
                                             <p>Here you can place an optional description of your  Project</p>
-                                            <a href="portfolio-single.html" class="btn float-btn flat-btn">View Project</a>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
                                         </div>
                                     </div>
                                     <!-- swiper-slide end-->
                                     <!-- swiper-slide-->  
                                     <div class="swiper-slide">
-                                        <a href="images/bg/1.jpg" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="images/bg/1.jpg"   alt="">
+                                        <a href="{% static 'images/bg/1.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1.jpg' %}"   alt="">
                                         <div class="thumb-info">
-                                            <h3><a href="portfolio-single.html">Skin Tower <br>  Centre</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Skin Tower <br>  Centre</a></h3>
                                             <p>Here you can place an optional description of your  Project</p>
-                                            <a href="portfolio-single.html" class="btn float-btn flat-btn">View Project</a>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
                                         </div>
                                     </div>
                                     <!-- swiper-slide end-->
                                     <!-- swiper-slide-->  
                                     <div class="swiper-slide">
-                                        <a href="images/bg/1.jpg" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="images/bg/1.jpg"   alt="">
+                                        <a href="{% static 'images/bg/1.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1.jpg' %}"   alt="">
                                         <div class="thumb-info">
-                                            <h3><a href="portfolio-single.html">Spire Edge <br>  House</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Spire Edge <br>  House</a></h3>
                                             <p>Here you can place an optional description of your  Project</p>
-                                            <a href="portfolio-single.html" class="btn float-btn flat-btn">View Project</a>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
                                         </div>
                                     </div>
                                     <!-- swiper-slide end-->
                                     <!-- swiper-slide-->  
                                     <div class="swiper-slide">
-                                        <a href="images/bg/1.jpg" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="images/bg/1.jpg"   alt="">
+                                        <a href="{% static 'images/bg/1.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1.jpg' %}"   alt="">
                                         <div class="thumb-info">
-                                            <h3><a href="portfolio-single.html">One World <br>  Museum</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">One World <br>  Museum</a></h3>
                                             <p>Here you can place an optional description of your  Project</p>
-                                            <a href="portfolio-single.html" class="btn float-btn flat-btn">View Project</a>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
                                         </div>
                                     </div>
                                     <!-- swiper-slide end-->
@@ -205,15 +206,15 @@
                                         </div>
                                         <div class="col-md-5">
                                             <div class="box-item">
-                                                <img  src="images/folio/1.jpg"  class="respimg" alt="">
+                                                <img  src="{% static 'images/folio/1.jpg' %}"  class="respimg" alt="">
                                                 <div class="overlay"></div>
-                                                <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                                <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg dec-bg left-pos-dec"  data-bg="images/bg/14.jpg"></div>
+                            <div class="bg dec-bg left-pos-dec"  data-bg="{% static 'images/bg/14.jpg' %}"></div>
                         </section>
                         <!--section end  -->
                         <!--  section --> 
@@ -327,13 +328,13 @@
                         <!--  section end -->
                         <!--section -->	
                         <section>
-                            <div class="bg"  data-bg="images/bg/1.jpg"></div>
+                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}"></div>
                             <div class="overlay"></div>
                             <div class="container">
                                 <div class="intro-text fl-wrap">
                                     <h2>Entrust your project <br>to our team of  <br>professionals</h2>
-                                    <a href="services.html" class="btn float-btn flat-btn">Our Services</a>
-                                    <a href="contact.html" class="btn float-btn flat-btn">Get in Touch</a>
+                                    <a href="{% url 'services' %}" class="btn float-btn flat-btn">Our Services</a>
+                                    <a href="{% url 'contact_2' %}" class="btn float-btn flat-btn">Get in Touch</a>
                                 </div>
                             </div>
                         </section>
@@ -361,7 +362,7 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
                                                         </ul>
-                                                        <img src="images/team/1.jpg" alt="" class="respimg"><span>Find on</span>										
+                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
                                                     </div>
                                                     <div class="team-info">
                                                         <h3>David Gray</h3>
@@ -380,7 +381,7 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
                                                         </ul>
-                                                        <img src="images/team/1.jpg" alt="" class="respimg"><span>Find on</span>										
+                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
                                                     </div>
                                                     <div class="team-info">
                                                         <h3>Austin Evon</h3>
@@ -399,7 +400,7 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
                                                         </ul>
-                                                        <img src="images/team/1.jpg" alt="" class="respimg"><span>Find on</span>										
+                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
                                                     </div>
                                                     <div class="team-info">
                                                         <h3>Taylor Roberts</h3>
@@ -418,7 +419,7 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
                                                         </ul>
-                                                        <img src="images/team/1.jpg" alt="" class="respimg"><span>Find on</span>										
+                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
                                                     </div>
                                                     <div class="team-info">
                                                         <h3>David Gray</h3>
@@ -434,7 +435,7 @@
                         <!--  section end -->  
                         <!--section  -->
                         <section class="parallax-section header-section" data-scrollax-parent="true" id="sec4">
-                            <div class="bg"  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay"></div>
                             <div class="container big-container">
                                 <div class="section-title">
@@ -454,10 +455,10 @@
                                     <div class="filter-button"><span>Filter : </span></div>
                                     <div class="gallery-filters">
                                         <a href="#" class="gallery-filter gallery-filter-active"  data-filter="*">All Works</a>
-                                        <a href="#" class="gallery-filter " data-filter=".houses">Houses</a>
-                                        <a href="#" class="gallery-filter" data-filter=".apartments">Apartments</a>
-                                        <a href="#" class="gallery-filter" data-filter=".interior">Interior</a>
-                                        <a href="#" class="gallery-filter" data-filter=".design">Design</a>
+                                        <a href= "{% static '#" class="gallery-filter " data-filter=".houses' %}">Houses</a>
+                                        <a href= "{% static '#" class="gallery-filter" data-filter=".apartments' %}">Apartments</a>
+                                        <a href= "{% static '#" class="gallery-filter" data-filter=".interior' %}">Interior</a>
+                                        <a href= "{% static '#" class="gallery-filter" data-filter=".design' %}">Design</a>
                                     </div>
                                     <div class="count-folio">
                                         <div class="num-album"></div>
@@ -472,12 +473,12 @@
                                 <div class="gallery-item houses apartments">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Trinity River Audubon Centre</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Trinity River Audubon Centre</a></h3>
                                             <span>Hoses / Apartments</span>
                                         </div>
                                     </div>
@@ -487,12 +488,12 @@
                                 <div class="gallery-item houses interior">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Theatre de Stoep</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Theatre de Stoep</a></h3>
                                             <span>Hoses  / Interior</span>
                                         </div>
                                     </div>
@@ -502,12 +503,12 @@
                                 <div class="gallery-item  interior design">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">New Acropolis Museum</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">New Acropolis Museum</a></h3>
                                             <span>Interior / Design</span>
                                         </div>
                                     </div>
@@ -517,12 +518,12 @@
                                 <div class="gallery-item houses design">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Alesia Museum</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Alesia Museum</a></h3>
                                             <span>Hoses Design</span>
                                         </div>
                                     </div>
@@ -532,12 +533,12 @@
                                 <div class="gallery-item interior design">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">West 57th Street</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">West 57th Street</a></h3>
                                             <span>Interior /  Design</span>
                                         </div>
                                     </div>
@@ -547,12 +548,12 @@
                                 <div class="gallery-item apartments interior">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Petronas Tower</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Petronas Tower</a></h3>
                                             <span>Apartments / Interior</span>
                                         </div>
                                     </div>
@@ -562,12 +563,12 @@
                                 <div class="gallery-item houses design">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">BOK Centre</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">BOK Centre</a></h3>
                                             <span>Hoses  / Design</span>
                                         </div>
                                     </div>
@@ -577,12 +578,12 @@
                                 <div class="gallery-item design">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Art Cultural Centre</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Art Cultural Centre</a></h3>
                                             <span>Design / Interior</span>
                                         </div>
                                     </div>
@@ -592,12 +593,12 @@
                                 <div class="gallery-item apartments interior">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">One World Trade Centre</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">One World Trade Centre</a></h3>
                                             <span>Apartments / Interior</span>
                                         </div>
                                     </div>
@@ -607,12 +608,12 @@
                                 <div class="gallery-item houses">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Spire Edge</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Spire Edge</a></h3>
                                             <span>Hoses Design</span>
                                         </div>
                                     </div>
@@ -622,12 +623,12 @@
                                 <div class="gallery-item  design  interior">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Perez Art Museum</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Perez Art Museum</a></h3>
                                             <span>Interior /  Design</span>
                                         </div>
                                     </div>
@@ -637,12 +638,12 @@
                                 <div class="gallery-item apartments">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">White Walls</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">White Walls</a></h3>
                                             <span>Apartments</span>
                                         </div>
                                     </div>
@@ -652,12 +653,12 @@
                                 <div class="gallery-item design apartments">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Skin Tower</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Skin Tower</a></h3>
                                             <span>Interior /  Design</span>
                                         </div>
                                     </div>
@@ -667,12 +668,12 @@
                                 <div class="gallery-item design apartments">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Big House</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Big House</a></h3>
                                             <span>Apartments /  Design</span>
                                         </div>
                                     </div>
@@ -682,12 +683,12 @@
                                 <div class="gallery-item design apartments">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Pen Tower</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Pen Tower</a></h3>
                                             <span>Hoses Design</span>
                                         </div>
                                     </div>
@@ -697,12 +698,12 @@
                                 <div class="gallery-item design apartments">
                                     <div class="grid-item-holder">
                                         <div class="box-item">
-                                            <img  src="images/folio/1.jpg"   alt="">
+                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
                                             <div class="overlay"></div>
-                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                         </div>
                                         <div class="grid-item">
-                                            <h3><a href="portfolio-single.html">Clock House</a></h3>
+                                            <h3><a href="{% url 'portfolio-single' %}">Clock House</a></h3>
                                             <span>Apartments / Hoses Design</span>
                                         </div>
                                     </div>
@@ -731,7 +732,7 @@
                         <!--section end-->	
                         <!--  section  -->  
                         <section class="parallax-section header-section  " data-scrollax-parent="true" id="sec5">
-                            <div class="bg"  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay"></div>
                             <div class="container">
                                 <div class="row">
@@ -795,11 +796,11 @@
                                 </div>
                                 <div class="clients-list fl-wrap">
                                     <ul>
-                                        <li><a href="#" target="_blank"> <img src="images/clients/1.jpg" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="images/clients/1.jpg" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="images/clients/1.jpg" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="images/clients/1.jpg" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="images/clients/1.jpg" alt=""> </a></li>
+                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}"alt=""> </a></li>
+                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}"alt=""> </a></li>
+                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}"alt=""> </a></li>
+                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}"alt=""> </a></li>
+                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}"alt=""> </a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -807,7 +808,7 @@
                         <!--section end  -->
                         <!--  section --> 			 
                         <section  id="sec6">
-                            <div class="bg"  data-bg="images/bg/1.jpg"></div>
+                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}"></div>
                             <div class="overlay op4"></div>
                             <div class="container">
                                 <div class="intro-text fl-wrap">
@@ -834,9 +835,9 @@
                                                 <div class="content-wrap about-wrap">
                                                     <div class="blog-media fl-wrap">
                                                         <div class="box-item">
-                                                            <img  src="images/folio/1.jpg"  class="respimg" alt="">
+                                                            <img  src="{% static 'images/folio/1.jpg' %}"  class="respimg" alt="">
                                                             <div class="overlay"></div>
-                                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                                         </div>
                                                     </div>
                                                     <h3 class="bold-title">There are   many variations of passages of Lorem Ipsum available</h3>
@@ -873,9 +874,9 @@
                                                 <div class="content-wrap about-wrap">
                                                     <div class="blog-media fl-wrap">
                                                         <div class="box-item">
-                                                            <img  src="images/folio/1.jpg" class="respimg"  alt="">
+                                                            <img  src="{% static 'images/folio/1.jpg' %}" class="respimg"  alt="">
                                                             <div class="overlay"></div>
-                                                            <a href="images/folio/1.jpg" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                                            <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                                         </div>
                                                     </div>
                                                     <h3 class="bold-title">We started as a small, subdue, called hath give fourth. Them one over saying. So the god, greater. </h3>
@@ -905,7 +906,7 @@
                         <!--  section  end-->                       
                         <!--  section  --> 
                         <section class="parallax-section header-section" data-scrollax-parent="true" id="sec7">
-                            <div class="bg"  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay"></div>
                             <div class="container big-container">
                                 <div class="section-title">
@@ -1006,7 +1007,7 @@
                         <div class="footer-inner">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a class="footer-logo" href="index.html"><img src="images/logo.png" alt=""></a>
+                                    <a class="footer-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="footer-header fl-wrap"><span>01.</span> Contacts</div>
@@ -1085,9 +1086,9 @@
         <!-- Main end -->
         <!--=============== scripts  ===============-->
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo"></script>          
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>
+        <script type="text/javascript" src= "{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/js/plugins.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
     </body>
 </html>

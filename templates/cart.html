@@ -68,7 +68,7 @@
 											<li><a href="{% url 'onepage-slider' %}">Slider</a></li>
 											<li><a href="{% url 'onepage-image' %}">Image</a></li>
 											<li><a href="{% url 'onepage-video' %}">Video</a></li>
-											<li><a href="{% url 'onepage-slidershow' %}">Slideshow</a></li>
+											<li><a href="{% url 'onepage-slideshow' %}">Slideshow</a></li>
 											<li><a href="{% url 'onepage-carousel' %}">Carousel</a></li>
 											<li><a href="{% url 'onepage-sidebarmenu' %}">Sidebar menu</a></li>
                                         </ul>
@@ -85,12 +85,12 @@
                                         <!--third level -->
                                         <a>Single</a>
                                         <ul>
-                                            <li><a href="portfolio-single.html">Carousel</a></li>
-                                            <li><a href="portfolio-single2.html">Gallery </a></li>
-                                            <li><a href="portfolio-single3.html">Fullwidth Slider</a></li>
-                                            <li><a href="portfolio-single4.html">Slider</a></li>
-                                            <li><a href="portfolio-single5.html">Video</a></li>
-                                            <li><a href="portfolio-single6.html">Vertical Images</a></li>
+                                            <li><a href="{% url 'portfolio-single' %}">Carousel</a></li>
+                                            <li><a href="{% url 'portfolio-single2' %}">Gallery </a></li>
+                                            <li><a href="{% url 'portfolio-single3' %}">Fullwidth Slider</a></li>
+                                            <li><a href="{% url 'portfolio-single4' %}">Slider</a></li>
+                                            <li><a href="{% url 'portfolio-single5' %}">Video</a></li>
+                                            <li><a href="{% url 'portfolio-single6' %}">Vertical Images</a></li>
                                         </ul>
                                         <!--third level end-->
                                     </li>
@@ -106,34 +106,34 @@
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="about.html"  >About</a>
+                                <a href="{% url 'about' %}" >About</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="about-personal.html">Personal</a></li>
-                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="{% url 'about-personal' %}">Personal</a></li>
+                                    <li><a href="{% url 'services' %}">Services</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="contact.html">Contacts </a>
+                                <a href="{% url 'contact_2' %}">Contacts </a>
                             </li>
                             <li>
-                                <a href="shop.html" class="act-link">Shop</a>
+                                <a href="{% url 'shop' %}" class="act-link">Shop</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="product-single.html">Product Single</a></li>
+                                    <li><a href="{% url 'cart' %}">Cart</a></li>
+                                    <li><a href="{% url 'product-single' %}">Product Single</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="blog.html">Journal</a>
+                                <a href="{% url 'blog' %}">Journal</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="blog-grid.html">Grid</a></li>
-                                    <li><a href="blog-masonry.html">Masonry</a></li>
-                                    <li><a href="blog-single.html">Post Single</a></li>
-                                    <li><a href="404.html">404</a></li>
+                                    <li><a href="{% url 'blog-grid' %}">Grid</a></li>
+                                    <li><a href="{% url 'blog-masonry' %}">Masonry</a></li>
+                                    <li><a href="{% url 'blog-single' %}">Post Single</a></li>
+                                    <li><a href="{% url '404' %}">404</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
@@ -172,14 +172,14 @@
                                         <!-- cart item -->
                                         <div class="cart-item fl-wrap">
                                             <div class="cart-image">
-                                                <a href="product-single.html"><img src="images/shop/1.jpg" alt=""></a>
+                                                <a href="{% url 'product-single' %}"><img src="{% static 'images/shop/1.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="cart-container">
                                                 <table class="table table-border checkout-table">
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <h5 class="product-name"><a href="product-single.html">White wood chair Monro</a></h5>
+                                                                <h5 class="product-name"><a href="{% url 'product-single' %}">White wood chair Monro</a></h5>
                                                                 <a class="product-cart-cat" href="#">Chairs</a> <a class="product-cart-cat" href="#">Furniture</a>
                                                             </td>
                                                             <td>
@@ -217,14 +217,14 @@
                                         <!-- cart item -->
                                         <div class="cart-item fl-wrap">
                                             <div class="cart-image">
-                                                <a href="product-single.html"><img src="images/shop/1.jpg" alt=""></a>
+                                                <a href="{% url 'product-single' %}"><img src="{% static 'images/shop/1.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="cart-container">
                                                 <table class="table table-border checkout-table">
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <h5 class="product-name"><a href="product-single.html">Big   flat chair Peppi</a></h5>
+                                                                <h5 class="product-name"><a href="{% url 'product-single' %}">Big   flat chair Peppi</a></h5>
                                                                 <a class="product-cart-cat" href="#">Chairs</a>  
                                                             </td>
                                                             <td>
@@ -262,14 +262,14 @@
                                         <!-- cart item -->
                                         <div class="cart-item fl-wrap">
                                             <div class="cart-image">
-                                                <a href="product-single.html"><img src="images/shop/1.jpg" alt=""></a>
+                                                <a href="{% url 'product-single' %}"><img src="{% static 'images/shop/1.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="cart-container">
                                                 <table class="table table-border checkout-table">
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <h5 class="product-name"><a href="product-single.html">Smart Lamp Alexa</a></h5>
+                                                                <h5 class="product-name"><a href="{% url 'product-single' %}">Smart Lamp Alexa</a></h5>
                                                                 <a class="product-cart-cat" href="#">Lamp</a> <a class="product-cart-cat" href="#">Decor</a>
                                                             </td>
                                                             <td>
@@ -335,7 +335,7 @@
                         <div class="footer-inner">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a class="footer-logo" href="index.html"><img src="images/logo.png" alt=""></a>
+                                    <a class="footer-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="footer-header fl-wrap"><span>01.</span> Contacts</div>
@@ -380,31 +380,31 @@
                             <h3>Your cart</h3>
                             <ul class="cart-modal-list fl-wrap">
                                 <li>
-                                    <a class="cart-modal-image" href="product-single.html">
-                                    <img src="images/shop/1.jpg" alt="">
+                                    <a class="cart-modal-image" href="{% url 'product-single' %}">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
                                     </a>
                                     <div class="cart-modal-det">
-                                        <a href="product-single.html">Amazing Lamp</a>
+                                        <a href="{% url 'product-single' %}">Amazing Lamp</a>
                                         <div class="quantity"><span>1</span> x <span class="woocommerce-Price-amount">$560</span></div>
                                     </div>
                                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                                 </li>
                                 <li>
-                                    <a class="cart-modal-image" href="product-single.html">
-                                    <img src="images/shop/1.jpg" alt="">
+                                    <a class="cart-modal-image" href="{% url 'product-single' %}">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
                                     </a>
                                     <div class="cart-modal-det">
-                                        <a href="product-single.html">Metal Wood Chair</a>
+                                        <a href="{% url 'product-single' %}">Metal Wood Chair</a>
                                         <div class="quantity"><span>1</span> x <span class="woocommerce-Price-amount">$170</span></div>
                                     </div>
                                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                                 </li>
                                 <li>
-                                    <a class="cart-modal-image" href="product-single.html">
-                                    <img src="images/shop/1.jpg" alt="">
+                                    <a class="cart-modal-image" href="{% url 'product-single' %}">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
                                     </a>
                                     <div class="cart-modal-det">
-                                        <a href="product-single.html">White Sofa</a>
+                                        <a href="{% url 'product-single' %}">White Sofa</a>
                                         <div class="quantity"><span>2</span> x <span class="woocommerce-Price-amount">$160</span></div>
                                     </div>
                                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
@@ -457,8 +457,8 @@
         </div>
         <!-- Main end -->
         <!--=============== scripts  ===============-->        
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src= "{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/js/plugins.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
     </body>
 </html>

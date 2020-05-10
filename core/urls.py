@@ -11,4 +11,9 @@ urlpatterns = [
          views.CaravanUpdateView.as_view(), name='caravan-update'),
     path('caravans/<pk>/delete/',
          views.CaravanDeleteView.as_view(), name='caravan-delete'),
+    path('caravans/<pk>/delete/',
+         views.CaravanDeleteView.as_view(), name='caravan-delete'),
+
+
+
 ]

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
@@ -9,13 +11,13 @@
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <!--=============== css  ===============-->	
-        <link type="text/css" rel="stylesheet" href="css/reset.css">
-        <link type="text/css" rel="stylesheet" href="css/plugins.css">
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-        <link type="text/css" rel="stylesheet" href="css/shop.css">
-        <link type="text/css" rel="stylesheet" href="css/yourstyle.css">
+        <link type="text/css" rel="stylesheet" href= "{% static 'css/reset.css' %}">
+        <link type="text/css" rel="stylesheet" href= "{% static 'css/plugins.css' %}">
+        <link type="text/css" rel="stylesheet" href= "{% static 'css/style.css' %}">
+        <link type="text/css" rel="stylesheet" href= "{% static 'css/shop.css' %}">
+        <link type="text/css" rel="stylesheet" href= "{% static 'css/yourstyle.css' %}">
         <!--=============== favicons ===============-->
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href= "{% static 'images/favicon.ico' %}">
     </head>
     <body>
         <!-- loader -->
@@ -31,11 +33,11 @@
             <!--================= header ================-->
             <header class="main-header">
                 <!-- logo -->
-                <a class="logo-holder" href="index.html"><img src="images/logo.png" alt=""></a>
+                <a class="logo-holder" href= "{% url 'index' %}"><img src= "{% static 'images/logo.png' %}" alt=""></a>
                 <!-- logo end -->  
                 <!-- share button-->  
                 <div class="show-share-wrap">
-                    <div class="show-share"><span>Share</span><img src="images/share.png" alt=""></div>
+                    <div class="show-share"><span>Share</span><img src= "{% static 'images/share.png' %}" alt=""></div>
                 </div>
                 <!-- share button end-->  		
                 <!-- search button--> 	 
@@ -51,25 +53,25 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="index.html">Home </a>
+                                <a href= "{% url 'index' %}">Home </a>
                                 <!--second level -->   
                                 <ul>
-                                    <li><a href="index.html">Slider</a></li>
-                                    <li><a href="index2.html">Image</a></li>
-                                    <li><a href="index3.html">Video</a></li>
-                                    <li><a href="index4.html">Slideshow</a></li>
-                                    <li><a href="index5.html">Carousel</a></li>
-                                    <li><a href="index6.html">Sidebar menu</a></li>
+                                    <li><a href= "{% url 'index' %}">Slider</a></li>
+                                    <li><a href= "{% url 'index2' %}">Image</a></li>
+                                    <li><a href= "{% url 'index3' %}">Video</a></li>
+                                    <li><a href= "{% url 'index4' %}">Slideshow</a></li>
+                                    <li><a href= "{% url 'index5' %}">Carousel</a></li>
+                                    <li><a href= "{% url 'index6' %}">Sidebar menu</a></li>
                                     <li>
                                         <!--third level -->
                                         <a>Onepage</a>
                                         <ul>
-											<li><a href="onepage-slider.html">Slider</a></li>
-											<li><a href="onepage-image.html">Image</a></li>
-											<li><a href="onepage-video.html">Video</a></li>
-											<li><a href="onepage-slideshow.html">Slideshow</a></li>
-											<li><a href="onepage-carousel.html">Carousel</a></li>
-											<li><a href="onepage-sidebarmenu.html">Sidebar menu</a></li>
+											<li><a href= "{% url 'onepage-slider' %}">Slider</a></li>
+											<li><a href= "{% url 'onepage-image' %}">Image</a></li>
+											<li><a href= "{% url 'onepage-video' %}">Video</a></li>
+											<li><a href= "{% url 'onepage-slideshow' %}">Slideshow</a></li>
+											<li><a href= "{% url 'onepage-carousel' %}">Carousel</a></li>
+											<li><a href= "{% url 'onepage-sidebarmenu' %}">Sidebar menu</a></li>
                                         </ul>
                                         <!--third level end-->
                                     </li>									
@@ -77,62 +79,62 @@
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="portfolio.html">Portfolio</a>
+                                <a href= "{% url 'portfolio' %}">Portfolio</a>
                                 <!--second level -->
                                 <ul>
                                     <li>
                                         <!--third level -->
                                         <a>Single</a>
                                         <ul>
-                                            <li><a href="portfolio-single.html">Carousel</a></li>
-                                            <li><a href="portfolio-single2.html">Gallery </a></li>
-                                            <li><a href="portfolio-single3.html">Fullwidth Slider</a></li>
-                                            <li><a href="portfolio-single4.html">Slider</a></li>
-                                            <li><a href="portfolio-single5.html">Video</a></li>
-                                            <li><a href="portfolio-single6.html">Vertical Images</a></li>
+                                            <li><a href= "{% url 'portfolio-single' %}">Carousel</a></li>
+                                            <li><a href= "{% url 'portfolio-single2' %}">Gallery </a></li>
+                                            <li><a href= "{% url 'portfolio-single3' %}">Fullwidth Slider</a></li>
+                                            <li><a href= "{% url 'portfolio-single4' %}">Slider</a></li>
+                                            <li><a href= "{% url 'portfolio-single5' %}">Video</a></li>
+                                            <li><a href= "{% url 'portfolio-single6' %}">Vertical Images</a></li>
                                         </ul>
                                         <!--third level end-->
                                     </li>
-                                    <li><a href="portfolio2.html">Fullwidth 2</a></li>
-                                    <li><a href="portfolio3.html">Sibebar filter</a></li>
-                                    <li><a href="portfolio4.html">Boxed</a></li>
-                                    <li><a href="portfolio5.html">Boxed 2</a></li>
-                                    <li><a href="portfolio6.html">Sibebar filter 2</a></li>
-                                    <li><a href="portfolio7.html">Parallax</a></li>
-                                    <li><a href="portfolio8.html">Fullwidth 3</a></li>
-                                    <li><a href="portfolio9.html">Fullwidth 4</a></li>
+                                    <li><a href= "{% url 'portfolio2' %}">Fullwidth 2</a></li>
+                                    <li><a href= "{% url 'portfolio3' %}">Sibebar filter</a></li>
+                                    <li><a href= "{% url 'portfolio4' %}">Boxed</a></li>
+                                    <li><a href= "{% url 'portfolio5' %}">Boxed 2</a></li>
+                                    <li><a href= "{% url 'portfolio6' %}">Sibebar filter 2</a></li>
+                                    <li><a href= "{% url 'portfolio7' %}">Parallax</a></li>
+                                    <li><a href= "{% url 'portfolio8' %}">Fullwidth 3</a></li>
+                                    <li><a href= "{% url 'portfolio9' %}">Fullwidth 4</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="about.html"  >About</a>
+                                <a href= "{% url 'about' %}"  >About</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="about-personal.html">Personal</a></li>
-                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href= "{% url 'about-personal' %}">Personal</a></li>
+                                    <li><a href= "{% url 'services' %}">Services</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="contact.html">Contacts </a>
+                                <a href= "{% url 'contact' %}">Contacts </a>
                             </li>
                             <li>
-                                <a href="shop.html" class="act-link">Shop</a>
+                                <a href= "{% url 'shop' %}" class="act-link">Shop</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="product-single.html">Product Single</a></li>
+                                    <li><a href= "{% url 'cart' %}">Cart</a></li>
+                                    <li><a href= "{% url 'product-single' %}">Product Single</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="blog.html">Journal</a>
+                                <a href= "{% url 'blog' %}">Journal</a>
                                 <!--second level end-->
                                 <ul>
-                                    <li><a href="blog-grid.html">Grid</a></li>
-                                    <li><a href="blog-masonry.html">Masonry</a></li>
-                                    <li><a href="blog-single.html">Post Single</a></li>
-                                    <li><a href="404.html">404</a></li>
+                                    <li><a href= "{% url 'blog-grid' %}">Grid</a></li>
+                                    <li><a href= "{% url 'blog-masonry' %}">Masonry</a></li>
+                                    <li><a href= "{% url 'blog-single' %}">Post Single</a></li>
+                                    <li><a href= "{% url '404' %}">404</a></li>
                                 </ul>
                                 <!--second level end-->
                             </li>
@@ -150,7 +152,7 @@
                     <div class="content">
                         <!--  section  --> 
                         <section class="parallax-section header-section" data-scrollax-parent="true">
-                            <div class="bg"  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay op1"></div>
                             <div class="container big-container">
                                 <div class="section-title">
@@ -173,7 +175,7 @@
                                         <li><a href="#">Furniture</a></li>
                                     </ul>
                                     <div class="pr-nav-list">
-                                        <a href="shop.html" class="btn float-btn flat-btn" target="_blank">Back to Shop</a>
+                                        <a href= "{% url 'shop' %}" class="btn float-btn flat-btn" target="_blank">Back to Shop</a>
                                     </div>
                                 </div>
                                 <!-- product container  -->
@@ -184,9 +186,9 @@
                                                 <div class="single-slider fl-wrap" data-effects="flip">
                                                     <div class="swiper-container">
                                                         <div class="swiper-wrapper">
-                                                            <div class="swiper-slide"><img src="images/shop/1.jpg" alt=""></div>
-                                                            <div class="swiper-slide"><img src="images/shop/1.jpg" alt=""></div>
-                                                            <div class="swiper-slide"><img src="images/shop/1.jpg" alt=""></div>
+                                                            <div class="swiper-slide"><img src= "{% static 'images/shop/1.jpg' %}" alt=""></div>
+                                                            <div class="swiper-slide"><img src= "{% static 'images/shop/1.jpg' %}" alt=""></div>
+                                                            <div class="swiper-slide"><img src= "{% static 'images/shop/1.jpg' %}" alt=""></div>
                                                         </div>
                                                         <div class="swiper-pagination"></div>
                                                         <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
@@ -316,11 +318,11 @@
                                     <!-- product item-->
                                     <div class="product-cat-mains">
                                         <div class="product-cat-img fl-wrap">
-                                            <img src="images/shop/1.jpg" alt="">
-                                            <a href="product-single.html">View</a>
+                                            <img src= "{% static 'images/shop/1.jpg' %}" alt="">
+                                            <a href= "{% url 'product-single' %}">View</a>
                                         </div>
                                         <div class="product-cat-title">
-                                            <h4><a href="product-single.html">Creative Circle</a></h4>
+                                            <h4><a href= "{% url 'product-single' %}">Creative Circle</a></h4>
                                             <div class="product-cats"><a href="#">Furniture</a></div>
                                             <span class="product-price">250$</span>	
                                         </div>
@@ -329,11 +331,11 @@
                                     <!-- product item-->
                                     <div class="product-cat-mains">
                                         <div class="product-cat-img fl-wrap">
-                                            <img src="images/shop/1.jpg" alt="">
-                                            <a href="product-single.html">View</a>
+                                            <img src= "{% static 'images/shop/1.jpg' %}" alt="">
+                                            <a href= "{% url 'product-single' %}">View</a>
                                         </div>
                                         <div class="product-cat-title">
-                                            <h4><a href="product-single.html">Creative Circle</a></h4>
+                                            <h4><a href= "{% url 'product-single' %}">Creative Circle</a></h4>
                                             <div class="product-cats"><a href="#">Furniture</a></div>
                                             <span class="product-price">250$</span>	
                                         </div>
@@ -342,11 +344,11 @@
                                     <!-- product item-->
                                     <div class="product-cat-mains">
                                         <div class="product-cat-img fl-wrap">
-                                            <img src="images/shop/1.jpg" alt="">
-                                            <a href="product-single.html">View</a>
+                                            <img src= "{% static 'images/shop/1.jpg' %}" alt="">
+                                            <a href= "{% url 'product-single' %}">View</a>
                                         </div>
                                         <div class="product-cat-title">
-                                            <h4><a href="product-single.html">Creative Circle</a></h4>
+                                            <h4><a href= "{% url 'product-single' %}">Creative Circle</a></h4>
                                             <div class="product-cats"><a href="#">Furniture</a></div>
                                             <span class="product-price">250$</span>	
                                         </div>
@@ -355,11 +357,11 @@
                                     <!-- product item-->
                                     <div class="product-cat-mains">
                                         <div class="product-cat-img fl-wrap">
-                                            <img src="images/shop/1.jpg" alt="">
-                                            <a href="product-single.html">View</a>
+                                            <img src= "{% static 'images/shop/1.jpg' %}" alt="">
+                                            <a href= "{% url 'product-single' %}">View</a>
                                         </div>
                                         <div class="product-cat-title">
-                                            <h4><a href="product-single.html">Creative Circle</a></h4>
+                                            <h4><a href= "{% url 'product-single' %}">Creative Circle</a></h4>
                                             <div class="product-cats"><a href="#">Furniture</a></div>
                                             <span class="product-price">250$</span>	
                                         </div>
@@ -379,7 +381,7 @@
                         <div class="footer-inner">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a class="footer-logo" href="index.html"><img src="images/logo.png" alt=""></a>
+                                    <a class="footer-logo" href= "{% url 'index' %}"><img src= "{% static 'images/logo.png' %}" alt=""></a>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="footer-header fl-wrap"><span>01.</span> Contacts</div>
@@ -424,31 +426,31 @@
                             <h3>Your cart</h3>
                             <ul class="cart-modal-list fl-wrap">
                                 <li>
-                                    <a class="cart-modal-image" href="product-single.html">
-                                    <img src="images/shop/1.jpg" alt="">
+                                    <a class="cart-modal-image" href= "{% url 'product-single' %}">
+                                    <img src= "{% static 'images/shop/1.jpg' %}" alt="">
                                     </a>
                                     <div class="cart-modal-det">
-                                        <a href="product-single.html">Amazing Lamp</a>
+                                        <a href= "{% url 'product-single' %}">Amazing Lamp</a>
                                         <div class="quantity"><span>1</span> x <span class="woocommerce-Price-amount">$560</span></div>
                                     </div>
                                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                                 </li>
                                 <li>
-                                    <a class="cart-modal-image" href="product-single.html">
-                                    <img src="images/shop/1.jpg" alt="">
+                                    <a class="cart-modal-image" href= "{% url 'product-single' %}">
+                                    <img src= "{% static 'images/shop/1.jpg' %}" alt="">
                                     </a>
                                     <div class="cart-modal-det">
-                                        <a href="product-single.html">Metal Wood Chair</a>
+                                        <a href= "{% url 'product-single' %}">Metal Wood Chair</a>
                                         <div class="quantity"><span>1</span> x <span class="woocommerce-Price-amount">$170</span></div>
                                     </div>
                                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
                                 </li>
                                 <li>
-                                    <a class="cart-modal-image" href="product-single.html">
-                                    <img src="images/shop/1.jpg" alt="">
+                                    <a class="cart-modal-image" href= "{% url 'product-single' %}">
+                                    <img src= "{% static 'images/shop/1.jpg' %}" alt="">
                                     </a>
                                     <div class="cart-modal-det">
-                                        <a href="product-single.html">White Sofa</a>
+                                        <a href= "{% url 'product-single' %}">White Sofa</a>
                                         <div class="quantity"><span>2</span> x <span class="woocommerce-Price-amount">$160</span></div>
                                     </div>
                                     <a href="#" class="remove"><i class="fa fa-times"></i></a>
@@ -501,8 +503,8 @@
         </div>
         <!-- Main end -->
         <!--=============== scripts  ===============-->        
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src= "{% static 'js/jquery.min.js' %}"></script>
+        <script type="text/javascript" src= "{% static 'js/plugins.js' %}"></script>
+        <script type="text/javascript" src= "{% static 'js/scripts.js' %}"></script>
     </body>
 </html>
