@@ -48,19 +48,52 @@
 
 
 {% load static %}
+{% load cart_template_tags %}
 
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
         <!--=============== basic  ===============-->
         <meta charset="UTF-8">
-        <title>CARAVAN</title>
+        <title>Car(avan.)</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="robots" content="index, follow"/>
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'icons/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'icons/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'icons/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'icons/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'icons/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'icons/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'icons/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'icons/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'icons/manifest.json' %}">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'icons/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+          integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
+
         <!--=============== css  ===============-->	
-          <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
         <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}"> 
         <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}"> 
         <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}"> 
@@ -69,6 +102,65 @@
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     </head>
     <body>
+    {% comment %} <div class="site-wrap">
+    <header class="site-navbar" role="banner">
+        <div class="site-navbar-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6 col-md-8 mb-3 mb-md-0 col-md-4 order-1 order-md-2">
+                        <div>
+                            <a href="{% url 'index' %}">
+                                <img class="img-fluid" src="{% static 'images/logo.png' %}" style="max-width: 150px;"/>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                        <div class="site-top-icons">
+                            <ul>
+                                <li>
+                                    {% if request.user.is_authenticated %}
+                                        <a href="{% url 'profile' %}"><span><i class="fas fa-user"></i></span></a>
+                                    {% else %}
+                                        <a href="{% url 'account_login' %}"><span><i
+                                                class="fas fa-sign-in-alt"></i></span></a>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    <a href="{% url 'cart:summary' %}" class="site-cart">
+                                        <span><i class="fas fa-shopping-cart"></i></span>
+                                        <span class="count">{{ request|cart_item_count }}</span>
+                                    </a>
+                                </li>
+                                <li class="d-inline-block d-md-none ml-md-0">
+                                    <a href="#" class="site-menu-toggle js-menu-toggle">
+                                        <span><i class="fas fa-bars"></i></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% include 'navbar.html' %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+                    <span class="alert-inner--text">{{ message }}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </header>
+</div>
+
+{% include 'scripts.html' %} {% endcomment %}
         <!-- loader -->
         <div class="loader">
             <div id="movingBallG">
@@ -86,7 +178,7 @@
                 <!-- logo end -->  
                 <!-- share button-->  
                 <div class="show-share-wrap">
-                    <div class="show-share"><span>SHARE</span><img src="{% static 'images/share.png' %}" alt=""></div>
+                    <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
                 </div>
                 <!-- share button end-->  		
                 <!-- search button--> 	 
@@ -104,8 +196,8 @@
                             <li>
                                 <a href="{% url 'index' %}" class="act-link">Home </a>
                                 <!--second level -->   
-                                <ul>
-                                    <li><a href="{% url 'index' %}">Slider</a></li>
+                                {% comment %} <ul>
+                                   <li><a href="{% url 'index' %}">Slider</a></li>
                                     <li><a href="{% url 'index2' %}">Image</a></li>
                                     <li><a href="{% url 'index3' %}">Video</a></li>
                                     <li><a href="{% url 'index4' %}">Slideshow</a></li>
@@ -124,13 +216,13 @@
                                         </ul>
                                         <!--third level end-->
                                     </li>									
-                                </ul>
+                                </ul> {% endcomment %}
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="{% url 'portfolio' %}">Portfolio</a>                           
-                                     <!--second level -->
-                                <ul>
+                                {% comment %} <a href="{% url 'portfolio' %}">Portfolio</a> {% endcomment %}
+                                <!--second level -->
+                                {% comment %} <ul>
                                     <li>
                                         <!--third level -->
                                         <a>Single</a>
@@ -152,7 +244,7 @@
                                     <li><a href="{% url 'portfolio7' %}">Parallax</a></li>
                                     <li><a href="{% url 'portfolio8' %}">Fullwidth 3</a></li>
                                     <li><a href="{% url 'portfolio9' %}">Fullwidth 4</a></li>
-                                </ul>
+                                </ul> {% endcomment %}
                                 <!--second level end-->
                             </li>
                             <li>
@@ -165,28 +257,49 @@
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="{% url 'contact_2' %}">Contacts </a>
+                                {% comment %} <a href="{% url 'contact_2' %}">Contacts </a> {% endcomment %}
                             </li>
                             <li>
-                                <a href="{% url 'shop' %}">Shop</a>
+                                <a href="{% url 'cart:product-list' %}">Caravans</a>
                                 <!--second level end-->
-                                <ul>
-                                    <li><a href="{% url 'cart' %}">Cart</a></li>
-                                    <li><a href="{% url 'product-single' %}">Product Single</a></li>
-                                </ul>
+                                {% comment %} <ul>
+                                    {% comment %} <li><a href="{% url 'cart' %}">Cart</a></li> {% endcomment %}
+                                    {% comment %} <li><a href="{% url 'product-single' %}">Product Single</a></li> 
+                                </ul> {% endcomment %}
                                 <!--second level end-->
                             </li>
                             <li>
-                                <a href="{% url 'blog' %}">Journal</a>
+                                {% comment %} <a href="{% url 'blog' %}">Journal</a> {% endcomment %}
                                 <!--second level end-->
-                                <ul>
+                                {% comment %} <ul>
                                     <li><a href="{% url 'blog-grid' %}">Grid</a></li>
                                     <li><a href="{% url 'blog-masonry' %}">Masonry</a></li>
                                     <li><a href="{% url 'blog-single' %}">Post Single</a></li>
                                     <li><a href="{% url '404' %}">404</a></li>
-                                </ul>
+                                </ul> {% endcomment %}
                                 <!--second level end-->
                             </li>
+
+                                <li>
+                                    {% if request.user.is_authenticated %}
+                                        <a href="{% url 'profile' %}"><span><i class="fas fa-user"></i></span></a>
+                                    {% else %}
+                                        <a href="{% url 'account_login' %}"><span><i
+                                                class="fas fa-sign-in-alt"></i></span></a>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    <a href="{% url 'cart:summary' %}" class="site-cart">
+                                        <span><i class="fas fa-shopping-cart"></i></span>
+                                        {% comment %} <span class="count">{{ request|cart_item_count }}</span> {% endcomment %}
+                                    </a>
+                                </li>
+                                <li class="d-inline-block d-md-none ml-md-0">
+                                    <a href="#" class="site-menu-toggle js-menu-toggle">
+                                        <span><i class="fas fa-bars"></i></span>
+                                    </a>
+                                </li>
+
                         </ul>
                     </nav>
                 </div>
@@ -197,108 +310,96 @@
             <div id="wrapper">
                 <!-- content-holder  -->
                 <div class="content-holder">
-                    <!-- home-slider  -->
-                    <div class="fs-gallery-wrap home-slider fl-wrap full-height" data-autoplayslider="5000">
-                        <div class="slide-progress-container">
-                            <div class="slide-progress-content">
-                                <div class="slide-progress-warp">
-                                    <div class="slide-progress"></div>
+                    <!--Content -->
+                    <div class="content full-height">
+                        <div class="slider-wrap homecarousel lightgallery lg-synk">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!-- swiper-slide-->  
+                                    <div class="swiper-slide">
+                                        {% comment %} <a href=class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a> {% endcomment %}
+                                        <img  src="{% static 'images/bg/1_try.png' %}"  alt="" style="width:1600px;height:852px;">
+                                        <div class="thumb-info">
+                                            <h3><a href="{% url 'portfolio-single' %}">Rent your dream <br>  car (avan.) </a></h3>
+                                            <p>A renting project designed by Alumnies</p>
+                                            {% comment %} <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a> {% endcomment %}
+                                        </div>
+                                    </div>
+                                    <!-- swiper-slide end-->  
+                                    <!-- swiper-slide-->  
+                                    {% comment %} <div class="swiper-slide">
+                                        <a href="{% static 'images/bg/1_try.png' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1_try.png' %}"   alt="">
+                                        <div class="thumb-info">
+                                            <h3><a href="{% url 'portfolio-single' %}">Alesia White <br>  House</a></h3>
+                                            <p>Here you can place an optional description of your  Project</p>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <!-- swiper-slide end-->
+                                    <!-- swiper-slide-->  
+                                    {% comment %} <div class="swiper-slide">
+                                        <a href="{% static 'images/bg/1_try.png' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1_try.png' %}"  alt="">
+                                        <div class="thumb-info">
+                                            <h3><a href="{% url 'portfolio-single' %}">White Walls <br>  Museum</a></h3>
+                                            <p>Here you can place an optional description of your  Project</p>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <!-- swiper-slide end-->
+                                    <!-- swiper-slide-->  
+                                    {% comment %} <div class="swiper-slide">
+                                        <a href="{% static 'images/bg/1_try.png' %}"  class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1_try.png' %}"    alt="">
+                                        <div class="thumb-info">
+                                            <h3><a href="{% url 'portfolio-single' %}">Pen Tower <br>  Centre</a></h3>
+                                            <p>Here you can place an optional description of your  Project</p>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <!-- swiper-slide end-->
+                                    <!-- swiper-slide-->  
+                                    {% comment %} <div class="swiper-slide">
+                                        <a href="{% static 'images/bg/1_try.png' %}"  class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1_try.png' %}"   alt="">
+                                        <div class="thumb-info">
+                                            <h3><a href="{% url 'portfolio-single' %}">Skin Tower <br>  Centre</a></h3>
+                                            <p>Here you can place an optional description of your  Project</p>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <!-- swiper-slide end-->
+                                    <!-- swiper-slide-->  
+                                    {% comment %} <div class="swiper-slide">
+                                        <a href="{% static 'images/bg/1_try.png' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1_try.png' %}"   alt="">
+                                        <div class="thumb-info">
+                                            <h3><a href="{% url 'portfolio-single' %}">Spire Edge <br>  House</a></h3>
+                                            <p>Here you can place an optional description of your  Project</p>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <!-- swiper-slide end-->
+                                    <!-- swiper-slide-->  
+                                    {% comment %} <div class="swiper-slide">
+                                        <a href="{% static 'images/bg/1_try.png' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
+                                        <img  src="{% static 'images/bg/1_try.png' %}"   alt="">
+                                        <div class="thumb-info">
+                                            <h3><a href="{% url 'portfolio-single' %}">One World <br>  Museum</a></h3>
+                                            <p>Here you can place an optional description of your  Project</p>
+                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
+                                        </div>
+                                    </div> {% endcomment %}
+                                    <!-- swiper-slide end-->
                                 </div>
+                                {% comment %} <div class="sw-button swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                                <div class="sw-button swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                                <div class="swiper-scrollbar"></div> {% endcomment %}
                             </div>
-                        </div>
-                        <div class="swiper-container" data-scrollax-parent="true" >
-                            <div class="swiper-wrapper"  >
-                                <!-- swiper-slide-->
-                                <div class="swiper-slide">
-                                    <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '250px' }" ></div>
-                                    <a href="{% static 'images/bg/1.jpg' %}" class="  gallery-popup image-popup"><i class="fa fa-search"  ></i></a>
-                                    <div class="overlay"></div>
-                                    <!-- hero-wrap-->           
-                                    <div class="hero-wrap alt">
-                                        <div class="container">
-                                            <div class="hero-item">
-                                            	<h3>predefined chunks</h3>
-                                                <h2>Balkon Architecture <br> Studio</h2>
-                                                <div class="clearfix"></div>
-                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary .</p>
-                                                <div class="clearfix"></div>
-                                                <a href="{% url 'portfolio' %}" class="btn float-btn flat-btn">Our portfolio</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- hero-wrap end-->   
-                                </div>
-                                <!-- swiper-slide end-->
-                                <!-- swiper-slide-->
-                                <div class="swiper-slide">
-                                    <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '250px' }" ></div>
-                                    <a href="{% static 'images/bg/1.jpg' %}" class="gallery-popup image-popup"><i class="fa fa-search"  ></i></a>
-                                    <div class="overlay"></div>
-                                    <!-- hero-wrap-->           
-                                    <div class="hero-wrap alt">
-                                        <div class="container">
-                                            <div class="hero-item">
-                                            	<h3>molestie faucibus</h3>                                            
-                                                <h2> Architecture Project<br> Title</h2>
-                                                <div class="clearfix"></div>
-                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary .</p>
-                                                <div class="clearfix"></div>
-                                                <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- hero-wrap end-->   
-                                </div>
-                                <!-- swiper-slide end-->
-                                <!-- swiper-slide-->
-                                <div class="swiper-slide">
-                                    <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '250px' }" ></div>
-                                    <a href="{% static 'images/bg/1.jpg' %}" class="  gallery-popup image-popup"><i class="fa fa-search"  ></i></a>
-                                    <div class="overlay"></div>
-                                    <!-- hero-wrap-->           
-                                    <div class="hero-wrap alt">
-                                        <div class="container">
-                                            <div class="hero-item">
-                                            	<h3>tend to repeat</h3>                                            
-                                                <h2> Interior <br> Project Title</h2>
-                                                <div class="clearfix"></div>
-                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary .</p>
-                                                <div class="clearfix"></div>
-                                                <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- hero-wrap end-->   
-                                </div>
-                                <!-- swiper-slide end-->
-                                <!-- swiper-slide-->
-                                <div class="swiper-slide">
-                                    <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '250px' }" ></div>
-                                    <a href="{% static 'images/bg/1.jpg' %}" class="gallery-popup image-popup"><i class="fa fa-search"  ></i></a>
-                                    <div class="overlay"></div>
-                                    <!-- hero-wrap-->           
-                                    <div class="hero-wrap alt">
-                                        <div class="container">
-                                            <div class="hero-item">
-                                            	<h3>Cras lacinia magna</h3>                                              
-                                                <h2> Our services <br> What we do</h2>
-                                                <div class="clearfix"></div>
-                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary .</p>
-                                                <div class="clearfix"></div>
-                                                <a href="{% url 'services' %}" class="btn float-btn flat-btn">Our Services</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- hero-wrap end-->   
-                                </div>
-                                <!-- swiper-slide end-->
-                            </div>
-                            <div class="sw-button swiper-button-next"><i class="fa fa-angle-right"></i></div>
-                            <div class="sw-button swiper-button-prev"><i class="fa fa-angle-left"></i></div>
-                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
-                    <!-- home-slider end-->
+                    <!-- content  end -->  
                     <!--content-->	 
                     <div class="content">
                         <!--section -->	
@@ -308,22 +409,21 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="content-wrap about-wrap">
-                                                <h3 class="bold-title">Welcome !  We are Balkon .  <br>   Architecture Studio <br> From NY</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.  
-                                                    Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.
+                                                <h3 class="bold-title">Welcome !  We are Car(avan.) .  <br>   A caravan renting service <br> From Istanbul</h3>
+                                                <p> Peer-to-Peer service between caravan owners and lovers!
                                                 </p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit.  
+                                                <p>
                                                 </p>
                                                 <br><br>
-                                                <h3 class="bold-title">What we do</h3>
+                                                {% comment %} <h3 class="bold-title">What we do</h3>
                                                 <div class="pr-tags fl-wrap">
                                                     <span>Services : </span>
-                                                    <ul>
-                                                        <li><a href="#">Architecture</a></li>
+                                                    
+                                                        <li><a href="#">Caravan renting</a></li>
                                                         <li><a href="#">Design</a></li>
                                                         <li><a href="#">Photography</a></li>
-                                                    </ul>
-                                                </div>
+                                                    </ul> 
+                                                </div> {% endcomment %}
                                                 <span class="bold-separator"></span>
                                                 <div class="clearfix"></div>
                                                 <a href="{% url 'portfolio' %}" class="btn float-btn flat-btn">Our portfolio</a>
@@ -331,9 +431,9 @@
                                         </div>
                                         <div class="col-md-5">
                                             <div class="box-item">
-                                                <img  src="{% static 'images/folio/1.jpg' %}"  class="respimg" alt="">
+                                                <img  src="{% static 'images/folio/holidays.png' %}"  class="respimg" alt="">
                                                 <div class="overlay"></div>
-                                                <a href="{% static 'images/folio/1.jpg' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
+                                                <a href="{% static 'images/folio/holidays.png' %}" class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -343,8 +443,8 @@
                         </section>
                         <!--section end  -->	
                         <!--section -->	
-                        <section  >
-                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}"></div>
+                        {% comment %} <section  >
+                            <div class="bg"  data-bg="{% static 'images/bg/11.jpg' %}"></div>
                             <div class="overlay"></div>
                             <div class="container">
                                 <div class="intro-text fl-wrap">
@@ -353,10 +453,10 @@
                                     <a href="{% url 'contact_2' %}" class="btn float-btn flat-btn">Get in Touch</a>
                                 </div>
                             </div>
-                        </section>
+                        </section> {% endcomment %}
                         <!--section end  -->	
                         <!--section -->	                             	 
-                        <section >
+                        {% comment %} <section >
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -399,7 +499,7 @@
                                                     <li><a href="#">Architecture </a></li>
                                                 </ul>
                                             </div>
-                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
+                                            <img  src="{% static 'images/folio/holidays.png' %}"  alt="">
                                             <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
                                                 <h3><a href="{% url 'portfolio-single' %}">New Acropolis Museum</a></h3>
                                                 <h4>There are many variations of passages of Lorem Ipsum</h4>
@@ -421,11 +521,11 @@
                                                     <li><a href="#">Architecture </a></li>
                                                 </ul>
                                             </div>
-                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
+                                            <img  src="{% static 'images/folio/holidays.png' %}"   alt="">
                                             <div class="parallax-text left-pos" data-scrollax="properties: { translateY: '-250px' }">
                                                 <h3><a href="{% url 'portfolio-single' %}">Theatre de Stoep</a></h3>
                                                 <h4>There are many variations of passages of Lorem Ipsum</h4>
-                                                <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View project</a>
+                                                <a href="{% url 'portfolio-single' %}"  class="btn float-btn flat-btn">View project</a>
                                             </div>
                                         </div>
                                     </div>
@@ -442,11 +542,11 @@
                                                     <li><a href="#">Architecture </a></li>
                                                 </ul>
                                             </div>
-                                            <img  src="{% static 'images/folio/1.jpg' %}"   alt="">
+                                            <img  src="{% static 'images/folio/holidays.png' %}" alt="">
                                             <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
-                                                <h3><a href="{% url 'portfolio-single' %}">New Acropolis Museum</a></h3>
+                                                <h3><a href="{% url 'portfolio-single' %}" >New Acropolis Museum</a></h3>
                                                 <h4>There are many variations of passages of Lorem Ipsum</h4>
-                                                <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View project</a>
+                                                <a href="{% url 'portfolio-single' %}"  class="btn float-btn flat-btn">View project</a>
                                             </div>
                                         </div>
                                     </div>
@@ -454,11 +554,11 @@
                                 <!--parallax-item end-->	                       
                             </div>
                             <div class="partcile-dec" data-parcount="250"></div>
-                        </section>
+                        </section> {% endcomment %}
                         <!--section end  -->	
                         <!--section -->	
                         <section class="parallax-section header-section  " data-scrollax-parent="true" id="sec6">
-                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/folio/media.png' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay"></div>
                             <div class="container">
                                 <div class="row">
@@ -510,7 +610,7 @@
                         </section>
                         <!--section end  -->	
                         <!--section -->	
-                        <section>
+                        {% comment %} <section>
                             <div class="container">
                                 <div class="clients-list fl-wrap">
                                     <ul>
@@ -522,10 +622,10 @@
                                     </ul>
                                 </div>
                             </div>
-                        </section>
+                        </section> {% endcomment %}
                         <!--section end  -->	
                         <!--social-wrap -->	  
-                        <div class="social-wrap fl-wrap">
+                        {% comment %} <div class="social-wrap fl-wrap">
                             <ul>
                                 <li><a href="#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
@@ -533,7 +633,7 @@
                                 <li><a href="#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
                                 <li><a href="#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
                             </ul>
-                        </div>
+                        </div> {% endcomment %}
                         <!--social-wrap end-->	
                     </div>
                     <!-- content  end --> 
@@ -543,20 +643,20 @@
                         <div class="footer-inner">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a class="footer-logo" href= "{% url 'index' %}"><img src="{% static 'images/logo.jpg' %}" alt=""></a>
+                                    <a class="footer-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="footer-header fl-wrap"><span>01.</span> Contacts</div>
+                                    <div class="footer-header fl-wrap"><span>01. Contacts</span></div>
                                     <div class="footer-box fl-wrap">
                                         <ul>
-                                            <li><span>Mail :</span><a href="#" target="_blank">yourmail@domain.com</a></li>
-                                            <li> <span>Adress :</span><a href="#" target="_blank">USA 27TH Brooklyn NY</a></li>
-                                            <li><span>Phone :</span><a href="#">+7(111)123456789</a></li>
+                                            <li><span>Mail :</span><a href="#" target="_blank">sudegonul@caravan.com</a></li>
+                                            <li> <span>Adress :</span><a href="#" target="_blank">Istanbul, Turkey</a></li>
+                                            <li><span>Phone :</span><a href="#">+9 (539) 558 17 84</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
-                                    <div class="footer-header fl-wrap"><span>02.</span> Subscribe</div>
+                                    <div class="footer-header fl-wrap"><span>02. Subscribe</span></div>
                                     <div class="footer-box fl-wrap">
                                         <div class="subcribe-form fl-wrap">
                                             <span>Newsletter</span>
@@ -573,7 +673,7 @@
                                 <div class="col-md-3"></div>
                                 <div class="col-md-9">
                                     <div class="fl-wrap policy-box">
-                                        <p> &#169; Balkon   2017.  All rights reserved.  </p>
+                                        <p> &#169; Caravan   2020.  All rights reserved.  </p>
                                     </div>
                                 </div>
                             </div>
@@ -606,14 +706,13 @@
             <!-- Share container  end-->
             <!-- footer -->
             <footer class="main-footer">
-                <div class="fixed-title"><span>Home Slider</span></div>
                 <div class="footer-social">
                     <ul>
-                        <li><a href="#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
+                        <li><a href="https://www.facebook.com/anilyavuuz" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                        {% comment %} <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li> {% endcomment %}
+                        <li><a href="https://www.instagram.com/sudeeg/" target="_blank" ><i class="fa fa-instagram"></i></a></li>
+                        {% comment %} <li><a href="#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" target="_blank" ><i class="fa fa-tumblr"></i></a></li> {% endcomment %}
                     </ul>
                 </div>
             </footer>
