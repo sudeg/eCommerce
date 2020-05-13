@@ -1,5 +1,6 @@
 from django import forms
 from cart.models import Product
+from core.models import Designer
 
 
 class ContactForm(forms.Form):
@@ -24,4 +25,15 @@ class ProductForm(forms.ModelForm):
             'price',
             'available_colours',
             'available_sizes',
+        ]
+
+
+class DesignerForm(forms.ModelForm):
+    class Meta:
+        model = Designer
+        fields = [
+            'brand',
+            'image',
+            'description',
+
         ]

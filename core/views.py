@@ -2,10 +2,12 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
-from django.shortcuts import reverse
+from django.shortcuts import reverse, render, redirect
 from django.views import generic
 from cart.models import Order, Product
-from .forms import ContactForm, ProductForm
+from core.models import Designer
+from .forms import ContactForm, ProductForm, DesignerForm
+from django.http import HttpResponse
 
 
 class ProfileView(LoginRequiredMixin, generic.TemplateView):
@@ -17,6 +19,26 @@ class ProfileView(LoginRequiredMixin, generic.TemplateView):
             "orders": Order.objects.filter(user=self.request.user, ordered=True)
         })
         return context
+
+
+class DesignerListView(LoginRequiredMixin, generic.ListView):
+    template_name = 'core/designer_list.html'
+    queryset = Designer.objects.all()
+    paginate_by = 20
+    context_object_name = 'designers'
+
+
+# class BecomeDesignerView(LoginRequiredMixin, generic.TemplateView):
+
+def BecomeDesignerView(request):
+    form = DesignerForm(request.POST or None)
+    if form.is_valid():
+        print(form.cleaned_data)
+        form.save()
+        return redirect('core/designer_list.html')
+    # bu sayede bütün alanları html de yazmak yerine hepsi sırayla geliyor
+    context = {"form": form}
+    return render(request, "core/designer_create.html", context)
 
 
 class HomeView(generic.TemplateView):
@@ -117,7 +139,6 @@ class PortfolioSingle2View(generic.TemplateView):
 
 class PortfolioSingle3View(generic.TemplateView):
     template_name = 'portfolio-single3.html'
-
 
 
 class PortfolioSingle4View(generic.TemplateView):

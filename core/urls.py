@@ -14,6 +14,8 @@ urlpatterns = [
     path('caravans/<pk>/delete/',
          views.CaravanDeleteView.as_view(), name='caravan-delete'),
 
-
+    path('designers/', views.DesignerListView.as_view(), name='designer-list'),
+    path('createDesigner/', views.BecomeDesignerView,
+         name='designer-create'),
 
 ]
