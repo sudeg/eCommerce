@@ -1,6 +1,3 @@
-# Django Simple E-commerce
+ECommerce website designed by Sude Gönül and Anıl Yavuz. 
 
-This is a simple E-commerce website built with Django. It contains all the essentials for adding products and capturing payments
-online.
-
-This project is part of a course on [https://learn.justdjango.com](JustDjango).
+Inspired by justDjango
