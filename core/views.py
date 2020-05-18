@@ -30,15 +30,16 @@ class DesignerListView(LoginRequiredMixin, generic.ListView):
 
 # class BecomeDesignerView(LoginRequiredMixin, generic.TemplateView):
 
-def BecomeDesignerView(request):
-    form = DesignerForm(request.POST or None)
-    if form.is_valid():
-        print(form.cleaned_data)
+class BecomeDesignerView(LoginRequiredMixin, generic.CreateView):
+    template_name = 'core/designer_create.html'
+    form_class = DesignerForm
+
+    def get_success_url(self):
+        return reverse("core:designer-list")
+
+    def form_valid(self, form):
         form.save()
-        return redirect('core/designer_list.html')
-    # bu sayede bütün alanları html de yazmak yerine hepsi sırayla geliyor
-    context = {"form": form}
-    return render(request, "core/designer_create.html", context)
+        return super(BecomeDesignerView, self).form_valid(form)
 
 
 class HomeView(generic.TemplateView):

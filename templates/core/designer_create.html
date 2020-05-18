@@ -1,3 +1,27 @@
+{% comment %} {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="site-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <a href="{% url 'core:designer-list' %}">Go back to designer</a>
+                <hr />
+                <h4>Create a designer</a>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type='submit' class='btn btn-primary'>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} {% endcomment %}
+
+
 {% comment %}
 {% extends "base.html" %}
 {% block content %}
@@ -60,6 +84,7 @@
 {% load crispy_forms_tags %}
 {% load cart_template_tags %}
 
+ {% block content %}
 
 
 <!DOCTYPE HTML>
@@ -314,12 +339,35 @@
                                         <div class="middlebox">
                                             <div class="container">
 
-                                                <form method="POST">
-                                                    {% csrf_token %}
-                                                    {{ form.as_p }}
-                                                    <button class="btn btn-primary" type='submit'>Submit</button>
+                                                
 
-                                                </form>
+
+
+
+                                                    <div class="site-section">
+                                                        <div class="container">
+                                                            <div class="row justify-content-center">
+                                                                <div class="col-md-12">
+                                                                    <a href="{% url 'core:designer-list' %}">Go back to
+                                                                        designer</a>
+                                                                    <hr />
+                                                                    <h4>Create a designer</a>
+                                                                        <form method="POST"
+                                                                            enctype="multipart/form-data">
+                                                                            {% csrf_token %}
+                                                                            {{ form|crispy }}
+                                                                            <button type='submit'
+                                                                                class='btn btn-primary'>Submit</button>
+                                                                        </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                          
+
+
+
+                                              
                                             </div>
 
                                         </div>
@@ -341,18 +389,7 @@
             </div>
         </div>
 
-        <div class="payment noshow">
-        </div>
 
-        <div class="subscription noshow">
-
-        </div>
-
-        <div class="privacy noshow">
-
-        </div>
-        <div class="settings noshow">
-        </div>
 
     </div>
     </div>
@@ -383,3 +420,6 @@
 
 
 </html>
+
+
+          {% endblock content %}

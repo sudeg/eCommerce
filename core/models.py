@@ -10,6 +10,7 @@ User = get_user_model()
 
 class Designer(models.Model):
     brand = models.CharField(max_length=150)
+    slug = models.SlugField(unique=True)
     image = models.ImageField(
         upload_to='product_images', null=True, default=True)
     description = models.TextField()
@@ -21,14 +22,10 @@ class Designer(models.Model):
     def __str__(self):
         return self.brand
 
-    # def get_absolute_url(self):
-    #     return reverse("cart:product-detail", kwargs={'slug': self.slug})
 
-    # def get_update_url(self):
-    #     return reverse("staff:product-update", kwargs={'pk': self.pk})
+def pre_save_designer_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.brand)
 
-    # def get_delete_url(self):
-    #     return reverse("staff:product-delete", kwargs={'pk': self.pk})
 
-    # def get_price(self):
-    #     return "{:.2f}".format(self.price / 100)
+pre_save.connect(pre_save_designer_receiver, sender=Designer)

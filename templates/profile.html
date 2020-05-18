@@ -59,7 +59,7 @@
 {% load static %}
 {% load cart_template_tags %}
 
-
+{% block content%}
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -308,7 +308,8 @@
                                     <div class="site-blocks-table">
 
 
-
+                                        <a href="{% url 'account_logout' %}">
+                                            <small class="float-right">Logout</small></a>
 
 
                                         <div class="middlebox">
@@ -347,6 +348,12 @@
                                                         <div class="wrap">
                                                             <a class="btn-9" href="#"><span>Personal Printers</span></a>
                                                         </div>
+
+                                                        <div class="wrap">
+                                                            <a class="btn-9"
+                                                                href="{% url 'account_logout' %}"><span>log out</span></a>
+
+
                                             </div>
 
 
@@ -402,3 +409,5 @@
 
 
 </html>
+
+{% endblock%}

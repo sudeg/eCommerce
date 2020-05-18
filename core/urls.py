@@ -15,7 +15,7 @@ urlpatterns = [
          views.CaravanDeleteView.as_view(), name='caravan-delete'),
 
     path('designers/', views.DesignerListView.as_view(), name='designer-list'),
-    path('createDesigner/', views.BecomeDesignerView,
+    path('designer_create/', views.BecomeDesignerView.as_view(),
          name='designer-create'),
 
 ]
