@@ -281,13 +281,11 @@
 
                 <div class="leftbox">
                     <nav>
-                        <a id="profile" href="{% url 'profile' %}" ><i class="fa fa-user"></i></a>
+                        <a id="profile" href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
                         <a id="payment" href="{% url 'core:designer-list' %}" class="active"><i
                                 class="fas fa-palette"></i></a>
-                        <a id="payment" href="{% url 'core:caravan-list' %}"><i
-                                class="fas fa-suitcase"></i></a>
-                        <a id="payment" href="{% url 'core:caravan-list' %}"><i
-                                class="fas fa-cogs"></i></a>
+                        <a id="payment" href="{% url 'core:caravan-list' %}"><i class="fas fa-suitcase"></i></a>
+                        <a id="payment" href="{% url 'core:caravan-list' %}"><i class="fas fa-cogs"></i></a>
                     </nav>
                 </div>
                 <div class="rightbox">
@@ -310,36 +308,115 @@
                                     <div class="site-blocks-table">
 
 
- 
+
                                         <div class="middlebox">
 
-                                              {% if request.designer.user == "" %} 
 
-                                                    <div class="container">
-                                                      <br>
-                                                      <br>
-                                                       <br>
-                                                    
-                                                        <p class="again">You don't have any designs yet. Let's fix that...
-                                                       
-                                                            <div class="wrap">
-                                                            <a class="btn-9"
-                                                                href="{% url 'core:designer-create' %}">
-                                                                <span>BECOME A DESIGNER</span></a>
+
+
+
+
+
+                                            <div class="container">
+                                                <br>
+                                                <br>
+                                                <p class="again">
+
+                                                    {% for designer in designers %}
+
+                                                    {% if designer.email == request.user.email %}
+
+                                                    <div class="card-body">
+                                                        <div class="site-blocks-table">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Title.</th>
+                                                                        <th>Price</th>
+                                                                        <th>Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>{{ designer.brand }}</td>
+                                                                        <td>${{ designer.email }}</td>
+                                                                        <td>
+                                                                            <a
+                                                                                href="#">Update</a>
+                                                                            <a tabindex="0"
+                                                                                class="btn btn-sm btn-primary"
+                                                                                role='button' data-html='true'
+                                                                                data-toggle='popover'
+                                                                                data-trigger='focus'
+                                                                                title='Are you sure you want to delete this product?'
+                                                                                data-content="<a href='#'>Confirm</a>">
+                                                                                X
+                                                                            </a>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="3">You don't have any products</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        {% if page_obj.has_other_pages %}
+                                                        <div class="row">
+                                                            <div class="col-md-12 text-center">
+                                                                <div class="site-block-27">
+                                                                    <ul>
+                                                                        {% if page_obj.has_previous %}
+                                                                        <li><a
+                                                                                href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                                                                        </li>
+                                                                        {% else %}
+                                                                        <li class='disabled'><span>&laquo;</span></li>
+                                                                        {% endif %}
+
+                                                                        {% for i in paginator.page_range %}
+                                                                        {% if page_obj.number == i %}
+                                                                        <li class='active'>
+                                                                            <span>
+                                                                                {{ i }}
+                                                                                <span class='sr-only'>(current)</span>
+                                                                            </span>
+                                                                        </li>
+                                                                        {% else %}
+                                                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                                        {% endif %}
+                                                                        {% endfor %}
+
+                                                                        {% if page_obj.has_next %}
+                                                                        <li><a
+                                                                                href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                                                                        </li>
+                                                                        {% else %}
+                                                                        <li class='disabled'><span>&raquo;</span></li>
+                                                                        {% endif %}
+                                                                    </ul>
+                                                                </div>
                                                             </div>
-                                                        </p>
+                                                        </div>
+                                                        {% endif %}
 
                                                     </div>
 
-                                                                    
-                                               {%else%}
+
+                                                    {% endif %}
 
 
+                                                    {% endfor %}
 
+                                                    <div class="wrap">
+                                                        <a class="btn-9" href="{% url 'core:designer-create' %}">
+                                                            <span>Add a Design</span></a>
+                                                    </div>
+                                                </p>
 
-                                                                    <h1>else</h1>
+                                            </div>
 
-                                            {% endif %}
 
 
 

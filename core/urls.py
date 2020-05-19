@@ -18,4 +18,10 @@ urlpatterns = [
     path('designer_create/', views.BecomeDesignerView.as_view(),
          name='designer-create'),
 
+
+    path('printerOwners/', views.PrinterOwnerListView.as_view(),
+         name='printerOwner-list'),
+    path('printerOwner_create/', views.BecomeOwnerView.as_view(),
+         name='printerOwner-create'),
+
 ]

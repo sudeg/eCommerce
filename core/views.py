@@ -6,7 +6,7 @@ from django.shortcuts import reverse, render, redirect
 from django.views import generic
 from cart.models import Order, Product
 from core.models import Designer
-from .forms import ContactForm, ProductForm, DesignerForm
+from .forms import ContactForm, ProductForm, DesignerForm, PrinterOwnerForm
 from django.http import HttpResponse
 
 
@@ -40,6 +40,29 @@ class BecomeDesignerView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.save()
         return super(BecomeDesignerView, self).form_valid(form)
+
+
+class PrinterOwnerListView(LoginRequiredMixin, generic.ListView):
+    template_name = 'core/printerOwner_list.html'
+    queryset = Designer.objects.all()
+    paginate_by = 20
+    context_object_name = 'printerOwner'
+
+
+class BecomeOwnerView(LoginRequiredMixin, generic.CreateView):
+    template_name = 'core/printerOwner_create.html'
+    form_class = PrinterOwnerForm
+
+    def get_success_url(self):
+        return reverse("core:printerOwner-list")
+
+    def form_valid(self, form):
+        form.save()
+        return super(BecomeOwnerView, self).form_valid(form)
+
+
+class FirstPage(generic.TemplateView):
+    template_name = 'index_hex.html'
 
 
 class HomeView(generic.TemplateView):
