@@ -21,7 +21,10 @@ urlpatterns = [
 
     path('printerOwners/', views.PrinterOwnerListView.as_view(),
          name='printerOwner-list'),
-    path('printerOwner_create/', views.BecomeOwnerView.as_view(),
-         name='printerOwner-create'),
+    path('personalDimensionalPrinters/', views.PersonalDimensionalPrinterListView.as_view(),
+         name='personalDimensionalPrinters-list'),
+    path('dimensionalPrinters_create/', views.CreatePersonalDimensionalPrinterView.as_view(),
+         name='dimensionalPrinters-create'),
+
 
 ]

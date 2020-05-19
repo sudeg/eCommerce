@@ -5,8 +5,8 @@ from django.core.mail import send_mail
 from django.shortcuts import reverse, render, redirect
 from django.views import generic
 from cart.models import Order, Product
-from core.models import Designer
-from .forms import ContactForm, ProductForm, DesignerForm, PrinterOwnerForm
+from core.models import Designer, PrinterOwner, DimensionalPrinter
+from .forms import ContactForm, ProductForm, DesignerForm, PrinterOwnerForm, DimensionalPrinterForm
 from django.http import HttpResponse
 
 
@@ -59,6 +59,25 @@ class BecomeOwnerView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.save()
         return super(BecomeOwnerView, self).form_valid(form)
+
+
+class PersonalDimensionalPrinterListView(LoginRequiredMixin, generic.ListView):
+    template_name = 'core/personalDimensionalPrinters.html'
+    queryset = DimensionalPrinter.objects.all()
+    paginate_by = 20
+    context_object_name = 'dimensionalPrinters'
+
+
+class CreatePersonalDimensionalPrinterView(LoginRequiredMixin, generic.CreateView):
+    template_name = 'core/dimensionalPrinters_create.html'
+    form_class = DimensionalPrinterForm
+
+    def get_success_url(self):
+        return reverse("core:personalDimensionalPrinters-list")
+
+    def form_valid(self, form):
+        form.save()
+        return super(CreatePersonalDimensionalPrinterView, self).form_valid(form)
 
 
 class FirstPage(generic.TemplateView):

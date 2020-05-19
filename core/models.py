@@ -54,3 +54,23 @@ def pre_save_PrinterOwner_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_PrinterOwner_receiver, sender=PrinterOwner)
+
+
+class DimensionalPrinter(models.Model):
+    title = models.CharField(max_length=150)
+    brand = models.CharField(max_length=150)
+    image = models.ImageField(
+        upload_to='product_images', null=True, default=True)
+    description = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    price = models.IntegerField(default=0)
+    email = models.EmailField(max_length=150, default=True, null=True)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.brand
+
+    def get_price(self):
+        return "{:.2f}".format(self.price / 100)

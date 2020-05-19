@@ -366,7 +366,7 @@ a {
 }
 
 .btn-1-2 {
-  color: #4b744d;
+  color: #7ed386;
 }
 
 .btn-1-2:before,
@@ -377,7 +377,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  border-bottom: 80px solid #1a371c;
+  border-bottom: 80px solid #7ed386;
 }
 
 .btn-1-2:before {
@@ -460,8 +460,8 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  border-top: 40px solid #2f5834;
-  border-bottom: 40px solid #2f5834;
+  border-top: 40px solid #7ed386;
+  border-bottom: 40px solid #7ed386;
 }
 
 .btn-3:before {
@@ -491,7 +491,7 @@ a {
 }
 
 .btn-4 {
-  color: #59bdad;
+  color: #7ed386;
 }
 
 .btn-4:before,
@@ -504,7 +504,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #246a5f;
+  background-color: #7ed386;
 }
 
 .btn-4:before {
