@@ -74,3 +74,23 @@ class DimensionalPrinter(models.Model):
 
     def get_price(self):
         return "{:.2f}".format(self.price / 100)
+
+    def get_update_url(self):
+        return reverse("core:dimensionalPrinters-update", kwargs={'pk': self.pk})
+
+    def get_delete_url(self):
+        return reverse("core:dimensionalPrinters-delete", kwargs={'pk': self.pk})
+
+
+class PersonalInfo(models.Model):
+    age = models.IntegerField(default=0)
+    image = models.ImageField(
+        upload_to='product_images', null=True, default=True)
+    info = models.TextField(null=True, default=True)
+    fullName = models.TextField(null=True, default=True)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True)
+    email = models.EmailField(max_length=150, default=True, null=True)
+
+    def __str__(self):
+        return self.fullName

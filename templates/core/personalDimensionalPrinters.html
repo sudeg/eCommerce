@@ -113,10 +113,7 @@
 
                         </li>
 
-                        <li>
-                            <a href="{% url 'cart:product-list' %}">DESIGNS</a>
 
-                        </li>
                         <li>
                             <a href="#">PRINTERS</a>
 
@@ -159,9 +156,9 @@
                 <div class="leftbox">
                     <nav>
                         <a id="profile" href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
-                        <a id="payment" href="{% url 'core:designer-list' %}" class="active"><i
+                        <a id="payment" href="{% url 'core:designer-list' %}"><i
                                 class="fas fa-palette"></i></a>
-                        <a id="payment" href="{% url 'core:personalDimensionalPrinters-list' %}"><i
+                        <a id="payment" href="{% url 'core:personalDimensionalPrinters-list' %}" class="active"><i
                                 class="fas fa-cubes"></i></a>
                         <a id="payment" href="{% url 'core:caravan-list' %}"><i class="fas fa-cogs"></i></a>
                     </nav>
@@ -180,10 +177,7 @@
                                         <div class="container">
                                             <div class="row justify-content-center">
                                                 <div class="col-md-12">
-                                                    <h2 class="text-black">3d Printers</h2>
-                                                    <a class="btn-3"
-                                                        href="{% url 'core:dimensionalPrinters-create' %}"><span> Add 3D
-                                                            printer </span></a>
+
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="site-blocks-table">
@@ -198,7 +192,7 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         {% for dimensionalPrinter in dimensionalPrinters %}
-                                                                         {% if dimensionalPrinter.email == request.user.email %}
+                                                                        {% if dimensionalPrinter.email == request.user.email %}
                                                                         <tr>
                                                                             <td>
                                                                                 <img src="{{ dimensionalPrinter.image.url }}"
@@ -210,14 +204,14 @@
                                                                             </td>
                                                                             <td>
                                                                                 <a
-                                                                                    href="#">Update</a>
+                                                                                    href="{{ dimensionalPrinter.get_update_url }}">Update</a>
                                                                                 <a tabindex="0"
                                                                                     class="btn btn-sm btn-primary"
                                                                                     role='button' data-html='true'
                                                                                     data-toggle='popover'
                                                                                     data-trigger='focus'
-                                                                                    title='Are you sure you want to delete this product?'
-                                                                                    data-content="<a href='#'>Confirm</a>">
+                                                                                    title='Are you sure you want to delete this printer?'
+                                                                                    data-content="<a href='{{ dimensionalPrinter.get_delete_url }}'>Confirm</a>">
                                                                                     X
                                                                                 </a>
 
@@ -230,7 +224,7 @@
                                                                             <td colspan="3">You don't have any
                                                                                 printers</td>
                                                                         </tr>
-                                                                        
+
                                                                         {% endfor %}
                                                                     </tbody>
                                                                 </table>
@@ -280,6 +274,10 @@
                                                             {% endif %}
 
                                                         </div>
+                                                        <a class="btn-3"
+                                                            href="{% url 'core:dimensionalPrinters-create' %}"><span>
+                                                                Add 3D
+                                                                printer </span></a>
                                                     </div>
                                                 </div>
                                             </div>

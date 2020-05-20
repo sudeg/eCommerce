@@ -1,5 +1,6 @@
 {% load static %}
 {% load cart_template_tags %}
+{% load crispy_forms_tags %}
 
 {% block content%}
 <!DOCTYPE HTML>
@@ -160,11 +161,12 @@
 
                 <div class="leftbox">
                     <nav>
-                        <a id="profile" href="{% url 'profile' %}" class="active"><i class="fa fa-user"></i></a>
-                        <a id="payment" href="{% url 'core:designer-list' %}"><i class="fas fa-palette"></i></a>
+                        <a id="profile" href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
+                        <a id="payment" href="{% url 'core:designer-list' %}" ><i
+                                class="fas fa-palette"></i></a>
                         <a id="payment" href="{% url 'core:personalDimensionalPrinters-list' %}"><i
-                                class="fas fa-cubes fa-sm"></i></a>
-                        <a id="payment" href="{% url 'core:personalInfo-update' %}"><i class="fas fa-cogs"></i></a>
+                                class="fas fa-cubes"></i></a>
+                        <a id="payment" href="{% url 'core:personalInfo-update' %}" class="active"><i class="fas fa-cogs"></i></a>
                     </nav>
                 </div>
                 <div class="rightbox">
@@ -173,113 +175,37 @@
 
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
-
+                                    <a href="{% url 'core:profile' %}">Go back to profile</a>
                                     <hr />
-                                    <div class="site-blocks-table">
-
-
-                                        <a href="{% url 'account_logout' %}">
-                                            <small class="float-right">Logout</small></a>
-                                        <div class="middlebox">
-
-                                            <div class="container">
-                                                <h1 class="temp">Personal Info</h1>
-                                                <br>
-                                                {% for personalInfo in personalInfos %}
-                                                  {% if personalInfo.email == request.user.email %}
-                                                <p class="letstry">Full Name</p>
-                                                <p>{{ personalInfo.fullName}}
-                                                    <br>
-
-                                                    <br>
-
-                                                    <p class="letstry">Age</p>
-                                                    <p>{{ personalInfo.age}}</p>
-                                                    <br>
-
-                                                    <p class="letstry">Gender</p>
-                                                    <p>Female</p>
-                                                    <br>
-
-                                                    <p class="letstry">Email</p>
-                                                    <p>example@example.com
-
-                                                        <br>
-                                                        <br>
-                                                        <br>
-
-                                                        <br>
-                                                        {% endif %}
-                                                        {% empty %}
-                                                        {% endfor %}
-
-
-                                                        <div class="wrap">
-                                                            <a class="btn-9"
-                                                                href="{% url 'core:designer-list' %}"><span>Personal
-                                                                    Designs</span></a>
-                                                            <a class="btn-2" href="{% url 'core:personalInfo-update' %}"><span> Settings
-                                                                </span></a>
-                                                        </div>
-                                                        <div class="wrap">
-                                                            <a class="btn-3"
-                                                                href="{% url 'core:personalDimensionalPrinters-list' %}"><span>Personal
-                                                                    Printers</span></a>
-                                                            <a class="btn-4" href="{% url 'account_logout' %}"><span>log
-                                                                    out</span></a>
-                                                        </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
+                                    <h4>Update info</a>
+                                        <form method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {{ form|crispy }}
+                                            <button type='submit' class='btn btn-primary'>Submit</button>
+                                        </form>
                                 </div>
 
-                                <div class="payment noshow">
-                                </div>
-
-                                <div class="subscription noshow">
-
-                                </div>
-
-                                <div class="privacy noshow">
-
-                                </div>
-                                <div class="settings noshow">
-                                </div>
 
                             </div>
+
+
                         </div>
-
-
-
-
-
-
-
-
-
-                        <!-- content end -->
-
-                        <!-- content-footer end    -->
-
-
                     </div>
-                    <!-- Main end -->
-                    <!--=============== scripts  ===============-->
-                    <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
 
-                    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-                    <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
-                    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+
+                </div>
+
+            </div>
+        </div>
+           
+
+                <!-- Main end -->
+                <!--=============== scripts  ===============-->
+                <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+
+                <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+                <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+                <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 
 </body>
 

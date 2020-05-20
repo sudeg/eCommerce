@@ -5,13 +5,15 @@ from django.core.mail import send_mail
 from django.shortcuts import reverse, render, redirect
 from django.views import generic
 from cart.models import Order, Product
-from core.models import Designer, PrinterOwner, DimensionalPrinter
-from .forms import ContactForm, ProductForm, DesignerForm, PrinterOwnerForm, DimensionalPrinterForm
+from core.models import Designer, PrinterOwner, DimensionalPrinter, PersonalInfo
+from .forms import ContactForm, ProductForm, DesignerForm, PrinterOwnerForm, DimensionalPrinterForm, PersonalInfoForm
 from django.http import HttpResponse
 
 
 class ProfileView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'profile.html'
+    queryset = PersonalInfo.objects.all()
+    context_object_name = 'personalInfos'
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data(**kwargs)
@@ -78,6 +80,27 @@ class CreatePersonalDimensionalPrinterView(LoginRequiredMixin, generic.CreateVie
     def form_valid(self, form):
         form.save()
         return super(CreatePersonalDimensionalPrinterView, self).form_valid(form)
+
+
+class PersonalDimensionalPrinterUpdateView(LoginRequiredMixin, generic.UpdateView):
+    template_name = 'core/dimensionalPrinters_update.html'
+    form_class = DimensionalPrinterForm
+    queryset = DimensionalPrinter.objects.all()
+
+    def get_success_url(self):
+        return reverse("core:personalDimensionalPrinters-list")
+
+    def form_valid(self, form):
+        form.save()
+        return super(PersonalDimensionalPrinterUpdateView, self).form_valid(form)
+
+
+class PersonalDimensionalPrinterDeleteView(LoginRequiredMixin, generic.DeleteView):
+    template_name = 'core/dimensionalPrinters_delete.html'
+    queryset = DimensionalPrinter.objects.all()
+
+    def get_success_url(self):
+        return reverse("core:personalDimensionalPrinters-list")
 
 
 class FirstPage(generic.TemplateView):
@@ -320,3 +343,16 @@ class CaravanDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_success_url(self):
         return reverse("core:caravan-list")
+
+
+class PersonalInfoUpdateView(LoginRequiredMixin, generic.CreateView):
+    template_name = 'core/personalInfo_update.html'
+    form_class = PersonalInfoForm
+    queryset = PersonalInfo.objects.all()
+
+    def get_success_url(self):
+        return reverse("core:profile")
+
+    def form_valid(self, form):
+        form.save()
+        return super(PersonalInfoUpdateView, self).form_valid(form)
