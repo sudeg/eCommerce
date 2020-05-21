@@ -18,6 +18,7 @@ class ProductListView(generic.ListView):
 class ProductDetailView(generic.FormView):
     template_name = 'cart/product_detail.html'
     form_class = AddToCartForm
+    queryset = Product.objects.all()
 
     def get_object(self):
         return get_object_or_404(Product, slug=self.kwargs["slug"])

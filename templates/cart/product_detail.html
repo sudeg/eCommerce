@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% comment %} {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -33,4 +33,311 @@
     </div>
 </div>
 
-{% endblock content %}
+{% endblock content %} {% endcomment %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load cart_template_tags %}
+
+{% block content %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--=============== basic  ===============-->
+    <meta charset="UTF-8">
+    <title>Balkon - Creative Responsive Architecture Template</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!--=============== css  ===============-->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/shop.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css' %}">
+    <!--=============== favicons ===============-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+</head>
+
+<body>
+    <!-- loader -->
+    <div class="loader">
+        <div id="movingBallG">
+            <div class="movingBallLineG"></div>
+            <div id="movingBallG_1" class="movingBallG"></div>
+        </div>
+    </div>
+    <!-- loader end -->
+    <!--================= Main   ================-->
+    <div id="main">
+        <!--================= header ================-->
+        <header class="main-header">
+            <!-- logo -->
+            <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+            <!-- logo end -->
+            <!-- share button-->
+            <div class="show-share-wrap">
+                <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
+            </div>
+            <!-- share button end-->
+            <!-- search button-->
+            <div class="show-search show-fixed-search vissearch"><i class="fa fa-search"></i></div>
+            <!-- search button end -->
+            <!-- mobile nav -->
+            <div class="nav-button-wrap">
+                <div class="nav-button vis-main-menu"><span></span><span></span><span></span></div>
+            </div>
+            <!-- mobile nav end-->
+            <!--  navigation -->
+            <div class="nav-holder">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home </a>
+
+                        </li>
+
+                        <li>
+                            <a href="{% url 'about'%}">About</a>
+                            <!--second level end-->
+                            <ul>
+                                <li><a href="{% url 'about-personal'%}">Personal</a></li>
+                                <li><a href="{% url 'services'%}">Services</a></li>
+                            </ul>
+                            <!--second level end-->
+                        </li>
+                        <li>
+                            <a href="{% url 'cart:product-list' %}">Shop</a>
+                            <!--second level end-->
+
+                            <!--second level end-->
+                        </li>
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'profile' %}"><span><i class="fas fa-user"></i></span></a>
+                            {% else %}
+                            <a href="{% url 'account_login' %}"><span><i class="fas fa-sign-in-alt"></i></span></a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            <a href="{% url 'cart:summary' %}" class="site-cart">
+                                <span><i class="fas fa-shopping-cart"></i></span>
+                                {% comment %} <span class="count">{{ request|cart_item_count }}</span> {% endcomment %}
+                            </a>
+                        </li>
+                        <li class="d-inline-block d-md-none ml-md-0">
+                            <a href="#" class="site-menu-toggle js-menu-toggle">
+                                <span><i class="fas fa-bars"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- navigation  end -->
+        </header>
+        <!-- header  end -->
+        <!--=============== wrapper ===============-->
+        <div id="wrapper">
+            <!-- content-holder  -->
+            <div class="content-holder">
+                <!--  content -->
+                <div class="content">
+                    <!--  section  -->
+                    <section>
+                        <div class="container">
+                            <div class="product-nav fl-wrap">
+                                <span class="pr-cat-title">Category : </span>
+                                <ul>
+                                    <li><a href="#">Designs</a></li>
+                                </ul>
+                                <div class="pr-nav-list">
+                                    <a href="{% url 'cart:product-list' %}" class="btn float-btn flat-btn"
+                                        >Back to Shop</a>
+                                </div>
+                            </div>
+                            <!-- product container  -->
+                            <div class="product-container fl-wrap">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="product-image fl-wrap">
+                                            <div class="single-slider fl-wrap" data-effects="flip">
+                                                <div class="swiper-container">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide"><img src="{{ product.image.url }}"
+                                                                alt=""></div>
+                                                        <div class="swiper-slide"><img src="{{ product.image.url }}"
+                                                                alt=""></div>
+                                                        <div class="swiper-slide"><img src="{{ product.image.url }}"
+                                                                alt=""></div>
+                                                    </div>
+                                                    <div class="swiper-pagination"></div>
+                                                    <div class="swiper-button-prev"><i class="fa fa-angle-left"></i>
+                                                    </div>
+                                                    <div class="swiper-button-next"><i class="fa fa-angle-right"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="product-text fl-wrap">
+                                            <h2>{{ product.title }}</h2>
+                                            <h3></h3>
+                                            <div class="pr-opt fl-wrap">
+                                                <div class="product-item-price">{{ product.price }} $</div>
+                                                {% comment %} <div class="product-rating">
+                                                    <span>( 2 customer reviews )</span>
+                                                    <ul>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </ul>
+                                                </div> {% endcomment %}
+                                            </div>
+                                            <div class="container">
+                                                <div class="col-md-6">
+
+                                                    <form method="POST">
+                                                        {% csrf_token %}
+                                                        {{ form|crispy }}
+                                                        <button type='submit' class="btn float-btn flat-btn buy-now">Add
+                                                            to cart</button>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- product container end -->
+                            <!-- products -->
+                            <div class="products fl-wrap single-prd-list">
+                                <h3>RELATED PRODUCTS</h3>
+                                <!-- product item-->
+                                {% for product in object_list %}
+                                <div class="product-cat-mains">
+                                    <div class="product-cat-img fl-wrap">
+                                        <img src="{{ product.image.url }}" alt="">
+                                        <a href="{{ product.get_absolute_url }}">View</a>
+                                    </div>
+                                    <div class="product-cat-title">
+                                        <h4><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h4>
+                                        <div class="product-cats"></div>
+                                        <span class="product-price">{{ product.get_price }}</span>
+                                    </div>
+                                </div>
+                                 {% endfor %}
+                                <!-- product item end-->
+
+                            </div>
+                            <!-- products end -->
+                        </div>
+                    </section>
+                    <!--  section  end-->
+                </div>
+                <!-- content end -->
+                <div class="show-cart"><i class="fa fa-shopping-cart"></i><span>3</span></div>
+
+                <div class="cart-overlay"></div>
+                <div class="cart-modal">
+                    <div class="cart-modal-wrap fl-wrap">
+                        <span class="close-cart">Close <i class="fa fa-times"></i> </span>
+                        <h3>Your cart</h3>
+                        <ul class="cart-modal-list fl-wrap">
+                            <li>
+                                <a class="cart-modal-image" href="{{ product.get_absolute_url }}">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
+                                </a>
+                                <div class="cart-modal-det">
+                                    <a href="{{ product.get_absolute_url }}">Amazing Lamp</a>
+                                    <div class="quantity"><span>1</span> x <span
+                                            class="woocommerce-Price-amount">$560</span></div>
+                                </div>
+                                <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                            </li>
+                            <li>
+                                <a class="cart-modal-image" href="{{ product.get_absolute_url }}">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
+                                </a>
+                                <div class="cart-modal-det">
+                                    <a href="{{ product.get_absolute_url }}">Metal Wood Chair</a>
+                                    <div class="quantity"><span>1</span> x <span
+                                            class="woocommerce-Price-amount">$170</span></div>
+                                </div>
+                                <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                            </li>
+                            <li>
+                                <a class="cart-modal-image" href="{{ product.get_absolute_url }}">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
+                                </a>
+                                <div class="cart-modal-det">
+                                    <a href="{{ product.get_absolute_url }}">White Sofa</a>
+                                    <div class="quantity"><span>2</span> x <span
+                                            class="woocommerce-Price-amount">$160</span></div>
+                                </div>
+                                <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                            </li>
+                        </ul>
+                        <div class="cart-modal-total fl-wrap">
+                            <span class="cart-modal-total-title">SUBTOTAL:</span> <span
+                                class="woocommerce-Price-amount"> $1050</span>
+                        </div>
+                        <a href="#" class="btn float-btn flat-btn">View Cart</a>
+                        <a href="#" class="btn float-btn flat-btn">Checkout</a>
+                    </div>
+                </div>
+            </div>
+            <!-- content-holder end -->
+        </div>
+        <!-- wrapper end -->
+        <!--search-form-holder -->
+        <div class="search-form-holder fixed-search">
+            <div class="search-form-bg"></div>
+            <div class="search-form-wrap">
+                <div class="container">
+                    <form class="searchform" method="get">
+                        <input type="text" autocomplete="off" name="s" placeholder="Type and Enter to Search">
+                    </form>
+                    <div class="close-fixed-search"></div>
+                </div>
+                <div class="dublicated-text"></div>
+            </div>
+        </div>
+        <!--search-form-holder  end-->
+        <!-- Share container  -->
+        <div class="share-wrapper isShare">
+            <div class="share-container"></div>
+        </div>
+        <!-- Share container  end-->
+        <!-- footer -->
+        <footer class="main-footer">
+            <div class="fixed-title"><span>Product Page</span></div>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                </ul>
+            </div>
+        </footer>
+        <!-- footer end-->
+    </div>
+    <!-- Main end -->
+    <!--=============== scripts  ===============-->
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+</body>
+
+</html>
+
+{% endblock %}

@@ -256,7 +256,7 @@ class Portfolio9View(generic.TemplateView):
 
 
 class ProductSingleView(generic.TemplateView):
-    template_name = 'product-single.html'
+    template_name = 'product_detail.html'
 
 
 class ScriptsView(generic.TemplateView):

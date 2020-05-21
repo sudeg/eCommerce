@@ -1,52 +1,3 @@
-{% comment %} {% extends "base.html" %}
-{% load static %}
-
-{% block content %}
-
-<div class="site-blocks-cover" style="background-image: url({% static 'images/hero.jpg' %});" data-aos="fade">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 pt-5 pt-md-0">
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="site-section site-section-sm site-blocks-1">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-                <div class="icon mr-4 align-self-start">
-                    <span><i class="fab fa-cc-paypal"></i></span>
-                </div>
-                <div class="text">
-                    <h2 class="text-uppercase">Pay with Paypal</h2>
-                    <p>Use server-side PayPal integration for handling payments.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-                <svg style="width: 100px; margin-right: 10px;" role="img" xmlns="http://www.w3.org/2000/svg"
-                    fill="#1f4f7c" viewBox="0 0 24 24">
-                    <title>Django icon</title>
-                    <path
-                        d="M11.146 0h3.924v18.165c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.001 2.65-6.6 6.753-6.6.637 0 1.121.051 1.707.204V0zm0 9.143a3.894 3.894 0 0 0-1.325-.204c-1.988 0-3.134 1.223-3.134 3.364 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.529 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39V.021z" />
-                </svg>
-                <div class="text">
-                    <h2 class="text-uppercase">Made with Django</h2>
-                    <p>Django makes it easy to quickly build awesome web apps.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-{% endblock content %} {% endcomment %}
-
-
-
-
-
-
 {% load static %}
 {% load cart_template_tags %}
 
@@ -102,65 +53,6 @@
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     </head>
     <body>
-    {% comment %} <div class="site-wrap">
-    <header class="site-navbar" role="banner">
-        <div class="site-navbar-top">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-6 col-md-8 mb-3 mb-md-0 col-md-4 order-1 order-md-2">
-                        <div>
-                            <a href="{% url 'index' %}">
-                                <img class="img-fluid" src="{% static 'images/logo.png' %}" style="max-width: 150px;"/>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-                        <div class="site-top-icons">
-                            <ul>
-                                <li>
-                                    {% if request.user.is_authenticated %}
-                                        <a href="{% url 'profile' %}"><span><i class="fas fa-user"></i></span></a>
-                                    {% else %}
-                                        <a href="{% url 'account_login' %}"><span><i
-                                                class="fas fa-sign-in-alt"></i></span></a>
-                                    {% endif %}
-                                </li>
-                                <li>
-                                    <a href="{% url 'cart:summary' %}" class="site-cart">
-                                        <span><i class="fas fa-shopping-cart"></i></span>
-                                        <span class="count">{{ request|cart_item_count }}</span>
-                                    </a>
-                                </li>
-                                <li class="d-inline-block d-md-none ml-md-0">
-                                    <a href="#" class="site-menu-toggle js-menu-toggle">
-                                        <span><i class="fas fa-bars"></i></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        {% include 'navbar.html' %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
-                    <span class="alert-inner--text">{{ message }}</span>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            {% endfor %}
-        {% endif %}
-
-    </header>
-</div>
-
-{% include 'scripts.html' %} {% endcomment %}
         <!-- loader -->
         <div class="loader">
             <div id="movingBallG">
@@ -195,57 +87,9 @@
                         <ul>
                             <li>
                                 <a href="{% url 'index' %}" class="act-link">Home </a>
-                                <!--second level -->   
-                                {% comment %} <ul>
-                                   <li><a href="{% url 'index' %}">Slider</a></li>
-                                    <li><a href="{% url 'index2' %}">Image</a></li>
-                                    <li><a href="{% url 'index3' %}">Video</a></li>
-                                    <li><a href="{% url 'index4' %}">Slideshow</a></li>
-                                    <li><a href="{% url 'index5' %}">Carousel</a></li>
-                                    <li><a href="{% url 'index6' %}">Sidebar menu</a></li>
-                                    <li>
-                                        <!--third level -->
-                                        <a>Onepage</a>
-                                        <ul>
-											<li><a href="{% url 'onepage-slider' %}">Slider</a></li>
-											<li><a href="{% url 'onepage-image' %}">Image</a></li>
-											<li><a href="{% url 'onepage-video' %}">Video</a></li>
-											<li><a href="{% url 'onepage-slideshow' %}">Slideshow</a></li>
-											<li><a href="{% url 'onepage-carousel' %}">Carousel</a></li>
-											<li><a href="{% url 'onepage-sidebarmenu' %}">Sidebar menu</a></li>
-                                        </ul>
-                                        <!--third level end-->
-                                    </li>									
-                                </ul> {% endcomment %}
-                                <!--second level end-->
+
                             </li>
                             <li>
-                                {% comment %} <a href="{% url 'portfolio' %}">Portfolio</a> {% endcomment %}
-                                <!--second level -->
-                                {% comment %} <ul>
-                                    <li>
-                                        <!--third level -->
-                                        <a>Single</a>
-                                        <ul>
-                                            <li><a href="{% url 'portfolio-single' %}">Carousel</a></li>
-                                            <li><a href="{% url 'portfolio-single2' %}">Gallery </a></li>
-                                            <li><a href="{% url 'portfolio-single3' %}">Fullwidth Slider</a></li>
-                                            <li><a href="{% url 'portfolio-single4' %}">Slider</a></li>
-                                            <li><a href="{% url 'portfolio-single5' %}">Video</a></li>
-                                            <li><a href="{% url 'portfolio-single6' %}">Vertical Images</a></li>
-                                        </ul>
-                                        <!--third level end-->
-                                    </li>
-                                    <li><a href="{% url 'portfolio2' %}">Fullwidth 2</a></li>
-                                    <li><a href="{% url 'portfolio3' %}">Sibebar filter</a></li>
-                                    <li><a href="{% url 'portfolio4' %}">Boxed</a></li>
-                                    <li><a href="{% url 'portfolio5' %}">Boxed 2</a></li>
-                                    <li><a href="{% url 'portfolio6' %}">Sibebar filter 2</a></li>
-                                    <li><a href="{% url 'portfolio7' %}">Parallax</a></li>
-                                    <li><a href="{% url 'portfolio8' %}">Fullwidth 3</a></li>
-                                    <li><a href="{% url 'portfolio9' %}">Fullwidth 4</a></li>
-                                </ul> {% endcomment %}
-                                <!--second level end-->
                             </li>
                             <li>
                                 <a href="{% url 'about' %}" >About</a>
@@ -260,15 +104,7 @@
                                 {% comment %} <a href="{% url 'contact_2' %}">Contacts </a> {% endcomment %}
                             </li>
                             <li>
-                                <a href="{% url 'shop' %}">PRINTERS</a> 
-                                <!--second level end-->
-                                {% comment %} <ul>
-                                    <li><a href="{% url 'blog-grid' %}">Grid</a></li>
-                                    <li><a href="{% url 'blog-masonry' %}">Masonry</a></li>
-                                    <li><a href="{% url 'blog-single' %}">Post Single</a></li>
-                                    <li><a href="{% url '404' %}">404</a></li>
-                                </ul> {% endcomment %}
-                                <!--second level end-->
+                                <a href="{% url 'cart:product-list' %}">Shop</a> 
                             </li>
 
                                 <li>
@@ -320,87 +156,11 @@
                                         </div>
                                     </div>
 
-
-
-                                    
-                                    <!-- swiper-slide end-->  
-                                    <!-- swiper-slide-->  
-                                    {% comment %} <div class="swiper-slide">
-                                        <a href="{% static 'images/bg/16.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="{% static 'images/bg/16.jpg' %}"   alt="">
-                                        <div class="thumb-info">
-                                            <h3><a href="{% url 'portfolio-single' %}">Alesia White <br>  House</a></h3>
-                                            <p>Here you can place an optional description of your  Project</p>
-                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                        </div>
-                                    </div> {% endcomment %}
-                                    <!-- swiper-slide end-->
-                                    <!-- swiper-slide-->  
-                                    {% comment %} <div class="swiper-slide">
-                                        <a href="{% static 'images/bg/16.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="{% static 'images/bg/16.jpg' %}"  alt="">
-                                        <div class="thumb-info">
-                                            <h3><a href="{% url 'portfolio-single' %}">White Walls <br>  Museum</a></h3>
-                                            <p>Here you can place an optional description of your  Project</p>
-                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                        </div>
-                                    </div> {% endcomment %}
-                                    <!-- swiper-slide end-->
-                                    <!-- swiper-slide-->  
-                                    {% comment %} <div class="swiper-slide">
-                                        <a href="{% static 'images/bg/16.jpg' %}"  class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="{% static 'images/bg/16.jpg' %}"    alt="">
-                                        <div class="thumb-info">
-                                            <h3><a href="{% url 'portfolio-single' %}">Pen Tower <br>  Centre</a></h3>
-                                            <p>Here you can place an optional description of your  Project</p>
-                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                        </div>
-                                    </div> {% endcomment %}
-                                    <!-- swiper-slide end-->
-                                    <!-- swiper-slide-->  
-                                    {% comment %} <div class="swiper-slide">
-                                        <a href="{% static 'images/bg/16.jpg' %}"  class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="{% static 'images/bg/16.jpg' %}"   alt="">
-                                        <div class="thumb-info">
-                                            <h3><a href="{% url 'portfolio-single' %}">Skin Tower <br>  Centre</a></h3>
-                                            <p>Here you can place an optional description of your  Project</p>
-                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                        </div>
-                                    </div> {% endcomment %}
-                                    <!-- swiper-slide end-->
-                                    <!-- swiper-slide-->  
-                                    {% comment %} <div class="swiper-slide">
-                                        <a href="{% static 'images/bg/16.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="{% static 'images/bg/16.jpg' %}"   alt="">
-                                        <div class="thumb-info">
-                                            <h3><a href="{% url 'portfolio-single' %}">Spire Edge <br>  House</a></h3>
-                                            <p>Here you can place an optional description of your  Project</p>
-                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                        </div>
-                                    </div> {% endcomment %}
-                                    <!-- swiper-slide end-->
-                                    <!-- swiper-slide-->  
-                                    {% comment %} <div class="swiper-slide">
-                                        <a href="{% static 'images/bg/16.jpg' %}" class=" gallery-popup popgal"><i class="fa fa-search"  ></i></a>
-                                        <img  src="{% static 'images/bg/16.jpg' %}"   alt="">
-                                        <div class="thumb-info">
-                                            <h3><a href="{% url 'portfolio-single' %}">One World <br>  Museum</a></h3>
-                                            <p>Here you can place an optional description of your  Project</p>
-                                            <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View Project</a>
-                                        </div>
-                                    </div> {% endcomment %}
-                                    <!-- swiper-slide end-->
                                 </div>
-                                {% comment %} <div class="sw-button swiper-button-next"><i class="fa fa-angle-right"></i></div>
-                                <div class="sw-button swiper-button-prev"><i class="fa fa-angle-left"></i></div>
-                                <div class="swiper-scrollbar"></div> {% endcomment %}
                             </div>
                         </div>
                     </div>
-                    <!-- content  end -->  
-                    <!--content-->	 
                     <div class="content">
-                        <!--section -->	
                         <section id="sec2" data-scrollax-parent="true" >
                             <div class="container">
                                 <div class="section-container fl-wrap">
@@ -413,15 +173,6 @@
                                                 <p>
                                                 </p>
                                                 <br><br>
-                                                {% comment %} <h3 class="bold-title">What we do</h3>
-                                                <div class="pr-tags fl-wrap">
-                                                    <span>Services : </span>
-                                                    
-                                                        <li><a href="#">Caravan renting</a></li>
-                                                        <li><a href="#">Design</a></li>
-                                                        <li><a href="#">Photography</a></li>
-                                                    </ul> 
-                                                </div> {% endcomment %}
                                                 <span class="bold-separator"></span>
                                                 <div class="clearfix"></div>
                                                 <a href="{% url 'portfolio' %}" class="btn float-btn flat-btn">Our portfolio</a>
@@ -439,122 +190,7 @@
                             </div>
                             <div class="bg dec-bg left-pos-dec"  data-bg="{% static 'images/bg/14.jpg' %}"></div>
                         </section>
-                        <!--section end  -->	
-                        <!--section -->	
-                        {% comment %} <section  >
-                            <div class="bg"  data-bg="{% static 'images/bg/11.jpg' %}"></div>
-                            <div class="overlay"></div>
-                            <div class="container">
-                                <div class="intro-text fl-wrap">
-                                    <h2>Entrust your project <br>to our team of  <br>professionals</h2>
-                                    <a href="{% url 'services' %}" class="btn float-btn flat-btn">Our Services</a>
-                                    <a href="{% url 'contact_2' %}" class="btn float-btn flat-btn">Get in Touch</a>
-                                </div>
-                            </div>
-                        </section> {% endcomment %}
-                        <!--section end  -->	
-                        <!--section -->	                             	 
-                        {% comment %} <section >
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="pr-title">
-                                            Our Featured Work
-                                            <span>Lorem Ipsum generators on the Internet tend to repeat king this the first true generator . </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--parallax-item -->	
-                                <div class="row">
-                                    <div class="col-md-5"></div>
-                                    <div class="col-md-7">
-                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
-                                            <div class="parallax-header fl-wrap">
-                                                <span>01.</span>
-                                                <ul>
-                                                    <li><a href="#">Design</a></li>
-                                                    <li><a href="#">Architecture </a></li>
-                                                </ul>
-                                            </div>
-                                            <img  src="{% static 'images/folio/2.jpg' %}"   alt="">
-                                            <div class="parallax-text left-pos" data-scrollax="properties: { translateY: '-250px' }">
-                                                <h3><a href="{% url 'portfolio-single' %}">Theatre de Stoep</a></h3>
-                                                <h4>There are many variations of passages of Lorem Ipsum</h4>
-                                                <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View project</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--parallax-item end-->	
-                                <!--parallax-item -->	
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
-                                            <div class="parallax-header fl-wrap">
-                                                <span>02.</span>
-                                                <ul>
-                                                    <li><a href="#">Design</a></li>
-                                                    <li><a href="#">Architecture </a></li>
-                                                </ul>
-                                            </div>
-                                            <img  src="{% static 'images/folio/holidays.png' %}"  alt="">
-                                            <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
-                                                <h3><a href="{% url 'portfolio-single' %}">New Acropolis Museum</a></h3>
-                                                <h4>There are many variations of passages of Lorem Ipsum</h4>
-                                                <a href="{% url 'portfolio-single' %}" class="btn float-btn flat-btn">View project</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--parallax-item end-->	                    
-                                <!--parallax-item -->	
-                                <div class="row">
-                                    <div class="col-md-5"></div>
-                                    <div class="col-md-7">
-                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
-                                            <div class="parallax-header fl-wrap">
-                                                <span>03.</span>
-                                                <ul>
-                                                    <li><a href="#">Design</a></li>
-                                                    <li><a href="#">Architecture </a></li>
-                                                </ul>
-                                            </div>
-                                            <img  src="{% static 'images/folio/holidays.png' %}"   alt="">
-                                            <div class="parallax-text left-pos" data-scrollax="properties: { translateY: '-250px' }">
-                                                <h3><a href="{% url 'portfolio-single' %}">Theatre de Stoep</a></h3>
-                                                <h4>There are many variations of passages of Lorem Ipsum</h4>
-                                                <a href="{% url 'portfolio-single' %}"  class="btn float-btn flat-btn">View project</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--parallax-item end-->	
-                                <!--parallax-item -->	
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <div class="parallax-item fl-wrap" data-scrollax-parent="true">
-                                            <div class="parallax-header fl-wrap">
-                                                <span>04.</span>
-                                                <ul>
-                                                    <li><a href="#">Design</a></li>
-                                                    <li><a href="#">Architecture </a></li>
-                                                </ul>
-                                            </div>
-                                            <img  src="{% static 'images/folio/holidays.png' %}" alt="">
-                                            <div class="parallax-text right-pos" data-scrollax="properties: { translateY: '-250px' }">
-                                                <h3><a href="{% url 'portfolio-single' %}" >New Acropolis Museum</a></h3>
-                                                <h4>There are many variations of passages of Lorem Ipsum</h4>
-                                                <a href="{% url 'portfolio-single' %}"  class="btn float-btn flat-btn">View project</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--parallax-item end-->	                       
-                            </div>
-                            <div class="partcile-dec" data-parcount="250"></div>
-                        </section> {% endcomment %}
-                        <!--section end  -->	
-                        <!--section -->	
+
                         <section class="parallax-section header-section  " data-scrollax-parent="true" id="sec6">
                             <div class="bg"  data-bg="{% static 'images/folio/media.png' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay"></div>
@@ -606,79 +242,7 @@
                                 </div>
                             </div>
                         </section>
-                        <!--section end  -->	
-                        <!--section -->	
-                        {% comment %} <section>
-                            <div class="container">
-                                <div class="clients-list fl-wrap">
-                                    <ul>
-                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}" alt=""> </a></li>
-                                        <li><a href="#" target="_blank"> <img src="{% static 'images/clients/1.jpg' %}" alt=""> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section> {% endcomment %}
-                        <!--section end  -->	
-                        <!--social-wrap -->	  
-                        {% comment %} <div class="social-wrap fl-wrap">
-                            <ul>
-                                <li><a href="#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
-                            </ul>
-                        </div> {% endcomment %}
-                        <!--social-wrap end-->	
-                    </div>
-                    <!-- content  end --> 
-                    <!--=============== content-footer   ===============-->
                     <div class="height-emulator"></div>
-                    <footer class="content-footer">
-                        <div class="footer-inner">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <a class="footer-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="footer-header fl-wrap"><span>01. Contacts</span></div>
-                                    <div class="footer-box fl-wrap">
-                                        <ul>
-                                            <li><span>Mail :</span><a href="#" target="_blank">sudegonul@caravan.com</a></li>
-                                            <li> <span>Adress :</span><a href="#" target="_blank">Istanbul, Turkey</a></li>
-                                            <li><span>Phone :</span><a href="#">+9 (539) 558 17 84</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="footer-header fl-wrap"><span>02. Subscribe</span></div>
-                                    <div class="footer-box fl-wrap">
-                                        <div class="subcribe-form fl-wrap">
-                                            <span>Newsletter</span>
-                                            <form id="subscribe">
-                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="email" spellcheck="false" type="text">
-                                                <button type="submit" id="subscribe-button" class="subscribe-button">Submit</button>
-                                                <label for="subscribe-email" class="subscribe-message"></label>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3"></div>
-                                <div class="col-md-9">
-                                    <div class="fl-wrap policy-box">
-                                        <p> &#169; Caravan   2020.  All rights reserved.  </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="to-top"><i class="fa fa-long-arrow-up"></i></div>
-                        </div>
-                    </footer>
-                    <!-- content-footer end    -->
                 </div>
                 <!-- content-holder end -->
             </div>
