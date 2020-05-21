@@ -64,7 +64,7 @@ urlpatterns = [
     path('product-single/', views.ProductSingleView.as_view(), name='product-single'),
     path('services/', views.ServicesView.as_view(), name='services'),
     path('scripts/', views.ScriptsView.as_view(), name='scripts'),
-    path('shop/', views.ShopView.as_view(), name='shop'),
+    path('shop/', views.DimensionalPrinterListView.as_view(), name='shop'),
 
 
 
