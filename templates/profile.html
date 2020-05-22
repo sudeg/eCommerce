@@ -182,148 +182,51 @@
                                             <small class="float-right">Logout</small></a>
                                         <div class="middlebox">
 
-                                            <div class="container">
-                                                <h1 class="temp">Personal Info</h1>
-                                                <br>
+                                            <div class="container" style="color:#ADD8E6">
+                                                <h1 class="temp" style="color:#ADD8E6" font-weight="bold">Personal Info</h1>
+                                                <br >
 
 
-                                                {% comment %} <p class="letstry">Full Name</p>
+                                               <p class="letstry" style="color:#ADD8E6">Full Name</p>
                                                 <p>{{ request.user.email}}
                                                     <br>
 
                                                     <br>
 
-                                                    <p class="letstry">Age</p>
+                                                    <p class="letstry" style="color:#ADD8E6">Age</p>
                                                     <p>{{ personalInfo.age}}</p>
                                                     <br>
 
-                                                    <p class="letstry">Gender</p>
+                                                    <p class="letstry" style="color:#ADD8E6">Gender</p>
                                                     <p>Female</p>
                                                     <br>
 
-                                                    <p class="letstry">Email</p>
-                                                    <p>example@example.com
+                                                    <p class="letstry" style="color:#ADD8E6">Email</p>
+                                                    <p>{{request.user.email}}
 
                                                         <br>
                                                         <br>
                                                         <br>
 
                                                         <br>
-                                                        {% endcomment %}
+                                                       
 
-                                                        <div class="card">
-                                                            <div class="card-body">
-                                                                <div class="site-blocks-table">
-                                                                    <table class="table">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>Image</th>
-                                                                                <th>Title.</th>
-                                                                                <th>Price</th>
-                                                                                <th>Actions</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            {% for personalInfo in personalInfos %}
-                                                                            {% if personalInfo.email == request.user.email %}
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <img src="{{ personalInfo.image.url }}"
-                                                                                        class="img-fluid">
-
-                                                                                </td>
-                                                                                <td>{{ personalInfo.fullName }}</td>
-                                                                                <td>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <a
-                                                                                        href="#">Update</a>
-                                                                                    <a tabindex="0"
-                                                                                        class="btn btn-sm btn-primary"
-                                                                                        role='button' data-html='true'
-                                                                                        data-toggle='popover'
-                                                                                        data-trigger='focus'
-                                                                                        title='Are you sure you want to delete this printer?'
-                                                                                        data-content="<a href='#'>Confirm</a>">
-                                                                                        X
-                                                                                    </a>
-
-                                                                                </td>
-
-                                                                            </tr>
-                                                                            {% endif %}
-                                                                            {% empty %}
-                                                                            <tr>
-                                                                                <td colspan="3">You don't have any
-                                                                                    info</td>
-                                                                            </tr>
-
-                                                                            {% endfor %}
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-
-                                                                {% if page_obj.has_other_pages %}
-                                                                <div class="row">
-                                                                    <div class="col-md-12 text-center">
-                                                                        <div class="site-block-27">
-                                                                            <ul>
-                                                                                {% if page_obj.has_previous %}
-                                                                                <li><a
-                                                                                        href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
-                                                                                </li>
-                                                                                {% else %}
-                                                                                <li class='disabled'>
-                                                                                    <span>&laquo;</span></li>
-                                                                                {% endif %}
-
-                                                                                {% for i in paginator.page_range %}
-                                                                                {% if page_obj.number == i %}
-                                                                                <li class='active'>
-                                                                                    <span>
-                                                                                        {{ i }}
-                                                                                        <span
-                                                                                            class='sr-only'>(current)</span>
-                                                                                    </span>
-                                                                                </li>
-                                                                                {% else %}
-                                                                                <li><a href="?page={{ i }}">{{ i }}</a>
-                                                                                </li>
-                                                                                {% endif %}
-                                                                                {% endfor %}
-
-                                                                                {% if page_obj.has_next %}
-                                                                                <li><a
-                                                                                        href="?page={{ page_obj.next_page_number }}">&raquo;</a>
-                                                                                </li>
-                                                                                {% else %}
-                                                                                <li class='disabled'>
-                                                                                    <span>&raquo;</span></li>
-                                                                                {% endif %}
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                {% endif %}
-
-                                                            </div>
-
-                                                        </div>
+                                                       
 
                                                         <div class="wrap">
                                                             <a class="btn-9"
                                                                 href="{% url 'core:designer-list' %}"><span>Personal
                                                                     Designs</span></a>
-                                                            <a class="btn-2"
+                                                            <a class="btn-9"
                                                                 href="{% url 'core:personalInfo-update' %}"><span>
                                                                     Settings
                                                                 </span></a>
                                                         </div>
                                                         <div class="wrap">
-                                                            <a class="btn-3"
+                                                            <a class="btn-9"
                                                                 href="{% url 'core:personalDimensionalPrinters-list' %}"><span>Personal
                                                                     Printers</span></a>
-                                                            <a class="btn-4" href="{% url 'account_logout' %}"><span>log
+                                                            <a class="btn-9" href="{% url 'account_logout' %}"><span>log
                                                                     out</span></a>
                                                         </div>
 
