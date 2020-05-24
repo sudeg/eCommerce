@@ -1,5 +1,5 @@
 {% comment %} {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
 <div class="bg-light py-3">
@@ -8,7 +8,7 @@
             <div class="col-md-12 mb-0">
                 <a href="{% url 'index' %}">Home</a>
                 <span class="mx-2 mb-0">/</span>
-                <strong class="text-black">Shop</strong>
+                <strong class="text-black">{{ product.title }}</strong>
             </div>
         </div>
     </div>
@@ -17,34 +17,29 @@
 <div class="site-section">
     <div class="container">
         <div class="row mb-5">
-            {% for product in object_list %}
-            <div class="col-lg-4 col-md-6 mb-4" data-aos='fade-up'>
-
-                <figure class="block-4-image">
-                    <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" class="img-fluid"></a>
-                </figure>
-
-                <div class="block-4-text p-4">
-                    <a href="{{ product.get_absolute_url }}">
-                        <h3>{{ product.title }}</h3>
-                    </a>
-                    <p class="mb-0">{{ product.description }}</p>
-                </div>
+            <div class="col-md-6">
+                <img src="{{ product.image.url }}" class="img-fluid">
             </div>
-            {% endfor %}
+            <div class="col-md-6">
+                <h2 class="text-black">{{ product.title }}</h2>
+                <p>{{ product.description }}</p>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type='submit' class="btn btn-sm btn-primary buy-now">Add to cart</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 {% endblock content %} {% endcomment %}
 
-
-
 {% load static %}
+{% load crispy_forms_tags %}
 {% load cart_template_tags %}
 
 {% block content %}
-
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -91,13 +86,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-
     <!--=============== css  ===============-->
-    <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/shop.css'%}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/shop.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css' %}">
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
 </head>
@@ -116,11 +110,11 @@
         <!--================= header ================-->
         <header class="main-header">
             <!-- logo -->
-            <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/logo.png'%}" alt=""></a>
+            <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
             <!-- logo end -->
             <!-- share button-->
             <div class="show-share-wrap">
-                <div class="show-share"><span>Share</span><img src="{% static 'images/share.png'%}" alt=""></div>
+                <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
             </div>
             <!-- share button end-->
             <!-- search button-->
@@ -150,7 +144,7 @@
                             <!--second level end-->
                         </li>
                         <li>
-                                <a href="{% url 'cart:designType-list' %}">Shop</a> 
+                            <a href="{% url 'cart:designType-list' %}">Shop</a>
                             <!--second level end-->
 
                             <!--second level end-->
@@ -186,107 +180,100 @@
                 <!--  content -->
                 <div class="content">
                     <!--  section  -->
-
-                    <!--  section end -->
-                    <!--  section  -->
                     <section>
                         <div class="container">
-                            <div class="product-filter-wrap fl-wrap">
-                                <div class="product-cat-filter">
-                                    <span>Filter : </span>
-                                    <a href="#">Chair</a>
-                                    <a href="#">Decor</a>
-                                    <a href="#">Sofa</a>
-                                    <a href="#">Lamp</a>
+                            <div class="product-nav fl-wrap">
+                                <span class="pr-cat-title">Category : </span>
+                                <ul>
+                                    <li><a href="#">Designs</a></li>
+                                </ul>
+                                <div class="pr-nav-list">
+                                    <a href="{% url 'cart:product-list' %}" class="btn float-btn flat-btn"
+                                        >Back to Shop</a>
                                 </div>
-                                <div class="product-cat-filter">
-                                    <span>Price : </span>
-                                    <a href="#">Low to high</a>
-                                    <a href="#">High to low</a>
-                                </div>
-                                <a href="#" class="btn   flat-btn show-exfilter">Extended Filter</a>
                             </div>
-                            <div class="product-mainfilter  fl-wrap">
+                            <!-- product container  -->
+                            <div class="product-container fl-wrap">
                                 <div class="row">
-                                    <!-- product-mainfilter-item-->
-                                    <div class="col-md-4">
-                                        <div class="product-mainfilter-item fl-wrap">
-                                            <span class="product-mainfilter-header">Material</span>
-                                            <ul class="material-list">
-                                                <li><a href="#">Wood</a></li>
-                                                <li><a href="#">Plastic</a></li>
-                                                <li><a href="#">Metal</a></li>
-                                                <li><a href="#">Textile</a></li>
-                                            </ul>
+                                    <div class="col-md-5">
+                                        <div class="product-image fl-wrap">
+                                            <div class="single-slider fl-wrap" data-effects="flip">
+                                                <div class="swiper-container">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide"><img src="{{ product.imageOne.url }}"
+                                                                alt=""></div>
+                                                        <div class="swiper-slide"><img src="{{ product.imageTwo.url }}"
+                                                                alt=""></div>
+                                                        <div class="swiper-slide"><img src="{{ product.imageThree.url }}"
+                                                                alt=""></div>
+                                                    </div>
+                                                    <div class="swiper-pagination"></div>
+                                                    <div class="swiper-button-prev"><i class="fa fa-angle-left"></i>
+                                                    </div>
+                                                    <div class="swiper-button-next"><i class="fa fa-angle-right"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- product-mainfilter-item end -->
-                                    <!-- product-mainfilter-item-->
-                                    <div class="col-md-4">
-                                        <div class="product-mainfilter-item fl-wrap">
-                                            <span class="product-mainfilter-header">Color</span>
-                                            <ul class="colorfilter-list">
-                                                <li><a href="#" style="background:#B3CCE6"></a></li>
-                                                <li><a href="#" style="background:#CC8080"> </a></li>
-                                                <li><a href="#" style="background:#CCE6B3"> </a></li>
-                                                <li><a href="#" style="background:#E6E680"> </a></li>
-                                                <li><a href="#" style="background:#B3E6E6"> </a></li>
-                                            </ul>
+                                    <div class="col-md-7">
+                                        <div class="product-text fl-wrap">
+                                            <h2>{{ threeDimensionalDesign.title }}</h2>
+                                            <h3></h3>
+                                            <div class="pr-opt fl-wrap">
+                                                <div class="product-item-price">{{ threeDimensionalDesign.price }} $</div>
+                                                {% comment %} <div class="product-rating">
+                                                    <span>( 2 customer reviews )</span>
+                                                    <ul>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                    </ul>
+                                                </div> {% endcomment %}
+                                            </div>
+                                            <div class="container">
+                                                <div class="col-md-6">
+
+                                                    <form method="POST">
+                                                        {% csrf_token %}
+                                                        {{ form|crispy }}
+                                                        <button type='submit' class="btn float-btn flat-btn buy-now">Add
+                                                            to cart</button>
+                                                    </form>
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- product-mainfilter-item end -->
-                                    <!-- product-mainfilter-item-->
-                                    <div class="col-md-4">
-                                        <div class="product-mainfilter-item fl-wrap no-decline">
-                                            <span class="product-mainfilter-header">Size</span>
-                                            <ul class="size-list">
-                                                <li><a href="#">XL/XXl</a></li>
-                                                <li><a href="#">M/L</a></li>
-                                                <li><a href="#">S/M</a></li>
-                                                <li><a href="#">XS/S</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- product-mainfilter-item end -->
                                 </div>
                             </div>
+                            <!-- product container end -->
                             <!-- products -->
-
-                            <div class="products fl-wrap">
+                            <div class="products fl-wrap single-prd-list">
+                                <h3>RELATED PRODUCTS</h3>
+                                <!-- product item-->
                                 {% for threeDimensionalDesign in object_list %}
-                                {%if threeDimensionalDesign.typeName == "Gardening"%}
                                 <div class="product-cat-mains">
                                     <div class="product-cat-img fl-wrap">
                                         <img src="{{ threeDimensionalDesign.image.url }}" alt="">
                                         <a href="{{ threeDimensionalDesign.get_absolute_url }}">View</a>
                                     </div>
                                     <div class="product-cat-title">
-                                        <h4><a href="{{ threeDimensionalDesign.get_absolute_url }}">{{ threeDimensionalDesign.title }} {{ threeDimensionalDesign.get_absolute_url }}</a></h4>
-                                        <div class="product-cats"><a href="#">Products</a></div>
+                                        <h4><a href="{{ threeDimensionalDesign.get_absolute_url }}">{{ product.title }}</a></h4>
+                                        <div class="product-cats"></div>
+                                        <span class="product-price">{{ product.get_price }}</span>
                                     </div>
                                 </div>
+                                 {% endfor %}
                                 <!-- product item end-->
-                                {% endif %}
-                                {% endfor %}
-                            </div>
 
-                            <!-- products end -->
-                            <div class="content-nav">
-                                <ul>
-                                    <li><a href="{% url 'portfolio-single'%}" class="ln"><i
-                                                class="fa fa fa-angle-left"></i><span class="tooltip">Prev - Page
-                                                1</span></a></li>
-                                    <li>
-                                        <a href="#" class="cur-page"><span>Page 02. </span></a>
-                                    </li>
-                                    <li><a href="{% url 'portfolio-single2'%}" class="rn"><i
-                                                class="fa fa fa-angle-right"></i><span class="tooltip">Next - Page 3
-                                            </span></a></li>
-                                </ul>
                             </div>
+                            <!-- products end -->
                         </div>
                     </section>
-                    <!--  section end -->
+                    <!--  section  end-->
                 </div>
                 <!-- content end -->
                 <div class="show-cart"><i class="fa fa-shopping-cart"></i><span>3</span></div>
@@ -299,7 +286,7 @@
                         <ul class="cart-modal-list fl-wrap">
                             <li>
                                 <a class="cart-modal-image" href="{{ product.get_absolute_url }}">
-                                    <img src="{% static 'images/shop/1.jpg'%}" alt="">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
                                 </a>
                                 <div class="cart-modal-det">
                                     <a href="{{ product.get_absolute_url }}">Amazing Lamp</a>
@@ -309,8 +296,8 @@
                                 <a href="#" class="remove"><i class="fa fa-times"></i></a>
                             </li>
                             <li>
-                                <a class="cart-modal-image" href={{ product.get_absolute_url }}>
-                                    <img src="{% static 'images/shop/1.jpg'%}" alt="">
+                                <a class="cart-modal-image" href="{{ product.get_absolute_url }}">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
                                 </a>
                                 <div class="cart-modal-det">
                                     <a href="{{ product.get_absolute_url }}">Metal Wood Chair</a>
@@ -321,7 +308,7 @@
                             </li>
                             <li>
                                 <a class="cart-modal-image" href="{{ product.get_absolute_url }}">
-                                    <img src="{% static 'images/shop/1.jpg'%}" alt="">
+                                    <img src="{% static 'images/shop/1.jpg' %}" alt="">
                                 </a>
                                 <div class="cart-modal-det">
                                     <a href="{{ product.get_absolute_url }}">White Sofa</a>
@@ -364,7 +351,7 @@
         <!-- Share container  end-->
         <!-- footer -->
         <footer class="main-footer">
-            <div class="fixed-title"><span>Shop</span></div>
+            <div class="fixed-title"><span>Product Page</span></div>
             <div class="footer-social">
                 <ul>
                     <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -379,12 +366,11 @@
     </div>
     <!-- Main end -->
     <!--=============== scripts  ===============-->
-    <script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/plugins.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/scripts.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
 </body>
 
 </html>
 
-
-{% endblock content %}
+{% endblock %}

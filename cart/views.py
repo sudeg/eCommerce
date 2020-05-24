@@ -245,3 +245,48 @@ class RoboticListView(generic.ListView):
 class AccessoriesListView(generic.ListView):
     template_name = 'cart/accessories_list.html'
     queryset = ThreeDimensionalDesign.objects.all()
+
+
+class DesignDetailView(generic.FormView):
+    template_name = 'cart/design_detail.html'
+    form_class = AddToCartForm
+    queryset = ThreeDimensionalDesign.objects.all()
+
+    def get_object(self):
+        return get_object_or_404(Product, slug=self.kwargs["slug"])
+
+    def get_success_url(self):
+        return reverse("cart:summary")
+
+    def get_form_kwargs(self):
+        kwargs = super(DesignDetailView, self).get_form_kwargs()
+        kwargs["threeDimensionalDesign_id"] = self.get_object().id
+        return kwargs
+
+    def form_valid(self, form):
+        order = get_or_set_order_session(self.request)
+        threeDimensionalDesign = self.get_object()
+
+        item_filter = order.items.filter(
+            threeDimensionalDesign=threeDimensionalDesign,
+            colour=form.cleaned_data['colour'],
+            size=form.cleaned_data['size'],
+        )
+
+        if item_filter.exists():
+            item = item_filter.first()
+            item.quantity += int(form.cleaned_data['quantity'])
+            item.save()
+
+        else:
+            new_item = form.save(commit=False)
+            new_item.threeDimensionalDesign = threeDimensionalDesign
+            new_item.order = order
+            new_item.save()
+
+        return super(DesignDetailView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(DesignDetailView, self).get_context_data(**kwargs)
+        context['threeDimensionalDesign'] = self.get_object()
+        return context

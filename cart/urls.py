@@ -39,6 +39,7 @@ urlpatterns = [
          views.KitchenListView.as_view(), name='kitchen-list'),
     path('shop/designs/all/',
          views.DesignsView.as_view(), name='designs-list'),
-
+    path('shop/designs/gardening/<slug>/',
+         views.DesignDetailView.as_view(), name='design-detail'),
 
 ]
