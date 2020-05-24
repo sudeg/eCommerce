@@ -17,5 +17,7 @@ urlpatterns = [
     path('payment/', views.PaymentView.as_view(), name='payment'),
     path('thank-you/', views.ThankYouView.as_view(), name='thank-you'),
     path('confirm-order/', views.ConfirmOrderView.as_view(), name='confirm-order'),
+    path('printerFinder/', views.PrinterFinderView.as_view(), name='printer-finder'),
+
 
 ]

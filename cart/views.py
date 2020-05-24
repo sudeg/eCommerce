@@ -8,6 +8,8 @@ from django.views import generic
 from .forms import AddToCartForm, AddressForm
 from .models import Product, OrderItem, Address, Payment
 from .utils import get_or_set_order_session
+from core.models import DimensionalPrinter
+from core.forms import DimensionalPrinterForm
 
 
 class ProductListView(generic.ListView):
@@ -182,3 +184,9 @@ class ConfirmOrderView(generic.View):
 
 class ThankYouView(generic.TemplateView):
     template_name = 'cart/thanks.html'
+
+
+class PrinterFinderView(generic.TemplateView):
+    template_name = 'cart/printerFinder.html'
+    queryset = DimensionalPrinter.objects.all()
+    context_object_name = 'Printers'
