@@ -8,8 +8,7 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', views.FirstPage.as_view(), name='index_hex'),
-    path('home/', views.HomeView.as_view(), name='index'),
+    path('', views.HomeView.as_view(), name='index'),
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('profile/', views.ProfileView.as_view(), name='profile'),
     path('core/', include('core.urls', namespace='core')),

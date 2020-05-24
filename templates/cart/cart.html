@@ -191,6 +191,8 @@
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <!--=============== css  ===============-->
@@ -300,129 +302,94 @@
                         </div>
                     </div>
 
+                    <div class="wrap cf">
+                        <h1 class="projTitle"><span>Shopping Cart</span></h1>
+                        <div class="heading cf">
+                            <a href="{% url 'cart:product-list' %}" class="continue">Continue Shopping</a>
+                        </div>
+                        <div class="cart">
+                            <!--    <ul class="tableHead">
+      <li class="prodHeader">Product</li>
+      <li>Quantity</li>
+      <li>Total</li>
+       <li>Remove</li>
+    </ul>-->
+                            {% for item in order.items.all %}
+                            <ul class="cartWrap">
+                                <li class="items odd">
 
-                    <div class="site-section">
-                        <div class="container">
-                            <div class="row mb-5">
-                                <div class="col-md-12">
-                                    <div class="site-blocks-table">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>Image</th>
-                                                    <th>Product</th>
-                                                    <th>Price</th>
-                                                    <th>Quantity</th>
-                                                    <th>Total</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for item in order.items.all %}
-                                                <tr>
-                                                    <td class="product-thumbnail">
-                                                        <img src="{{ item.product.image.url }}" class="img-fluid">
-                                                    </td>
-                                                    <td class="product-name">
-                                                        <h2 class="h5 text-black">{{ item.product.title }}</h2>
-                                                        <small>Size: {{ item.size.name }}</small>
-                                                        <small>Colour: {{ item.colour.name }}</small>
-                                                    </td>
-                                                    <td>${{ item.product.get_price }}</td>
-                                                    <td>
-                                                        <div class="input-group mb-3" style="max-width: 120px;">
-                                                            <div class="input-group-prepend">
-                                                                <a href="{% url 'cart:decrease-quantity' item.id %}"
-                                                                    class="btn btn-outline-primary">
-                                                                    &minus;
-                                                                </a>
-                                                            </div>
-                                                            <input type="text" class="form-control text-center"
-                                                                value="{{ item.quantity }}">
-                                                            <div class="input-group-append">
-                                                                <a href="{% url 'cart:increase-quantity' item.id %} "
-                                                                    class="btn btn-outline-primary">
-                                                                    &plus;
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        ${{ item.get_total_item_price }}
-                                                    </td>
-                                                    <td>
-                                                        <a href="{% url 'cart:remove-from-cart' item.id %}"
-                                                            class="btn btn-primary btn-sm">X</a>
-                                                    </td>
-                                                </tr>
-                                                {% empty %}
-                                                <tr>
-                                                    <td colSpan='6'>
-                                                        There are no items in your cart.
-                                                        <a href="{% url 'cart:product-list' %}">Continue shopping</a>
-                                                    </td>
-                                                </tr>
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                                    <div class="infoWrap">
+                                        <div class="cartSection">
+                                            <img src="{{ item.product.image.url }}" alt="" class="itemImg" />
+                                            <p class="itemNumber"></p>
+                                            <h3>{{ item.product.title }}</h3>
 
-                            {% if order.items.count > 0 %}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="row mb-5">
-                                        <div class="col-md-12">
-                                            <a class="btn btn-outline-primary btn-sm btn-block"
-                                                href="{% url 'cart:product-list' %}">Continue shopping</a>
+                                            {% comment %} <p> <input type="text" class="qty" placeholder="3" /> x
+                                                ${{ item.product.get_price }}</p> {% endcomment %}
+                                            <td>${{ item.product.get_price }}</td>
+                                            <td>
+                                                <p>
+                                                        <a href="{% url 'cart:decrease-quantity' item.id %}"
+                                                             class="qty" placeholder="3" >
+                                                            &minus;
+                                                        </a>
+                                                    
+                                                    <input type="text"  class="qty" placeholder="3" 
+                                                        value="{{ item.quantity }}">
+                                                   
+                                                        <a href="{% url 'cart:increase-quantity' item.id %} "
+                                                             class="qty" placeholder="3" >
+                                                            &plus;
+                                                        </a>
+                                                    
+                                                </p>
+                                            </td>
+                                            <td>
+                                        </div>
+
+                                        <div class="prodTotal cartSection">
+                                            <p>${{ item.get_total_item_price }}</p>
+                                        </div>
+                                        <div class="cartSection removeWrap">
+                                            <a href="{% url 'cart:remove-from-cart' item.id %}" class="remove">x</a>
                                         </div>
                                     </div>
-                                </div>
+                                </li>
+                                {% empty %}
+                                <tr>
+                                    <td colSpan='6'>
+                                        There are no items in your cart.
+                                        <a href="{% url 'cart:product-list' %}">Continue shopping</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
 
-                                <div class="col-md-6 pl-5">
-                                    <div class="row justify-content-end">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-12 text-right border-bottom mb-5">
-                                                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                                                </div>
-                                            </div>
 
-                                            <div class="row mb-3">
-                                                <div class="col-md-6">
-                                                    <span class="text-black">Subtotal</span>
-                                                </div>
-                                                <div class="col-md-6 text-right">
-                                                    <strong class="text-black">${{ order.get_subtotal }}</strong>
-                                                </div>
-                                            </div>
+                                <!--<li class="items even">Item 2</li>-->
 
-                                            <div class="row mb-5">
-                                                <div class="col-md-6">
-                                                    <span class="text-black">Total</span>
-                                                </div>
-                                                <div class="col-md-6 text-right">
-                                                    <strong class="text-black">${{ order.get_total }}</strong>
-                                                </div>
-                                            </div>
+                            </ul>
+                        </div>
+                        {% comment %}
+                        <div class="promoCode"><label for="promo">Have A Promo Code?</label><input type="text"
+                                name="promo" placholder="Enter Code" />
+                            <a href="#" class="btn"></a></div> {% endcomment %}
 
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <a class="btn btn-primary btn-lg py-3 btn-block"
-                                                        href="{% url 'cart:checkout' %}">Proceed to checkout</a>
-                                                </div>
-                                            </div>
+                        <div class="subtotal cf">
+                            <ul>
+                                <li class="totalRow"><span class="label">Subtotal</span><span
+                                        class="value">${{ order.get_subtotal }}</span></li>
 
-                                        </div>
-                                    </div>
-                                </div>
+                                <li class="totalRow"><span class="label">Shipping</span><span class="value">$0.00</span>
+                                </li>
 
-                            </div>
-                            {% endif %}
-
+                                <li class="totalRow final"><span class="label">Total</span><span
+                                        class="value">${{ order.get_total }}</span></li>
+                                <li class="totalRow"><a href="{% url 'cart:checkout' %}"
+                                        class="btn continue">Checkout</a></li>
+                            </ul>
                         </div>
                     </div>
+
 
 
                     <!--  section  end-->
@@ -472,6 +439,8 @@
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+
 </body>
 
 </html>
