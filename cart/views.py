@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, reverse, redirect
 from django.views import generic
 from .forms import AddToCartForm, AddressForm
-from .models import Product, OrderItem, Address, Payment
+from .models import Product, OrderItem, Address, Payment, DesignVariation, ThreeDimensionalDesign
 from .utils import get_or_set_order_session
 from core.models import DimensionalPrinter
 from core.forms import DimensionalPrinterForm
@@ -190,3 +190,58 @@ class PrinterFinderView(generic.TemplateView):
     template_name = 'cart/printerFinder.html'
     queryset = DimensionalPrinter.objects.all()
     context_object_name = 'Printers'
+
+
+class DesignTypesView(generic.ListView):
+    template_name = 'cart/designTypes.html'
+    queryset = DesignVariation.objects.all()
+
+
+class DesignsView(generic.ListView):
+    template_name = 'cart/designs_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class ToysListView(generic.ListView):
+    template_name = 'cart/toys_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class GardeningListView(generic.ListView):
+    template_name = 'cart/gardening_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class KitchenListView(generic.ListView):
+    template_name = 'cart/kitchen_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class ScrapsListView(generic.ListView):
+    template_name = 'cart/scraps_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class ShapesListView(generic.ListView):
+    template_name = 'cart/shapes_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class ArchitectureListView(generic.ListView):
+    template_name = 'cart/architecture_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class EssentialsListView(generic.ListView):
+    template_name = 'cart/essentials_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class RoboticListView(generic.ListView):
+    template_name = 'cart/robotic_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()
+
+
+class AccessoriesListView(generic.ListView):
+    template_name = 'cart/accessories_list.html'
+    queryset = ThreeDimensionalDesign.objects.all()

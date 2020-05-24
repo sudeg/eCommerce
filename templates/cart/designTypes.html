@@ -1,45 +1,3 @@
-{% comment %} {% extends "base.html" %}
-
-{% block content %}
-
-<div class="bg-light py-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mb-0">
-                <a href="{% url 'index' %}">Home</a>
-                <span class="mx-2 mb-0">/</span>
-                <strong class="text-black">Shop</strong>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="site-section">
-    <div class="container">
-        <div class="row mb-5">
-            {% for product in object_list %}
-            <div class="col-lg-4 col-md-6 mb-4" data-aos='fade-up'>
-
-                <figure class="block-4-image">
-                    <a href="{{ product.get_absolute_url }}"><img src="{{ product.image.url }}" class="img-fluid"></a>
-                </figure>
-
-                <div class="block-4-text p-4">
-                    <a href="{{ product.get_absolute_url }}">
-                        <h3>{{ product.title }}</h3>
-                    </a>
-                    <p class="mb-0">{{ product.description }}</p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-
-{% endblock content %} {% endcomment %}
-
-
-
 {% load static %}
 {% load cart_template_tags %}
 
@@ -150,7 +108,7 @@
                             <!--second level end-->
                         </li>
                         <li>
-                                <a href="{% url 'cart:designType-list' %}">Shop</a> 
+                            <a href="{% url 'cart:designType-list' %}" class="act-link"> Shop</a>
                             <!--second level end-->
 
                             <!--second level end-->
@@ -185,84 +143,59 @@
             <div class="content-holder">
                 <!--  content -->
                 <div class="content">
-                    <!--  section  -->
 
-                    <!--  section end -->
                     <!--  section  -->
+                    <section class="parallax-section header-section" data-scrollax-parent="true">
+                        <div class="bg" data-bg="{% static 'images/ricky.jpg'%}"
+                            data-scrollax="properties: { translateY: '200px' }"></div>
+                        <div class="overlay op1"></div>
+                        <div class="container big-container">
+                            <div class="section-title">
+                                <h3 style="color:#ADD8E6">Designs</h3>
+                                <div class="separator trsp-separator"></div>
+                                <h2 style="color:#ADD8E6"> Shop By <br> Category </h2>
+                                <p></p>
+                                {% comment %} <a href="#sec1" class="custom-scroll-link sect-scroll-link"><i
+                                        class="fa fa-long-arrow-down"></i> <span>scroll down</span></a> {% endcomment %}
+                            </div>
+                        </div>
+                    </section>
                     <section>
                         <div class="container">
-                            <div class="product-filter-wrap fl-wrap">
-                                <div class="product-cat-filter">
-                                    <span>Filter : </span>
-                                    <a href="#">Chair</a>
-                                    <a href="#">Decor</a>
-                                    <a href="#">Sofa</a>
-                                    <a href="#">Lamp</a>
-                                </div>
-                                <div class="product-cat-filter">
-                                    <span>Price : </span>
-                                    <a href="#">Low to high</a>
-                                    <a href="#">High to low</a>
-                                </div>
-                                <a href="#" class="btn   flat-btn show-exfilter">Extended Filter</a>
-                            </div>
-                            <div class="product-mainfilter  fl-wrap">
-                                <div class="row">
-                                    <!-- product-mainfilter-item-->
-                                    <div class="col-md-4">
-                                        <div class="product-mainfilter-item fl-wrap">
-                                            <span class="product-mainfilter-header">Material</span>
-                                            <ul class="material-list">
-                                                <li><a href="#">Wood</a></li>
-                                                <li><a href="#">Plastic</a></li>
-                                                <li><a href="#">Metal</a></li>
-                                                <li><a href="#">Textile</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- product-mainfilter-item end -->
-                                    <!-- product-mainfilter-item-->
-                                    <div class="col-md-4">
-                                        <div class="product-mainfilter-item fl-wrap">
-                                            <span class="product-mainfilter-header">Color</span>
-                                            <ul class="colorfilter-list">
-                                                <li><a href="#" style="background:#B3CCE6"></a></li>
-                                                <li><a href="#" style="background:#CC8080"> </a></li>
-                                                <li><a href="#" style="background:#CCE6B3"> </a></li>
-                                                <li><a href="#" style="background:#E6E680"> </a></li>
-                                                <li><a href="#" style="background:#B3E6E6"> </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- product-mainfilter-item end -->
-                                    <!-- product-mainfilter-item-->
-                                    <div class="col-md-4">
-                                        <div class="product-mainfilter-item fl-wrap no-decline">
-                                            <span class="product-mainfilter-header">Size</span>
-                                            <ul class="size-list">
-                                                <li><a href="#">XL/XXl</a></li>
-                                                <li><a href="#">M/L</a></li>
-                                                <li><a href="#">S/M</a></li>
-                                                <li><a href="#">XS/S</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- product-mainfilter-item end -->
-                                </div>
-                            </div>
+
                             <!-- products -->
 
                             <div class="products fl-wrap">
-                                {% for product in object_list %}
+                                {% for designVariation in object_list %}
                                 <div class="product-cat-mains">
                                     <div class="product-cat-img fl-wrap">
-                                        <img src="{{ product.image.url }}" alt="">
-                                        <a href="{{ product.get_absolute_url }}">View</a>
+                                        <img src="{{ designVariation.image.url }}" alt="">
+                                        {% if designVariation.name == "Toys" %}
+                                        <a href="{% url 'cart:toys-list' %}">View</a>
+                                        {% elif designVariation.name == "Gardening" %}
+                                        <a href="{% url 'cart:gardening-list' %}">View</a>
+                                        {% elif designVariation.name == "Kitchen" %}
+                                        <a href="{% url 'cart:kitchen-list' %}">View</a>
+                                        {% elif designVariation.name == "Scraps" %}
+                                        <a href="{% url 'cart:scraps-list' %}">View</a>
+                                        {% elif designVariation.name == "Architecture" %}
+                                        <a href="{% url 'cart:architecture-list' %}">View</a>
+                                        {% elif designVariation.name == "Essentials" %}
+                                        <a href="{% url 'cart:essentials-list' %}">View</a>
+                                        {% elif designVariation.name == "Robotic" %}
+                                        <a href="{% url 'cart:robotic-list' %}">View</a>
+                                        {% elif designVariation.name == "Accessories" %}
+                                        <a href="{% url 'cart:accessories-list' %}">View</a>
+                                        {% elif designVariation == "Shapes" %}
+                                        <a href="{% url 'cart:shape-list' %}">View</a>
+                                        {%else%}
+                                        <a href="{% url 'cart:designs-list' %}">View</a>
+                                        {% endif %}
                                     </div>
                                     <div class="product-cat-title">
-                                        <h4><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h4>
-                                        <div class="product-cats"><a href="#">Products</a></div>
-                                        <span class="product-price">${{ product.get_price }}</span>
+                                        <h4><a href="{{ designVariation.get_absolute_url }}"
+                                                style="center">{{ designVariation.name }}</a></h4>
+
                                     </div>
                                 </div>
                                 <!-- product item end-->

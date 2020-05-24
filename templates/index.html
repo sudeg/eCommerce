@@ -69,7 +69,7 @@
         <!--================= header ================-->
         <header class="main-header">
             <!-- logo -->
-            <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/deneme.png' %}" alt=""></a>
+            <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
             <!-- logo end -->
             <!-- share button-->
             <div class="show-share-wrap">
@@ -107,7 +107,7 @@
                             {% comment %} <a href="{% url 'contact_2' %}">Contacts </a> {% endcomment %}
                         </li>
                         <li>
-                            <a href="{% url 'cart:product-list' %}">Shop</a>
+                            <a href="{% url 'cart:designType-list' %}">Shop</a>
                         </li>
 
                         <li>
@@ -158,7 +158,7 @@
                                         <h3 style="color:#ADD8E6"> Get whatever you want </h3>
                                         <h3 style="color:#ADD8E6">As fast as possible</h3>
                                         <h3 >
-                                         <br> <a href="{% url 'cart:product-list' %}" class="btn float-btn flat-btn"
+                                         <br> <a href="{% url 'cart:designType-list' %}" class="btn float-btn flat-btn"
                                                     style="color:#ADD8E6">Shop now!</a></h3>
                                         {% comment %} <a href="{% url 'portfolio-single' %}"
                                             class="btn float-btn flat-btn">View Project</a> {% endcomment %}

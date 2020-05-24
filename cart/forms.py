@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django import forms
 from .models import (
     OrderItem, ColourVariation, Product, SizeVariation,
-    Address
+    Address, DesignVariation, ThreeDimensionalDesign
 )
 
 User = get_user_model()

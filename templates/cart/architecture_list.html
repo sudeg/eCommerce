@@ -253,19 +253,20 @@
                             <!-- products -->
 
                             <div class="products fl-wrap">
-                                {% for product in object_list %}
+                                {% for threeDimensionalDesign in object_list %}
+                                {%if threeDimensionalDesign.typeName == "Architecture"%}
                                 <div class="product-cat-mains">
                                     <div class="product-cat-img fl-wrap">
-                                        <img src="{{ product.image.url }}" alt="">
-                                        <a href="{{ product.get_absolute_url }}">View</a>
+                                        <img src="{{ threeDimensionalDesign.image.url }}" alt="">
+                                        <a href="{{ threeDimensionalDesign.get_absolute_url }}">View</a>
                                     </div>
                                     <div class="product-cat-title">
-                                        <h4><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h4>
+                                        <h4><a href="{{ threeDimensionalDesign.get_absolute_url }}">{{ threeDimensionalDesign.title }}</a></h4>
                                         <div class="product-cats"><a href="#">Products</a></div>
-                                        <span class="product-price">${{ product.get_price }}</span>
                                     </div>
                                 </div>
                                 <!-- product item end-->
+                                {% endif %}
                                 {% endfor %}
                             </div>
 

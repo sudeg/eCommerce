@@ -10,12 +10,44 @@
         <meta name="robots" content="index, follow"/>
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
-        <!--=============== css  ===============-->	
-        <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}"> 
-        <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}"> 
-        <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}"> 
-        <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css' %}"> 
-        <!--=============== favicons ===============-->
+
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'icons/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'icons/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'icons/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'icons/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'icons/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'icons/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'icons/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'icons/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'icons/manifest.json' %}">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'icons/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <!--=============== css  ===============-->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_own.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/yourstyle.css' %}">
+    <!--=============== favicons ===============-->
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     </head>
     <body>
@@ -30,119 +62,74 @@
         <!--================= Main   ================-->
         <div id="main">
             <!--================= header ================-->
-            <header class="main-header">
-                <!-- logo -->
-                <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
-                <!-- logo end -->  
-                <!-- share button-->  
-                <div class="show-share-wrap">
-                    <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
-                </div>
-                <!-- share button end-->  		
-                <!-- search button--> 	 
-                <div class="show-search show-fixed-search vissearch"><i class="fa fa-search"></i></div>
-                <!-- search button end --> 
-                <!-- mobile nav --> 
-                <div class="nav-button-wrap">
-                    <div class="nav-button vis-main-menu"><span></span><span></span><span></span></div>
-                </div>
-                <!-- mobile nav end--> 
-                <!--  navigation --> 
-                <div class="nav-holder">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="{% url 'index' %}">Home </a>
-                                <!--second level -->   
-                                <ul>
-                                    <li><a href="{% url 'index' %}">Slider</a></li>
-                                    <li><a href="{% url 'index2' %}">Image</a></li>
-                                    <li><a href="{% url 'index3' %}">Video</a></li>
-                                    <li><a href="{% url 'index4' %}">Slideshow</a></li>
-                                    <li><a href="{% url 'index5' %}">Carousel</a></li>
-                                    <li><a href="{% url 'index6' %}">Sidebar menu</a></li>
-                                    <li>
-                                        <!--third level -->
-                                        <a>Onepage</a>
-                                        <ul>
-											<li><a href="{% url 'onepage-slider' %}">Slider</a></li>
-											<li><a href="{% url 'onepage-image' %}">Image</a></li>
-											<li><a href="{% url 'onepage-video' %}">Video</a></li>
-											<li><a href="{% url 'onepage-slideshow' %}">Slideshow</a></li>
-											<li><a href="{% url 'onepage-carousel' %}">Carousel</a></li>
-											<li><a href="{% url 'onepage-sidebarmenu' %}">Sidebar menu</a></li>
-                                        </ul>
-                                        <!--third level end-->
-                                    </li>									
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href="{% url 'portfolio' %}">Portfolio</a>
-                                <!--second level -->
-                                <ul>
-                                    <li>
-                                        <!--third level -->
-                                        <a>Single</a>
-                                        <ul>
-                                            <li><a href="{% url 'portfolio-single' %}">Carousel</a></li>
-                                            <li><a href="{% url 'portfolio-single2' %}">Gallery </a></li>
-                                            <li><a href="{% url 'portfolio-single3' %}">Fullwidth Slider</a></li>
-                                            <li><a href="{% url 'portfolio-single4' %}">Slider</a></li>
-                                            <li><a href="{% url 'portfolio-single5' %}">Video</a></li>
-                                            <li><a href="{% url 'portfolio-single6' %}">Vertical Images</a></li>
-                                        </ul>
-                                        <!--third level end-->
-                                    </li>
-                                    <li><a href="{% url 'portfolio2' %}">Fullwidth 2</a></li>
-                                    <li><a href="{% url 'portfolio3' %}">Sibebar filter</a></li>
-                                    <li><a href="{% url 'portfolio4' %}">Boxed</a></li>
-                                    <li><a href="{% url 'portfolio5' %}">Boxed 2</a></li>
-                                    <li><a href="{% url 'portfolio6' %}">Sibebar filter 2</a></li>
-                                    <li><a href="{% url 'portfolio7' %}">Parallax</a></li>
-                                    <li><a href="{% url 'portfolio8' %}">Fullwidth 3</a></li>
-                                    <li><a href="{% url 'portfolio9' %}">Fullwidth 4</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href="{% url 'about' %}" >About</a>
-                                <!--second level end-->
-                                <ul>
-                                    <li><a href="{% url 'about-personal' %}">Personal</a></li>
-                                    <li><a href="{% url 'services' %}">Services</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href="{% url 'contact_2' %}">Contacts </a>
-                            </li>
-                            <li>
-                                <a href="{% url 'shop' %}">Shop</a>
-                                <!--second level end-->
-                                <ul>
-                                    <li><a href="{% url 'cart' %}">Cart</a></li>
-                                    <li><a href="{% url 'product-single' %}">Product Single</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href="{% url 'blog' %}">Journal</a>
-                                <!--second level end-->
-                                <ul>
-                                    <li><a href="{% url 'blog-grid' %}">Grid</a></li>
-                                    <li><a href="{% url 'blog-masonry' %}">Masonry</a></li>
-                                    <li><a href="{% url 'blog-single' %}">Post Single</a></li>
-                                    <li><a href="{% url '404' %}">404</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- navigation  end -->
-            </header>
-            <!-- header  end -->
+                   <header class="main-header">
+            <!-- logo -->
+            <a class="logo-holder" href="{% url 'index' %}"><img src="{% static 'images/deneme.png' %}" alt=""></a>
+            <!-- logo end -->
+            <!-- share button-->
+            <div class="show-share-wrap">
+                <div class="show-share"><span>Share</span><img src="{% static 'images/share.png' %}" alt=""></div>
+            </div>
+            <!-- share button end-->
+            <!-- search button-->
+            <div class="show-search show-fixed-search vissearch"><i class="fa fa-search"></i></div>
+            <!-- search button end -->
+            <!-- mobile nav -->
+            <div class="nav-button-wrap">
+                <div class="nav-button vis-main-menu"><span></span><span></span><span></span></div>
+            </div>
+            <!-- mobile nav end-->
+            <!--  navigation -->
+            <div class="nav-holder">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home </a>
+
+                        </li>
+                        <li>
+                        </li>
+                        <li>
+                            <a href="{% url 'about' %}" class="act-link">About</a>
+                            <!--second level end-->
+                            <ul>
+                                <li><a href="{% url 'about-personal' %}">Personal</a></li>
+                                <li><a href="{% url 'services' %}">Services</a></li>
+                            </ul>
+                            <!--second level end-->
+                        </li>
+                        <li>
+                            {% comment %} <a href="{% url 'contact_2' %}">Contacts </a> {% endcomment %}
+                        </li>
+                        <li>
+                                <a href="{% url 'cart:designType-list' %}">Shop</a> 
+                        </li>
+
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'profile' %}"><span><i class="fas fa-user"></i></span></a>
+                            {% else %}
+                            <a href="{% url 'account_login' %}"><span><i class="fas fa-sign-in-alt"></i></span></a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            <a href="{% url 'cart:summary' %}" class="site-cart">
+                                <span><i class="fas fa-shopping-cart"></i></span>
+                                {% comment %} <span class="count">{{ request|cart_item_count }}</span> {% endcomment %}
+                            </a>
+                        </li>
+                        <li class="d-inline-block d-md-none ml-md-0">
+                            <a href="#" class="site-menu-toggle js-menu-toggle">
+                                <span><i class="fas fa-bars"></i></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- navigation  end -->
+        </header>ß
+        <!-- header  end -->
             <!--=============== wrapper ===============-->
             <div id="wrapper">
                 <!-- content-holder  -->
@@ -154,12 +141,11 @@
                             <div class="sroll-nav-container">
                                 <nav class="scroll-nav scroll-init fl-wrap">
                                     <ul>
-                                        <li><a class="scroll-link act-scrlink" href="#sec1">01.<span>Hero</span></a></li>
+                                        <li><a class="scroll-link act-scrlink" href="#sec1">01.<span>3DMINY</span></a></li>
                                         <li><a class="scroll-link" href="#sec2">02.<span>About</span></a></li>
                                         <li><a class="scroll-link" href="#sec3">03.<span>Skills</span></a></li>
-                                        <li><a class="scroll-link" href="#sec4">04.<span>Video</span></a></li>
-                                        <li><a class="scroll-link" href="#sec5">05.<span>Team</span></a></li>
-                                        <li><a class="scroll-link" href="#sec6">06.<span>Story</span></a></li>
+                                        <li><a class="scroll-link" href="#sec5">04.<span>Team</span></a></li>
+                                        <li><a class="scroll-link" href="#sec6">05.<span>Story</span></a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -167,14 +153,14 @@
                         <!--  sroll-nav-wrap end --> 
                         <!--  section --> 
                         <section class="parallax-section header-section" data-scrollax-parent="true" id="sec1">
-                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}"  data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/hamster_berkin.jpg' %}"  data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay"></div>
                             <div class="container big-container">
                                 <div class="section-title">
                                     <h3>Who we are</h3>
                                     <div class="separator trsp-separator"></div>
-                                    <h2>About Or Studio</h2>
-                                    <p>Curabitur bibendum mi sed rhoncus aliquet. Nulla blandit porttitor justo, at posuere sem accumsan nec.</p>
+                                    <h2>3D MINY</h2>
+                                    <p>3D Printer Solutions</p>
                                     <a href="#sec2" class="custom-scroll-link sect-scroll-link"><i class="fa fa-long-arrow-down"></i> <span>scroll down</span></a>
                                 </div>
                             </div>
@@ -188,23 +174,22 @@
                                         <div class="col-md-4">
                                             <div class="pr-title">
                                                 Who We are
-                                                <span>Lorem Ipsum generators on the Internet tend to repeat king this the first true generator . </span>
+                                                <span>Group of people who acts as a bridge between designers and 3d printer owners  </span>
                                             </div>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content-wrap about-wrap">
                                                 <div class="blog-media fl-wrap">
                                                     <div class="box-item">
-                                                        <img  src="{% static 'images/folio/1.jpg' %}"   class="respimg" alt="">
+                                                        <img  src="{% static 'images/alien_berkin.jpg' %}"   class="respimg" alt="">
                                                         <div class="overlay"></div>
                                                         <a href="{% static 'images/folio/1.jpg' %}"  class="image-popup popup-image"><i class="fa fa-search"  ></i></a>
                                                     </div>
                                                 </div>
-                                                <h3 class="bold-title">Welcome!  We  are Balkon</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.  
-                                                    Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.
+                                                <h3 class="bold-title"></h3>
+                                                <p>
                                                 </p>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit.  
+                                                <p>
                                                 </p>
                                                 <br><br>
                                                 <h3 class="bold-title">What we do</h3>
@@ -213,7 +198,6 @@
                                                     <ul>
                                                         <li><a href="#">Architecture</a></li>
                                                         <li><a href="#">Design</a></li>
-                                                        <li><a href="#">Photography</a></li>
                                                     </ul>
                                                 </div>
                                                 <span class="bold-separator"></span>
@@ -236,7 +220,7 @@
                                         <div class="inline-facts">
                                             <div class="milestone-counter">
                                                 <div class="stats animaper">
-                                                    <div class="num" data-content="461" data-num="461">461</div>
+                                                    <div class="num" data-content="461" data-num="461">0</div>
                                                 </div>
                                             </div>
                                             <h6>Finished projects</h6>
@@ -246,7 +230,7 @@
                                         <div class="inline-facts">
                                             <div class="milestone-counter">
                                                 <div class="stats animaper">
-                                                    <div class="num" data-content="461" data-num="461">461</div>
+                                                    <div class="num" data-content="461" data-num="461">0</div>
                                                 </div>
                                             </div>
                                             <h6>Finished projects</h6>
@@ -256,7 +240,7 @@
                                         <div class="inline-facts">
                                             <div class="milestone-counter">
                                                 <div class="stats animaper">
-                                                    <div class="num" data-content="168" data-num="168">168</div>
+                                                    <div class="num" data-content="168" data-num="168">0</div>
                                                 </div>
                                             </div>
                                             <h6>Happy customers</h6>
@@ -266,7 +250,7 @@
                                         <div class="inline-facts">
                                             <div class="milestone-counter">
                                                 <div class="stats animaper">
-                                                    <div class="num" data-content="222" data-num="222">222</div>
+                                                    <div class="num" data-content="222" data-num="222">0</div>
                                                 </div>
                                             </div>
                                             <h6>Working hours </h6>
@@ -278,94 +262,9 @@
                         </section>
                         <!--  section end --> 
                         <!--  section --> 
-                        <section id="sec3">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="pr-title">
-                                            Our Skills
-                                            <span>Lorem Ipsum generators on the Internet tend to repeat king this the first true generator  </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <!-- skills  -->
-                                        <div class="piechart-holder animaper" data-skcolor="#000">
-                                            <div class="row">
-                                                <!-- 1  -->
-                                                <div class="piechart col-md-4" >
-                                                    <span class="chart" data-percent="85">
-                                                    <span class="percent"></span>
-                                                    </span>
-                                                    <div class="clearfix"></div>
-                                                    <div class="skills-description">
-                                                        <h4>Design</h4>
-                                                    </div>
-                                                </div>
-                                                <!-- 1 end -->
-                                                <!-- 2  -->
-                                                <div class="piechart col-md-4">
-                                                    <span class="chart" data-percent="95">
-                                                    <span class="percent"></span>
-                                                    </span>
-                                                    <div class="clearfix"></div>
-                                                    <div class="skills-description">
-                                                        <h4>Architecture</h4>
-                                                    </div>
-                                                </div>
-                                                <!-- 2 end  -->
-                                                <!-- 3  -->
-                                                <div class="piechart col-md-4">
-                                                    <span class="chart" data-percent="80">
-                                                    <span class="percent"></span>
-                                                    </span>
-                                                    <div class="clearfix"></div>
-                                                    <div class="skills-description">
-                                                        <h4>Construction</h4>
-                                                    </div>
-                                                </div>
-                                                <!-- 3  end-->																
-                                            </div>
-                                        </div>
-                                        <!-- skills  end-->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="partcile-dec"></div>
-                            <div class="border-section-wrap">
-                                <div class="border-section"></div>
-                            </div>
-                        </section>
+
                         <!--  section end -->
-                        <!--  section  --> 									 
-                        <section class="parallax-section" id="sec4">
-                            <div class="media-container">
-                                <div class="video-mask"></div>
-                                <div class="video-holder">
-                                    <div class="video-container">
-                                        <video autoplay  loop muted  class="bgvid">
-                                            <source src= "{% static 'http://balkon.kwst.net/site/light/video/intro.mp4' %}" type="video/mp4">
-                                        </video>
-                                    </div>
-                                    <!--  
-                                        Vimeo code
-                                        
-                                         <div  class="background-vimeo" data-vim="97871257"> </div> --> 
-                                    <!--  
-                                        Youtube code 
-                                        
-                                         <div  class="background-youtube" data-vid="Hg5iNVSp2z8" data-mv="1"> </div> -->
-                                    <div class="mob-bg bg" data-bg="{% static 'images/bg/1.jpg' %}"></div>
-                                </div>
-                            </div>
-                            <div class="overlay"></div>
-                            <div class="container">
-                                <div class="promo-video fl-wrap">
-                                    <span class="promo-video-text">Our <br>Story  <br> Promo - Video</span>
-                                    <p>Internet tend to repeat predefined chunks If you are going to use a passage of Lorem Ipsum.</p>
-                                    <a href="https://vimeo.com/77416730" class="image-popup"><i class="fa fa-play"></i></a>
-                                </div>
-                            </div>
-                        </section>
+                        <!--  section  --> 
                         <!--  section end --> 
                         <!--  section --> 
                         <section id="sec5">
@@ -374,7 +273,7 @@
                                     <div class="col-md-4">
                                         <div class="pr-title">
                                             Our team
-                                            <span>Internet tend to repeat predefined chunks If you are going to use a passage of Lorem Ipsum.</span>
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -390,11 +289,11 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
                                                         </ul>
-                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
+                                                        <img src="{% static 'images/sude.jpg' %}" alt="" class="respimg"><span>Find on</span>										
                                                     </div>
                                                     <div class="team-info">
-                                                        <h3>David Gray</h3>
-                                                        <h4>Co-manager associated</h4>
+                                                        <h3>Sude Gönül</h3>
+                                                        <h4>Computer Engineer</h4>
                                                     </div>
                                                 </div>
                                             </li>
@@ -409,52 +308,15 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
                                                         </ul>
-                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
+                                                        <img src="{% static 'images/anil.jpg' %}" alt="" class="respimg"><span>Find on</span>										
                                                     </div>
                                                     <div class="team-info">
-                                                        <h3>Austin Evon</h3>
-                                                        <h4>Co-manager associated</h4>
+                                                        <h3>Anıl Yavuz</h3>
+                                                        <h4>Industry Engineer</h4>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <!-- 3 -->
-                                            <li>
-                                                <div class="team-box">
-                                                    <div class="team-photo">
-                                                        <div class="overlay"></div>
-                                                        <ul class="team-social">
-                                                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
-                                                        </ul>
-                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
-                                                    </div>
-                                                    <div class="team-info">
-                                                        <h3>Taylor Roberts</h3>
-                                                        <h4>Co-manager associated</h4>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <!-- 4 -->
-                                            <li>
-                                                <div class="team-box">
-                                                    <div class="team-photo">
-                                                        <div class="overlay"></div>
-                                                        <ul class="team-social">
-                                                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
-                                                            <li><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
-                                                        </ul>
-                                                        <img src="{% static 'images/team/1.jpg' %}" alt="" class="respimg"><span>Find on</span>										
-                                                    </div>
-                                                    <div class="team-info">
-                                                        <h3>David Gray</h3>
-                                                        <h4>Co-manager associated</h4>
-                                                    </div>
-                                                </div>
-                                            </li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -466,19 +328,19 @@
                         <!--  section end --> 
                         <!--  section --> 			 
                         <section  class=" parallax-section content-parallax-section" data-scrollax-parent="true">
-                            <div class="bg"  data-bg="{% static 'images/bg/1.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="bg"  data-bg="{% static 'images/tele_berkin.jpg' %}" data-scrollax="properties: { translateY: '200px' }"></div>
                             <div class="overlay"></div>
                             <div class="container">
                                 <div class="intro-text fl-wrap">
-                                    <h2>Ready to order your project ?  <br>Get in touch</h2>
-                                    <a href="{% url 'contact_2' %}" class="btn float-btn flat-btn">Our Contacts</a>
+                                    <h2 style="color:#000000">Ready to order your project ?  <br>Start shopping now!</h2>
+                                    <a href="{% url 'cart:product-list' %}" class="btn float-btn flat-btn">Store</a>
                                 </div>
                             </div>
                         </section>
                         <!--  section end --> 
                         <!--  section  --> 
                         <section id="sec6">
-                            <div class="container">
+                            {% comment %} <div class="container">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="pr-title">
@@ -555,56 +417,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg dec-bg left-pos-dec "  data-bg="{% static 'images/bg/15.jpg' %}"></div>
+                            <div class="bg dec-bg left-pos-dec "  data-bg="{% static 'images/bg/15.jpg' %}"></div> {% endcomment %}
                         </section>
                         <!--  section end --> 
                         <div class="limit-box fl-wrap"></div>
                     </div>
                     <!--  content end --> 
-                    <!--=============== content-footer   ===============-->
-                    <div class="height-emulator"></div>
-                    <footer class="content-footer">
-                        <div class="footer-inner">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <a class="footer-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="footer-header fl-wrap"><span>01.</span> Contacts</div>
-                                    <div class="footer-box fl-wrap">
-                                        <ul>
-                                            <li><span>Mail :</span><a href="#" target="_blank">yourmail@domain.com</a></li>
-                                            <li> <span>Adress :</span><a href="#" target="_blank">USA 27TH Brooklyn NY</a></li>
-                                            <li><span>Phone :</span><a href="#">+7(111)123456789</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="footer-header fl-wrap"><span>02.</span> Subscribe</div>
-                                    <div class="footer-box fl-wrap">
-                                        <div class="subcribe-form fl-wrap">
-                                            <span>Newsletter</span>
-                                            <form id="subscribe">
-                                                <input class="enteremail" name="email" id="subscribe-email" placeholder="email" spellcheck="false" type="text">
-                                                <button type="submit" id="subscribe-button" class="subscribe-button">Submit</button>
-                                                <label for="subscribe-email" class="subscribe-message"></label>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3"></div>
-                                <div class="col-md-9">
-                                    <div class="fl-wrap policy-box">
-                                        <p> &#169; Balkon   2017.  All rights reserved.  </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="to-top"><i class="fa fa-long-arrow-up"></i></div>
-                        </div>
-                    </footer>
-                    <!-- content-footer end    -->
+
                 </div>
                 <!-- content-holder end -->
             </div>
