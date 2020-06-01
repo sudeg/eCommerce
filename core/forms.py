@@ -30,3 +30,16 @@ class PersonalInfoForm(forms.ModelForm):
             'fullName',
             'email',
         ]
+
+
+class PrinterForm(forms.ModelForm):
+    class Meta:
+        model = Printer
+        fields = [
+            'brand',
+            'modelName',
+            'imageOne',
+            'imageTwo',
+            'imageThree',
+
+        ]

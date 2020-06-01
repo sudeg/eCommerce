@@ -28,3 +28,21 @@ class PersonalInfo(models.Model):
 
     def __str__(self):
         return self.fullName
+
+
+# TUNA BU YENI OLUSTURDUGUM PRINTER USTTEKILER MERGE'E DUSUCEK BU COMMENT ASAGISINI TUT TAMAM MI
+
+class Printer(models.Model):
+    brand = models.CharField(max_length=150)
+    modelName = models.CharField(max_length=250)
+    imageOne = models.ImageField(
+        upload_to='printer_images', null=True, default=True)
+    imageTwo = models.ImageField(
+        upload_to='printer_images', null=True, default=True)
+    imageThree = models.ImageField(
+        upload_to='printer_images', null=True, default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return '%s %s' % (self.brand, self.modelName)
