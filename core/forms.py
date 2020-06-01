@@ -1,6 +1,6 @@
 from django import forms
-from cart.models import Product
-from core.models import Designer, PrinterOwner, DimensionalPrinter, PersonalInfo
+from cart.models import *
+from core.models import *
 
 
 class ContactForm(forms.Form):
@@ -76,4 +76,17 @@ class PersonalInfoForm(forms.ModelForm):
             'info',
             'fullName',
             'email',
+        ]
+
+
+class PrinterForm(forms.ModelForm):
+    class Meta:
+        model = Printer
+        fields = [
+            'brand',
+            'modelName',
+            'imageOne',
+            'imageTwo',
+            'imageThree',
+
         ]
