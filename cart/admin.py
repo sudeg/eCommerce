@@ -1,26 +1,24 @@
 from django.contrib import admin
-from .models import (
-    Product, OrderItem, Order, ColourVariation,
-    SizeVariation, Address, Payment, DesignVariation, ThreeDimensionalDesign
-)
+from .models import *
 
-
+@admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-    list_display = [
-        'address_line_1',
-        'address_line_2',
-        'city',
-        'zip_code',
-        'address_type',
-    ]
+    list_display = ['address_line_1','address_line_2','city','zip_code','address_type',]
 
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['title','description','price',]
+    list_filter  = ['title']
+    search_fields = ['title']
 
-admin.site.register(Address, AddressAdmin)
-admin.site.register(ColourVariation)
-admin.site.register(Product)
-admin.site.register(OrderItem)
-admin.site.register(Order)
-admin.site.register(SizeVariation)
-admin.site.register(Payment)
-admin.site.register(ThreeDimensionalDesign)
-admin.site.register(DesignVariation)
+@admin.register(SizeVariation)
+class SizeVariationAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    
+@admin.register(ColourVariation)
+class ColourVariationAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    
+@admin.register(DesignVariation)
+class DesignVariationAdmin(admin.ModelAdmin):
+    list_display = ['name']

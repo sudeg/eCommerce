@@ -9,13 +9,11 @@ from .forms import AddToCartForm, AddressForm
 from .models import Product, OrderItem, Address, Payment, DesignVariation, ThreeDimensionalDesign
 from .utils import get_or_set_order_session
 from core.models import DimensionalPrinter
-from core.forms import DimensionalPrinterForm
-
+from core.forms import *
 
 class ProductListView(generic.ListView):
     template_name = 'cart/product_list.html'
     queryset = Product.objects.all()
-
 
 class ProductDetailView(generic.FormView):
     template_name = 'cart/product_detail.html'

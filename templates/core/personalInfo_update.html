@@ -1,23 +1,16 @@
 {% load static %}
 {% load cart_template_tags %}
 {% load crispy_forms_tags %}
-
-{% block content%}
 <!DOCTYPE HTML>
 <html lang="en">
-
-
 <head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
     <title>Car(avan.)</title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-
-
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'icons/apple-icon-57x57.png' %}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static 'icons/apple-icon-60x60.png' %}">
     <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/apple-icon-72x72.png' %}">
@@ -32,11 +25,9 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{% static 'icons/favicon-96x96.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'icons/manifest.json' %}">
-
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{% static 'icons/ms-icon-144x144.png' %}">
     <meta name="theme-color" content="#ffffff">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -47,7 +38,6 @@
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
         integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
@@ -112,19 +102,10 @@
                     <ul>
                         <li>
                             <a href="{% url 'index' %}">Home </a>
-
                         </li>
                         <li>
-
+                            <a href="{% url 'cart:product-list' %}">Shop</a> 
                         </li>
-
-                        <li>
-                        </li>
-                        <li>
-                                <a href="{% url 'cart:product-list' %}">Shop</a> 
-
-                        </li>
-
                         <li>
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'profile' %}" class="act-link"><span><i class="fas fa-user"></i></span></a>
@@ -135,7 +116,6 @@
                         <li>
                             <a href="{% url 'cart:summary' %}" class="site-cart">
                                 <span><i class="fas fa-shopping-cart"></i></span>
-                                {% comment %} <span class="count">{{ request|cart_item_count }}</span> {% endcomment %}
                             </a>
                         </li>
                         <li class="d-inline-block d-md-none ml-md-0">
@@ -143,7 +123,6 @@
                                 <span><i class="fas fa-bars"></i></span>
                             </a>
                         </li>
-
                     </ul>
                 </nav>
             </div>
@@ -153,12 +132,8 @@
         <!--=============== wrapper ===============-->
         <div id="wrapper">
             <!-- content-holder  -->
-
             <!-- content -->
-
-
             <div class="container">
-
                 <div class="leftbox">
                     <nav>
                         <a id="profile" href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
@@ -178,38 +153,25 @@
                                     <a href="{% url 'core:profile' %}">Go back to profile</a>
                                     <hr />
                                     <h4>Update info</a>
+                                    {% block content %}
                                         <form method="POST" enctype="multipart/form-data">
                                             {% csrf_token %}
                                             {{ form|crispy }}
                                             <button type='submit' class='btn btn-primary'>Submit</button>
                                         </form>
+                                    {% endblock %}
                                 </div>
-
-
                             </div>
-
-
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
-           
-
                 <!-- Main end -->
                 <!--=============== scripts  ===============-->
                 <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
-
                 <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
                 <script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
                 <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
-
 </body>
-
-
 </html>
-
-{% endblock%}

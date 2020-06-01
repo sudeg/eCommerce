@@ -5,8 +5,8 @@ from django.core.mail import send_mail
 from django.shortcuts import reverse, render, redirect
 from django.views import generic
 from cart.models import Order, Product
-from core.models import Designer, PrinterOwner, DimensionalPrinter, PersonalInfo
-from .forms import ContactForm, ProductForm, DesignerForm, PrinterOwnerForm, DimensionalPrinterForm, PersonalInfoForm
+from core.models import *
+from .forms import *
 from django.http import HttpResponse
 
 
@@ -23,77 +23,12 @@ class ProfileView(LoginRequiredMixin, generic.TemplateView):
         return context
 
 
-class DesignerListView(LoginRequiredMixin, generic.ListView):
-    template_name = 'core/designer_list.html'
-    queryset = Designer.objects.all()
-    paginate_by = 20
-    context_object_name = 'designers'
-
-
 # class BecomeDesignerView(LoginRequiredMixin, generic.TemplateView):
-
-class BecomeDesignerView(LoginRequiredMixin, generic.CreateView):
-    template_name = 'core/designer_create.html'
-    form_class = DesignerForm
-
-    def get_success_url(self):
-        return reverse("core:designer-list")
-
-    def form_valid(self, form):
-        form.save()
-        return super(BecomeDesignerView, self).form_valid(form)
-
-
-class PrinterOwnerListView(LoginRequiredMixin, generic.ListView):
-    template_name = 'core/printerOwner_list.html'
-    queryset = Designer.objects.all()
-    paginate_by = 20
-    context_object_name = 'printerOwner'
-
-
-class BecomeOwnerView(LoginRequiredMixin, generic.CreateView):
-    template_name = 'core/printerOwner_create.html'
-    form_class = PrinterOwnerForm
-
-    def get_success_url(self):
-        return reverse("core:printerOwner-list")
-
-    def form_valid(self, form):
-        form.save()
-        return super(BecomeOwnerView, self).form_valid(form)
-
-
 class PersonalDimensionalPrinterListView(LoginRequiredMixin, generic.ListView):
     template_name = 'core/personalDimensionalPrinters.html'
     queryset = DimensionalPrinter.objects.all()
     paginate_by = 20
     context_object_name = 'dimensionalPrinters'
-
-
-class CreatePersonalDimensionalPrinterView(LoginRequiredMixin, generic.CreateView):
-    template_name = 'core/dimensionalPrinters_create.html'
-    form_class = DimensionalPrinterForm
-
-    def get_success_url(self):
-        return reverse("core:personalDimensionalPrinters-list")
-
-    def form_valid(self, form):
-        form.save()
-        return super(CreatePersonalDimensionalPrinterView, self).form_valid(form)
-
-
-class PersonalDimensionalPrinterUpdateView(LoginRequiredMixin, generic.UpdateView):
-    template_name = 'core/dimensionalPrinters_update.html'
-    form_class = DimensionalPrinterForm
-    queryset = DimensionalPrinter.objects.all()
-
-    def get_success_url(self):
-        return reverse("core:personalDimensionalPrinters-list")
-
-    def form_valid(self, form):
-        form.save()
-        return super(PersonalDimensionalPrinterUpdateView, self).form_valid(form)
-
 
 class PersonalDimensionalPrinterDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'core/dimensionalPrinters_delete.html'
@@ -360,47 +295,3 @@ class PersonalInfoUpdateView(LoginRequiredMixin, generic.CreateView):
 class DimensionalPrinterListView(generic.ListView):
     template_name = 'shop.html'
     queryset = DimensionalPrinter.objects.all()
-
-
-# class ProductDetailView(generic.FormView):
-#     template_name = 'cart/product_detail.html'
-#     form_class = AddToCartForm
-
-#     def get_object(self):
-#         return get_object_or_404(Product, slug=self.kwargs["slug"])
-
-#     def get_success_url(self):
-#         return reverse("cart:summary")
-
-#     def get_form_kwargs(self):
-#         kwargs = super(ProductDetailView, self).get_form_kwargs()
-#         kwargs["product_id"] = self.get_object().id
-#         return kwargs
-
-#     def form_valid(self, form):
-#         order = get_or_set_order_session(self.request)
-#         product = self.get_object()
-
-#         item_filter = order.items.filter(
-#             product=product,
-#             colour=form.cleaned_data['colour'],
-#             size=form.cleaned_data['size'],
-#         )
-
-#         if item_filter.exists():
-#             item = item_filter.first()
-#             item.quantity += int(form.cleaned_data['quantity'])
-#             item.save()
-
-#         else:
-#             new_item = form.save(commit=False)
-#             new_item.product = product
-#             new_item.order = order
-#             new_item.save()
-
-#         return super(ProductDetailView, self).form_valid(form)
-
-#     def get_context_data(self, **kwargs):
-#         context = super(ProductDetailView, self).get_context_data(**kwargs)
-#         context['product'] = self.get_object()
-#         return context

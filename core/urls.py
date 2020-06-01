@@ -7,30 +7,9 @@ urlpatterns = [
     path('create/', views.CaravanCreateView.as_view(), name='caravan-create'),
     path('profile/', views.ProfileView.as_view(), name='profile'),
     path('caravans/', views.CaravanListView.as_view(), name='caravan-list'),
-    path('caravans/<pk>/update/',
-         views.CaravanUpdateView.as_view(), name='caravan-update'),
-    path('caravans/<pk>/delete/',
-         views.CaravanDeleteView.as_view(), name='caravan-delete'),
-
-    path('designers/', views.DesignerListView.as_view(), name='designer-list'),
-    path('designer_create/', views.BecomeDesignerView.as_view(),
-         name='designer-create'),
-
-
-    path('printerOwners/', views.PrinterOwnerListView.as_view(),
-         name='printerOwner-list'),
-    path('personalDimensionalPrinters/', views.PersonalDimensionalPrinterListView.as_view(),
-         name='personalDimensionalPrinters-list'),
-    path('dimensionalPrinters_create/', views.CreatePersonalDimensionalPrinterView.as_view(),
-         name='dimensionalPrinters-create'),
-
-    path('personalDimensionalPrinters/<pk>/update/',
-         views.PersonalDimensionalPrinterUpdateView.as_view(), name='dimensionalPrinters-update'),
-
-    path('personalDimensionalPrinters/<pk>/delete/',
-         views.PersonalDimensionalPrinterDeleteView.as_view(), name='dimensionalPrinters-delete'),
-
-    path('settings/', views.PersonalInfoUpdateView.as_view(),
-         name='personalInfo-update'),
-
+    path('caravans/<pk>/update/',views.CaravanUpdateView.as_view(), name='caravan-update'),
+    path('caravans/<pk>/delete/',views.CaravanDeleteView.as_view(), name='caravan-delete'),
+    path('personalDimensionalPrinters/', views.PersonalDimensionalPrinterListView.as_view(),name='personalDimensionalPrinters-list'),
+    path('personalDimensionalPrinters/<pk>/delete/',views.PersonalDimensionalPrinterDeleteView.as_view(), name='dimensionalPrinters-delete'),
+    path('settings/', views.PersonalInfoUpdateView.as_view(),name='personalInfo-update'),
 ]
