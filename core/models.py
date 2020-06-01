@@ -82,6 +82,42 @@ class DimensionalPrinter(models.Model):
         return reverse("core:dimensionalPrinters-delete", kwargs={'pk': self.pk})
 
 
+class Printers(models.Model):
+    brand = models.CharField(max_length=150)
+    slug = models.SlugField()
+    image = models.ImageField(
+        upload_to='product_images', null=True, default=True)
+    description = models.TextField()
+    # singleExtruderPrint= models.CharField(max_length=150)
+    # dualExtruderPrint = models.CharField(max_length=150)
+    # machineSize = models.CharField(max_length=150)
+    # printTechnology = models.CharField(max_length=150)
+    # printHeadSsytem = models.CharField(max_length=150)
+    # filamentDiameter = models.CharField(max_length=150)
+    # XYZStepSize = models.CharField(max_length=150)
+    # printHeadTravelSpeed = models.CharField(max_length=150)
+    # buildPlate = models.CharField(max_length=150)
+    # plateTemperature = models.CharField(max_length=150)
+    # bedMaterial = models.CharField(max_length=150)
+    # layerHeight = models.CharField(max_length=150)
+    # nozzleDiameter = models.CharField(max_length=150)
+    # hotEnd = models.CharField(max_length=150)
+    # maxNozzleTemperature = models.CharField(max_length=150)
+    # connectivity = models.CharField(max_length=150)
+    # noiseEmission = models.CharField(max_length=150)
+    # ambientTemperature = models.CharField(max_length=150)
+    # storageTemperature = models.CharField(max_length=150)
+    # filters = models.CharField(max_length=150)
+
+
+def pre_save_Printer_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.brand)
+
+
+pre_save.connect(pre_save_Printer_receiver, sender=Printers)
+
+
 class PersonalInfo(models.Model):
     age = models.IntegerField(default=0)
     image = models.ImageField(
