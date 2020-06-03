@@ -10,17 +10,8 @@ from .forms import *
 from django.http import HttpResponse
 
 
-class ProfileView(LoginRequiredMixin, generic.TemplateView):
+class ProfileView(generic.TemplateView):
     template_name = 'profile.html'
-    queryset = PersonalInfo.objects.all()
-    context_object_name = 'personalInfos'
-
-    def get_context_data(self, **kwargs):
-        context = super(ProfileView, self).get_context_data(**kwargs)
-        context.update({
-            "orders": Order.objects.filter(user=self.request.user, ordered=True)
-        })
-        return context
 
 
 # class BecomeDesignerView(LoginRequiredMixin, generic.TemplateView):
@@ -29,6 +20,7 @@ class PersonalDimensionalPrinterListView(LoginRequiredMixin, generic.ListView):
     queryset = DimensionalPrinter.objects.all()
     paginate_by = 20
     context_object_name = 'dimensionalPrinters'
+
 
 class PersonalDimensionalPrinterDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'core/dimensionalPrinters_delete.html'

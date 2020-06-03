@@ -2,124 +2,33 @@
 {% load static %}
 
 {% block content %}
-        <div id="wrapper">
-            <!-- content-holder  -->
 
-            <!-- content -->
+<div class="profile-wrapper">
+	<div class="profile-image">
+		<img src="http://nickylew.com/wp-content/uploads/2016/09/image.jpeg">
+	</div>
 
-
-            <div class="container">
-
-                <div class="leftbox">
-                    <nav>
-                        <a id="profile" href="{% url 'profile' %}" class="active"><i class="fa fa-user"></i></a>
-                        <a id="payment" href="{% url 'core:personalDimensionalPrinters-list' %}"><i
-                                class="fas fa-cubes fa-sm"></i></a>
-                        <a id="payment" href="{% url 'core:personalInfo-update' %}"><i class="fas fa-cogs"></i></a>
-                    </nav>
-                </div>
-                <div class="rightbox">
-                    <div class="mid">
-                        <div class="profile">
-
-                            <div class="row justify-content-center">
-                                <div class="col-md-12">
-
-                                    <hr />
-                                    <div class="site-blocks-table">
-
-
-                                        <a href="{% url 'account_logout' %}">
-                                            <small class="float-right">Logout</small></a>
-                                        <div class="middlebox">
-
-                                            <div class="container" style="color:#ADD8E6">
-                                                <h1 class="temp" style="color:#ADD8E6" font-weight="bold">Personal Info</h1>
-                                                <br >
-
-
-                                               <p class="letstry" style="color:#ADD8E6">Full Name</p>
-                                                <p>{{ request.user.email}}
-                                                    <br>
-
-                                                    <br>
-
-                                                    <p class="letstry" style="color:#ADD8E6">Age</p>
-                                                    <p>{{ personalInfo.age}}</p>
-                                                    <br>
-
-                                                    <p class="letstry" style="color:#ADD8E6">Gender</p>
-                                                    <p>Female</p>
-                                                    <br>
-
-                                                    <p class="letstry" style="color:#ADD8E6">Email</p>
-                                                    <p>{{request.user.email}}
-
-                                                        <br>
-                                                        <br>
-                                                        <br>
-
-                                                        <br>
-                                                       
-
-                                                       
-
-                                                        <div class="wrap">
-                                                            
-                                                            <a class="btn-9"
-                                                                href="{% url 'core:personalInfo-update' %}"><span>
-                                                                    Settings
-                                                                </span></a>
-                                                             <a class="btn-9" href="{% url 'account_logout' %}"><span>log
-                                                                    out</span></a>
-                                                        </div>
-                                                        <div class="wrap">
-                                                            <a class="btn-9"
-                                                                href="{% url 'core:personalDimensionalPrinters-list' %}"><span>Personal
-                                                                    Printers</span></a>
-
-                                                        </div>
-
-
-
-
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-
-                                <div class="payment noshow">
-                                </div>
-
-                                <div class="subscription noshow">
-
-                                </div>
-
-                                <div class="privacy noshow">
-
-                                </div>
-                                <div class="settings noshow">
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-                        <!-- content end -->
-
-                        <!-- content-footer end    -->
+	<h2 class="profile-title">Nick <span>Lewis</span></h2>
+	<div class="profile-info">
+		<div class="content">
+			<h3>About</h3>
+            <br/>
+			<p>#Graphic / #Web #Designer & #frontend #developer fuelled by coffee. Longtime lover of skiing and mountain living. Occasional blogger.</p>
+			<p class="link one"><i class="fa fa-link" aria-hidden="true"></i><a href="http://nickylew.com" target="_blank">www.nickylew.com</a></p>
+			<p class="link"><i class="fa fa-globe" aria-hidden="true"></i>United Kingdom</p>
+		</div>
+		<div class="stats">
+			<div class="stat">
+				<span class="number">482</span> Followers
+			</div>
+			<div class="stat">
+				<span class="number">1,061</span> Following
+			</div>
+			<div class="stat">
+				<span class="number">15</span> Ski trips
+			</div>
+		</div>
+	</div>
+</div>
 
 {% endblock%}
