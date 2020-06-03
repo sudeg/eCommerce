@@ -159,21 +159,21 @@ body {
 
 .profile-wrapper .profile-info .stats {
   display: block;
-  width: 90%;
+  width: 57%;
   height: auto;
   position: absolute;
-  bottom: 7.8%;
+  bottom: 8.1%;
   right: 0;
 }
 
 .profile-wrapper .profile-info .stats .stat {
   display: inline-block;
-  width: 33.33%;
+  width: 31.33%;
   float: left;
   text-align: center;
   color: #ADD8E6;
   font-size: 1.8em;
-  line-height: 2em;
+  line-height: 1.6em;
 }
 
 .profile-wrapper .profile-info .stats .stat .number {

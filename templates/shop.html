@@ -89,7 +89,7 @@
                             <!-- products -->
 
                             <div class="products fl-wrap">
-                                <!-- product item-->{% for dimensionalPrinter in object_list %}
+                                {% comment %} <!-- product item-->{% for dimensionalPrinter in object_list %}
                                 <div class="product-cat-mains">
                                     <div class="product-cat-img fl-wrap">
                                         <img src="{{ dimensionalPrinter.image.url }}" alt="">
@@ -100,7 +100,7 @@
                                         <div class="product-cats"><a href="#">3D Printer</a></div>
                                         <span class="product-price">${{ dimensionalPrinter.get_price }}</span>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
                                 <!-- product item end-->
                                 {% endfor %}
                             </div>
