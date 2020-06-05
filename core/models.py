@@ -5,7 +5,14 @@ from django.shortcuts import reverse
 from django.utils.text import slugify
 
 # Create your models here.
-User = get_user_model()
+
+
+class Member(models.Model):
+    id = models.AutoField(primary_key=True)
+    firstName = models.CharField(max_length=50, verbose_name='Name')
+    LastName = models.CharField(max_length=50, verbose_name='Last Name')
+    email = models.EmailField(max_length=50, verbose_name="E-mail")
+    printer_owner = models.BooleanField("")
 
 
 class Printer(models.Model):
