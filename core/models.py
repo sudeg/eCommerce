@@ -29,7 +29,6 @@ class PersonalInfo(models.Model):
     def __str__(self):
         return self.fullName
 
-
 # TUNA BU YENI OLUSTURDUGUM PRINTER USTTEKILER MERGE'E DUSUCEK BU COMMENT ASAGISINI TUT TAMAM MI
 
 class Printer(models.Model):

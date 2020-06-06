@@ -239,47 +239,6 @@ class ContactView(generic.FormView):
         )
         return super(ContactView, self).form_valid(form)
 
-
-class CaravanListView(LoginRequiredMixin, generic.ListView):
-    template_name = 'core/caravan_list.html'
-    queryset = Product.objects.all()
-    paginate_by = 20
-    context_object_name = 'products'
-
-
-class CaravanCreateView(LoginRequiredMixin, generic.CreateView):
-    template_name = 'core/caravan_create.html'
-    form_class = ProductForm
-
-    def get_success_url(self):
-        return reverse("core:caravan-list")
-
-    def form_valid(self, form):
-        form.save()
-        return super(CaravanCreateView, self).form_valid(form)
-
-
-class CaravanUpdateView(LoginRequiredMixin, generic.UpdateView):
-    template_name = 'core/caravan_create.html'
-    form_class = ProductForm
-    queryset = Product.objects.all()
-
-    def get_success_url(self):
-        return reverse("core:caravan-list")
-
-    def form_valid(self, form):
-        form.save()
-        return super(CaravanUpdateView, self).form_valid(form)
-
-
-class CaravanDeleteView(LoginRequiredMixin, generic.DeleteView):
-    template_name = 'core/caravan_delete.html'
-    queryset = Product.objects.all()
-
-    def get_success_url(self):
-        return reverse("core:caravan-list")
-
-
 class PersonalInfoUpdateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'core/personalInfo_update.html'
     form_class = PersonalInfoForm
